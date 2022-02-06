@@ -5,8 +5,8 @@ using UnityEngine;
 public class AnimalState : MonoBehaviour
 {
     // 悼拱 加己
-    private Level growth = new(1, 1, 100, 1);   // N : 己厘
-    private Level intimacy = new(1, 1, 100, 1); // N : 模剐
+    private Level growth = new Level(1, 1, 100f, 1f);   // N : 己厘
+    private Level intimacy = new Level(1, 1, 100f, 1f); // N : 模剐
 
     // Start is called before the first frame update
     void Start()
