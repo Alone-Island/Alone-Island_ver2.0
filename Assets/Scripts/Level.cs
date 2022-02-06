@@ -35,7 +35,7 @@ public class Level : MonoBehaviour
     public bool IsZero { get { return isZero; } }
 
     // N : 경험치 상승
-    public void AddExp(int exp)
+    public void AddExp(float exp)
     {
         currExp = currExp + exp;
         // N : 레벨 업
@@ -47,7 +47,7 @@ public class Level : MonoBehaviour
     }
 
     // N : 경험치 하락
-    public void SubExp(int exp)
+    public void SubExp(float exp)
     {
         currExp = currExp - exp;
         // N : 레벨 다운
