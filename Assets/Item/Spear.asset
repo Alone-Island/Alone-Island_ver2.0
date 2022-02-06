@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad184b7528783f7469125d3aec7cdaca, type: 3}
   m_Name: Spear
   m_EditorClassIdentifier: 
-  itemName: 
-  itemType: 0
+  itemName: Spear
+  itemType: 1
   itemImage: {fileID: 0}
   itemPrefab: {fileID: 0}
-  weaponType: 
+  weaponType: Spear

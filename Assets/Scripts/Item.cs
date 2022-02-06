@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//https://ansohxxn.github.io/unity%20lesson%203/ch5-1/
+// https://ansohxxn.github.io/unity%20lesson%203/ch5-1/
+// J : MonoBehavior를 상속 받지 않으므로 오브젝트에 컴포넌트로서 붙일 수 없음
 [CreateAssetMenu(fileName = "New Item", menuName = "New Item/item")]
 public class Item : ScriptableObject
 {
