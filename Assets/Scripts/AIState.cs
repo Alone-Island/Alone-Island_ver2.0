@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIState : MonoBehaviour
 {
-    // AI 레벨
+    // N : AI 레벨
     private Level farming = new Level(1, 10, 10f, 1.5f);     // N : 농사
     private Level hunting = new Level(1, 10, 10f, 1.5f);     // N : 사냥
     private Level raising = new Level(1, 10, 10f, 1.5f);     // N : 목축

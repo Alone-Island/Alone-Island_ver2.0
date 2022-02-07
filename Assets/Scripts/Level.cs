@@ -70,8 +70,9 @@ public class Level : MonoBehaviour
             // N : 경험치 리셋
             currExp = currExp - maxExp;
             maxExp = maxExp * expRate;  // N : 최대 경험치 변경
+
+            if (currLv == maxLv) isMax = true;
         }
-        if (currLv == maxLv) isMax = true;
         isZero = false;
     }
 
@@ -87,9 +88,10 @@ public class Level : MonoBehaviour
             // N : 경험치 리셋
             maxExp = maxExp / expRate;  // N : 최대 경험치 변경
             currExp = currExp + maxExp;
+
+            if (currLv == 0) isZero = true;
         }
         isMax = false;
-        if (currLv == 0) isZero = true;
     }
 
     // N : 레벨 업 완료 (레벨 업 액션 적용 후 호출)
