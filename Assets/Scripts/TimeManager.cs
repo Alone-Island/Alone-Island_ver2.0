@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] private float day_length;  // N : 하루가 몇초인지
+    [SerializeField] private float dayLength;  // N : 하루가 몇초인지
 
     private int day = 0;                        // N : 현재 날짜 (1일 = day_length)
     private float dayTime = 0;                  // N : 하루 중 현재 시간 (초)
