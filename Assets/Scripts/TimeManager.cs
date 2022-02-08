@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         if (true) dayTime += Time.deltaTime;    // N : 특정 조건에서 시간 정지
-        if (dayTime >= day_length)
+        if (dayTime >= dayLength)
         {
             dayTime = 0;
             dayAfter();
