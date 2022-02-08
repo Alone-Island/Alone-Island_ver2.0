@@ -8,9 +8,11 @@ public class PlayerMove : MonoBehaviour
     private float h;                    // C : player의 수평이동 값을 받기 위한 변수
     private float v;                    // C : player의 수직이동 값을 받기 위한 변수
     private bool isHorizonMove;         // C : player의 수평이동에 대한 bool값을 저장하기 위한 변수
+    public Vector2 dirVec;              // J : player가 바라보는 방향
 
     [SerializeField]
     private float speed = 5;            // C : player의 이동 속력 값을 설정하기 위한 변수
+
 
     void Start()
     {
@@ -28,6 +30,16 @@ public class PlayerMove : MonoBehaviour
         bool vDown = Input.GetButtonDown("Vertical");
         bool hUp = Input.GetButtonUp("Horizontal");
         bool vUp = Input.GetButtonUp("Vertical");
+
+        // J : player가 바라보는 방향
+        if (v == 1)
+            dirVec = Vector3.up;
+        else if (v == -1)
+            dirVec = Vector3.down;
+        else if (h == -1)
+            dirVec = Vector3.left;
+        else if (h == 1)
+            dirVec = Vector3.right;
 
         // C : isHorizontalMove 값 설정
         // C : 수평이동 설명 - 수평 방향키 누를 시 true, 수직 방향키 뗄 시 true
