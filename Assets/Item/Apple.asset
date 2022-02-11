@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad184b7528783f7469125d3aec7cdaca, type: 3}
-  m_Name: Spear
+  m_Name: Apple
   m_EditorClassIdentifier: 
-  itemName: Spear
-  itemType: 1
-  itemImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemPrefab: {fileID: 2487014918218132318, guid: 11cc4a37becc45048841e4f90edddaf4, type: 3}
-  weaponType: Spear
+  itemName: Apple
+  itemType: 0
+  itemImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  itemPrefab: {fileID: 1407335354268146503, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
+  weaponType: 

@@ -16,6 +16,8 @@ public class PlayerActionManager : MonoBehaviour
     private LayerMask layerMask;    // J : Item 레이어를 가지는 오브젝트만 습득해야 함
 
     // 필요한 컴포넌트
+    [SerializeField]
+    private Inventory theInventory;
     private PlayerMove thePlayerMove;
 
     private void Start()
@@ -61,9 +63,10 @@ public class PlayerActionManager : MonoBehaviour
     {
         if (pickupActivated)    // J : 아이템을 주울 수 있는 상태
         {
-            Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + "를 획득");
-            // J : 인벤토리에 아이템 추가하는 함수
+            Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 획득");
+            theInventory.AcquireItem(hitInfo.transform.GetComponent<ItemPickUp>().item);    // J : 인벤토리의 슬롯에 아이템 추가
             Destroy(hitInfo.transform.gameObject);  // J : 주웠으므로 오브젝트 삭제
+            pickupActivated = false;
         }
     }
 }
