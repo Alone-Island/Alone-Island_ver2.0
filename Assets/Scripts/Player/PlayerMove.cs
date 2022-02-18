@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D playerRigid;    // C : player의 물리제어관련 변수
+    private Animator playerAnim;        // C : player의 애니메이터
     private float h;                    // C : player의 수평이동 값을 받기 위한 변수
     private float v;                    // C : player의 수직이동 값을 받기 위한 변수
     private bool isHorizonMove;         // C : player의 수평이동에 대한 bool값을 저장하기 위한 변수
@@ -16,7 +17,8 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-        playerRigid = GetComponent<Rigidbody2D>();      // C : player 2D 물리제어 component instance 생성
+        playerRigid = GetComponent<Rigidbody2D>();      // C : player 2D 물리제어 component instance 가져오기
+        playerAnim = GetComponent<Animator>();          // C : player 애니메이션 컨트롤 component instance 가져오기
     }
 
     void Update()
@@ -49,6 +51,24 @@ public class PlayerMove : MonoBehaviour
             isHorizonMove = true;
         else if (vDown || hUp)          // C : 수직이동 고려
             isHorizonMove = false;
+
+
+        // C : 애니메이션 설정
+        // C : 추후 모든 방향 이동 에셋 제공될 시, 코드 수정 예정
+        if (playerAnim.GetInteger("hAxisRaw") != h)
+        {
+            playerAnim.SetBool("isChange", true);
+            playerAnim.SetInteger("hAxisRaw", (int)h);
+        }
+        else if (playerAnim.GetInteger("vAixsRaw") != v)
+        {
+            playerAnim.SetBool("isChange", true);
+            playerAnim.SetInteger("vAxisRaw", (int)v);
+        }
+        else
+        {
+            playerAnim.SetBool("isChange", false);
+        }
     }
 
     void FixedUpdate()
