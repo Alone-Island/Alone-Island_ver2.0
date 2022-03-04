@@ -21,4 +21,11 @@ public class Item : ScriptableObject
     public GameObject itemPrefab;  // J : 아이템의 프리팹 (아이템 생성시 프리팹으로 찍어냄)
 
     public string weaponType;  // J : 무기 유형
+
+    // K : Item class 생성자
+    public Item(string _itemName, ItemType _itemType)
+    {
+        this.itemName = _itemName;
+        this.itemType = _itemType;
+    }
 }
