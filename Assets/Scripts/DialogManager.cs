@@ -5,17 +5,17 @@ using UnityEngine;
 public class DialogManager : MonoBehaviour
 {
 
-    private TalkData talkData;
+    private DialogData talkData;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        talkData = GameObject.Find("TalkManger").GetComponent<TalkData>();
+        talkData = GetComponent<DialogData>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //TalkData.
+        // TalkData.Dialog talk = talkData.GetDialogData(1001, 0);
     }
 }
