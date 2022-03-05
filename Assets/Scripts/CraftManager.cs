@@ -46,7 +46,7 @@ public class CraftManager : MonoBehaviour
             // materials[i].item1 해당 아이템 인벤토리에서 -count 하는 함수
         }
 
-        // 아이템 인벤토리 추가
+        // K : 아이템 인벤토리 추가
         Item newItem = itemData.GetItemData(id);
         //Inventory.AcquireItem(newItem, 1);
 
