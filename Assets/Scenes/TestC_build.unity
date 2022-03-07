@@ -350,7 +350,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!1 &1875978305 stripped
 GameObject:
@@ -367,6 +367,14 @@ PrefabInstance:
     - target: {fileID: 785290481119018289, guid: 6d5c54217de5ed04a84e5281bba46a2f, type: 3}
       propertyPath: m_Name
       value: PrefabBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 785290481119018290, guid: 6d5c54217de5ed04a84e5281bba46a2f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 785290481119018290, guid: 6d5c54217de5ed04a84e5281bba46a2f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 785290481119018290, guid: 6d5c54217de5ed04a84e5281bba46a2f, type: 3}
       propertyPath: m_IsTrigger
