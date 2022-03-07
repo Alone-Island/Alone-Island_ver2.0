@@ -57,7 +57,7 @@ public class ItemData : MonoBehaviour
 
     public List<Tuple<int, int>> GetItemMaterialsData(int id)
     {
-        List<Tuple<int, int>> materials = new() { };
+        List<Tuple<int, int>> materials = new List<Tuple<int, int>>();
         for (int i = 0; i < itemData[id].materials.Count; i++)
         {
             materials.Add(Tuple.Create<int, int>(itemData[id].materials[i].Id, itemData[id].materials[i].Num));
