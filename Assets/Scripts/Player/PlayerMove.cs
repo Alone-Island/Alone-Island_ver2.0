@@ -60,7 +60,7 @@ public class PlayerMove : MonoBehaviour
             playerAnim.SetBool("isChange", true);
             playerAnim.SetInteger("hAxisRaw", (int)h);
         }
-        else if (playerAnim.GetInteger("vAixsRaw") != v)
+        else if (playerAnim.GetInteger("vAxisRaw") != v)
         {
             playerAnim.SetBool("isChange", true);
             playerAnim.SetInteger("vAxisRaw", (int)v);
