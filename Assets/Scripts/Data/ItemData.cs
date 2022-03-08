@@ -7,12 +7,16 @@ public class ItemData : MonoBehaviour
 {
     private struct ItemDictionary
     {
-        public Item item { get; set; }      // K : 아이템
+        //public Item item { get; set; }      // K : 아이템
+        public string name { get; set; }      // K : 아이템 이름
+        public Item.ItemType type { get; set; }      // K : 아이템 타입
         public List<Items> materials { get; set; }
 
-        public ItemDictionary(Item _item, List<Items> _materials)
+        public ItemDictionary(string _name, Item.ItemType _type, List<Items> _materials)
         {
-            this.item = _item;
+            //this.item = _item;
+            this.name = _name;
+            this.type = _type;
             this.materials = _materials;
         }
     }
@@ -51,8 +55,8 @@ public class ItemData : MonoBehaviour
 
     void GenerateData(Dictionary<int, ItemDictionary> itemData)
     {
-        itemData.Add(0, new ItemDictionary(new Item("knife", Item.ItemType.Equipment), new List<Items> {new Items(1, 1), new Items(2, 2) } ));
-        itemData.Add(1, new ItemDictionary(new Item("strawerry", Item.ItemType.Used), null) );
+        itemData.Add(0, new ItemDictionary("knife", Item.ItemType.Equipment, new List<Items> {new Items(1, 1), new Items(2, 2) } ));
+        itemData.Add(1, new ItemDictionary("strawerry", Item.ItemType.Used, null) );
     }
 
     public List<Tuple<int, int>> GetItemMaterialsData(int id)
@@ -67,6 +71,6 @@ public class ItemData : MonoBehaviour
 
     public Item GetItemData(int id)
     {
-        return itemData[id].item;
+        return new Item(itemData[id].name, itemData[id].type);
     }
 }
