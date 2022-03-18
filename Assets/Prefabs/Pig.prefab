@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6082550954751563378}
   - component: {fileID: 7083599578967292226}
-  - component: {fileID: 4862975651068236045}
   - component: {fileID: 8905243902620653500}
   - component: {fileID: 1193491066404264759}
+  - component: {fileID: -5984402539975822787}
   m_Layer: 6
   m_Name: Pig
   m_TagString: Untagged
@@ -55,32 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &4862975651068236045
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3472571269240535395}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.25, y: 12.83}
-    newSize: {x: 6.25, y: 12.83}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &8905243902620653500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +70,9 @@ MonoBehaviour:
   animalName: "\uB3FC\uC9C0"
   hp: 50
   offensivePower: 30
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!212 &1193491066404264759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,3 +124,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &-5984402539975822787
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472571269240535395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.25, y: 12.83}
+    newSize: {x: 6.25, y: 12.83}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.25, y: 12.83}
+  m_EdgeRadius: 0

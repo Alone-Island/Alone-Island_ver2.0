@@ -13,7 +13,9 @@ public class Pig : Animal
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.DrawRay(transform.position, Vector2.left * range, Color.green);   // J : 아이템 습득 가능 범위 표시
+        CheckPlayer();
+        CanAttack();
     }
 
     public override void MakeSound()
