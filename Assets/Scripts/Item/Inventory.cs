@@ -53,6 +53,7 @@ public class Inventory : MonoBehaviour
         inventoryImage.SetActive(false);     // J : 인벤토리 이미지 비활성화
     }
 
+    // J : 아이템 획득
     public void AcquireItem(Item _item, int _count=1)
     {
         // J : 장비 아이템이 아닌 경우
@@ -81,13 +82,33 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    // J : 아이템 소비에 성공하면 true, 실패하면 false 반환
+    public bool ConsumeItem(string _itemName, int _count)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if ((slots[i].item != null) && (slots[i].item.itemName == _itemName))
+            {
+                if (slots[i].itemCount < _count)    // J : 보유한 아이템 개수가 더 적으면 소비 불가능
+                    return false;
+                else
+                {
+                    slots[i].SetSlotCount(_count);  // J : 아이템 소비
+                    return true;
+                }
+            }
+        }
+        // J : 해당 아이템이 인벤토리에 없는 경우 소비 불가능
+        return false;
+    }
+
     // J : 인벤토리에 존재하는 itemName의 개수 반환
-    public int GetItemCount(string itemName)
+    public int GetItemCount(string _itemName)
     {
         int itemCount = 0;
         for (int i = 0; i < slots.Length; i++)
         {
-            if ((slots[i].item != null) && (slots[i].item.itemName == itemName))
+            if ((slots[i].item != null) && (slots[i].item.itemName == _itemName))
             {
                 itemCount++;
             }
