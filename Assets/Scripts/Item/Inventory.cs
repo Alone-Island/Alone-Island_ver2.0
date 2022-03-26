@@ -80,4 +80,18 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+    // J : 인벤토리에 존재하는 itemName의 개수 반환
+    public int GetItemCount(string itemName)
+    {
+        int itemCount = 0;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if ((slots[i].item != null) && (slots[i].item.itemName == itemName))
+            {
+                itemCount++;
+            }
+        }
+        return itemCount;
+    }
 }
