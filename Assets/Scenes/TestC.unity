@@ -916,9 +916,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 2
-  layerMask:
+  itemLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  animalLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   theInventory: {fileID: 976207166}
 --- !u!95 &461832930
 Animator:

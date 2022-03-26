@@ -385,7 +385,6 @@ GameObject:
   - component: {fileID: 223825646}
   - component: {fileID: 223825645}
   - component: {fileID: 223825644}
-  - component: {fileID: 223825650}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -439,9 +438,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 2
-  layerMask:
+  itemLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  animalLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
   theInventory: {fileID: 1466068689}
 --- !u!50 &223825647
 Rigidbody2D:
@@ -529,32 +531,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &223825650
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223825643}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.25, y: 12.83}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.25, y: 12.83}
-  m_EdgeRadius: 0
 --- !u!1001 &435464385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -990,7 +966,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4854349322560668659, guid: d1886e5d1861ac74c9099b8946403bb4, type: 3}
   m_PrefabInstance: {fileID: 750700822}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &768617010
+--- !u!1001 &857734063
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1004,14 +980,6 @@ PrefabInstance:
     - target: {fileID: 6082550954751563378, guid: f2d42f03232ef954186641c1bb697eb9, type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082550954751563378, guid: f2d42f03232ef954186641c1bb697eb9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082550954751563378, guid: f2d42f03232ef954186641c1bb697eb9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6082550954751563378, guid: f2d42f03232ef954186641c1bb697eb9, type: 3}
       propertyPath: m_LocalPosition.x
