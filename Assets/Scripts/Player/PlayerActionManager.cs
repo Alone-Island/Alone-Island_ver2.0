@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // https://ansohxxn.github.io/unity%20lesson%203/ch5-1/
 public class PlayerActionManager : MonoBehaviour
@@ -85,7 +86,7 @@ public class PlayerActionManager : MonoBehaviour
         if (huntActivated)    // J : 사냥 가능 상태
         {
             Debug.Log(hitInfo.transform.gameObject.name + "을(를) 만났다!");
-            // 씬 전환
+            SceneManager.LoadScene("Hunting");
             huntActivated = false;
         }
     }
