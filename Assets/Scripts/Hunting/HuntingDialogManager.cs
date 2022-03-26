@@ -19,9 +19,9 @@ public class HuntingDialogManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TrySelect();        // J : 선택
         TrySelectActive();  // J : 선택지 창 활성화
         TrySelectOther();   // J : 선택지 변경
-        TrySelect();        // J : 선택
     }
 
     // J : 선택지 창 활성화 시도
