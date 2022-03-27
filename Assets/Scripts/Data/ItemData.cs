@@ -24,11 +24,13 @@ public class ItemData : MonoBehaviour
     private struct Items
     {
         public int Id { get; set; }      // K : 아이템 id
+        public string Name { get; set; }      // K : 아이템 id
         public int Num { get; set; }      // K : 아이템 갯수
 
-        public Items(int _id, int _num)
+        public Items(int _id, string _name, int _num)
         {
             this.Id = _id;
+            this.Name = _name;
             this.Num = _num;
         }
     }
@@ -55,16 +57,16 @@ public class ItemData : MonoBehaviour
 
     void GenerateData(Dictionary<int, ItemDictionary> itemData)
     {
-        itemData.Add(0, new ItemDictionary("knife", Item.ItemType.Equipment, new List<Items> {new Items(1, 1), new Items(2, 2) } ));
+        itemData.Add(0, new ItemDictionary("knife", Item.ItemType.Equipment, new List<Items> {new Items(1, "branch", 1), new Items(2, "rock", 2) } ));
         itemData.Add(1, new ItemDictionary("strawerry", Item.ItemType.Used, null) );
     }
 
-    public List<Tuple<int, int>> GetItemMaterialsData(int id)
+    public List<Tuple<int, string, int>> GetItemMaterialsData(int id)
     {
-        List<Tuple<int, int>> materials = new List<Tuple<int, int>>();
+        List<Tuple<int, string, int>> materials = new List<Tuple<int, string, int>>();
         for (int i = 0; i < itemData[id].materials.Count; i++)
         {
-            materials.Add(Tuple.Create<int, int>(itemData[id].materials[i].Id, itemData[id].materials[i].Num));
+            materials.Add(Tuple.Create<int, string, int>(itemData[id].materials[i].Id, itemData[id].materials[i].Name, itemData[id].materials[i].Num));
         }
         return materials;
     }
