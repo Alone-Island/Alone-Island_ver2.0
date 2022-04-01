@@ -9,10 +9,13 @@ public class HuntingDialogManager : MonoBehaviour
     [SerializeField]
     private GameObject SelectPanel;     // J : 선택지 창
     [SerializeField]
-    private List<TextMeshProUGUI> selectTexts;  // J : 선택지 텍스트 리스트
-    [SerializeField]
     private List<Button> selectButtons; // J : 선택지 버튼 리스트
-
+    [SerializeField]
+    Color light;    // J : 선택되지 않은 버튼 색상
+    [SerializeField]
+    Color dark; // J : 선택된 버튼 색상
+    ColorBlock cb;
+    
     private bool isSelectActivated = false; // J : 선택지 활성화 여부
     private int idx = 0;
 
@@ -30,8 +33,6 @@ public class HuntingDialogManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SelectPanel.SetActive(true);    // J : 선택지 창 활성화
-            isSelectActivated = true;
-            selectTexts[idx].fontStyle = FontStyles.Underline;   // J : 첫번째 선택지 밑줄 적용
         }
     }
 
@@ -40,29 +41,49 @@ public class HuntingDialogManager : MonoBehaviour
     {
         if (isSelectActivated)  // J : 선택지 활성화 상태
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                // J : 밑줄 해제
-                selectTexts[idx--].fontStyle = FontStyles.Normal;
+                // J : 버튼 밝게
+                cb = selectButtons[idx].colors;
+                cb.normalColor = light;
+                selectButtons[idx--].colors = cb;
 
                 if (idx < 0)
-                    idx += selectTexts.Count;
+                    idx += selectButtons.Count;
 
-                // J : 밑줄 적용
-                selectTexts[idx].fontStyle = FontStyles.Underline;
+                // J : 버튼 어둡게
+                cb = selectButtons[idx].colors;
+                cb.normalColor = dark;
+                selectButtons[idx].colors = cb;
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                // J : 밑줄 해제
-                selectTexts[idx++].fontStyle = FontStyles.Normal;
+                // J : 버튼 밝게
+                cb = selectButtons[idx].colors;
+                cb.normalColor = light;
+                selectButtons[idx++].colors = cb;
 
-                if (idx == selectTexts.Count)
+                if (idx == selectButtons.Count)
                     idx = 0;
 
-                // J : 밑줄 적용
-                selectTexts[idx].fontStyle = FontStyles.Underline;
+                // J : 버튼 어둡게
+                cb = selectButtons[idx].colors;
+                cb.normalColor = dark;
+                selectButtons[idx].colors = cb;
             }
-        }        
+        }      
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                // J : 버튼 어둡게
+                cb = selectButtons[idx].colors;
+                cb.normalColor = dark;
+                selectButtons[idx].colors = cb;
+
+                isSelectActivated = true;
+            }
+        }
     }
 
     // J : 선택 시도
