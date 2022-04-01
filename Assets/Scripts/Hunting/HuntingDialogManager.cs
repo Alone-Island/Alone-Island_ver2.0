@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;   // J : Button
+using UnityEngine.SceneManagement;
 using TMPro;    // J : TextMeshPro
 
 public class HuntingDialogManager : MonoBehaviour
@@ -100,12 +101,14 @@ public class HuntingDialogManager : MonoBehaviour
     public void Hunt()
     {
         Debug.Log("사냥하자!");
+        SceneManager.LoadScene("Hunting");
     }
 
     // J : 길들이기 선택 시 호출
     public void Rear()
     {
         Debug.Log("길들이자!");
+        SceneManager.LoadScene("Rear");
     }
 
     // J : 도망가기 선택 시 호출
