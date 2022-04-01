@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1b107f2372c824ba7646ce8e2506aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectPanel: {fileID: 1498643276}
+  SelectCards: {fileID: 1498643276}
   selectButtons:
   - {fileID: 1751556899}
   - {fileID: 864242206}
@@ -702,8 +702,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 494149556}
-        m_TargetAssemblyTypeName: HuntingManager, Assembly-CSharp
+      - m_Target: {fileID: 494149554}
+        m_TargetAssemblyTypeName: HuntingDialogManager, Assembly-CSharp
         m_MethodName: Rear
         m_Mode: 1
         m_Arguments:
@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 494149556}
-        m_TargetAssemblyTypeName: HuntingManager, Assembly-CSharp
+      - m_Target: {fileID: 494149554}
+        m_TargetAssemblyTypeName: HuntingDialogManager, Assembly-CSharp
         m_MethodName: Run
         m_Mode: 1
         m_Arguments:
@@ -1770,8 +1770,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 494149556}
-        m_TargetAssemblyTypeName: HuntingManager, Assembly-CSharp
+      - m_Target: {fileID: 494149554}
+        m_TargetAssemblyTypeName: HuntingDialogManager, Assembly-CSharp
         m_MethodName: Hunt
         m_Mode: 1
         m_Arguments:
