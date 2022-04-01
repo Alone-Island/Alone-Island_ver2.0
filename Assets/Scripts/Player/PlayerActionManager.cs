@@ -86,7 +86,7 @@ public class PlayerActionManager : MonoBehaviour
         if (huntActivated)    // J : 사냥 가능 상태
         {
             Debug.Log(hitInfo.transform.gameObject.name + "을(를) 만났다!");
-            SceneManager.LoadScene("Hunting");
+            SceneManager.LoadScene("EncounterAnimal");
             huntActivated = false;
         }
     }

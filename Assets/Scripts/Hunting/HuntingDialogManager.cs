@@ -7,7 +7,7 @@ using TMPro;    // J : TextMeshPro
 public class HuntingDialogManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject SelectPanel;     // J : 선택지 창
+    private GameObject SelectCards;     // J : 선택지 창
     [SerializeField]
     private List<Button> selectButtons; // J : 선택지 버튼 리스트
     [SerializeField]
@@ -32,7 +32,7 @@ public class HuntingDialogManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SelectPanel.SetActive(true);    // J : 선택지 창 활성화
+            SelectCards.SetActive(true);    // J : 선택지 창 활성화
         }
     }
 
@@ -94,5 +94,23 @@ public class HuntingDialogManager : MonoBehaviour
         {
             selectButtons[idx].onClick.Invoke();    // J : 현재 선택중인 버튼의 onclick 함수 호출
         }
+    }
+
+    // J : 사냥하기 선택 시 호출
+    public void Hunt()
+    {
+        Debug.Log("사냥하자!");
+    }
+
+    // J : 길들이기 선택 시 호출
+    public void Rear()
+    {
+        Debug.Log("길들이자!");
+    }
+
+    // J : 도망가기 선택 시 호출
+    public void Run()
+    {
+        Debug.Log("도망가자!");
     }
 }
