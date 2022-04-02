@@ -75,4 +75,15 @@ public class ItemData : MonoBehaviour
     {
         return new Item(itemData[id].name, itemData[id].type);
     }
+
+    public List<Tuple<int, string>> GetItems()
+    {
+        List<Tuple<int, string>> itemsData = new List<Tuple<int, string>>();
+
+        for (int i = 0; i < itemData.Count; i++)
+        {
+            itemsData.Add(Tuple.Create<int, string>(i, itemData[i].name));
+        }
+        return itemsData;
+    }
 }
