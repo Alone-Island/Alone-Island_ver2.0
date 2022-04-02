@@ -519,6 +519,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1213536466}
     m_Modifications:
+    - target: {fileID: 1679877270013712280, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679877270013712280, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679877270013712280, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1679877270858281220, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
       propertyPath: m_Name
       value: Timing Bar
@@ -606,6 +618,10 @@ PrefabInstance:
     - target: {fileID: 1679877270858281223, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581642307205992156, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
