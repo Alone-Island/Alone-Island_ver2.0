@@ -8,6 +8,8 @@ using TMPro;    // J : TextMeshPro
 public class HuntingDialogManager : MonoBehaviour
 {
     [SerializeField]
+    TextMeshProUGUI talkText;
+    [SerializeField]
     private GameObject SelectCards;     // J : 선택지 창
     [SerializeField]
     private List<Button> selectButtons; // J : 선택지 버튼 리스트
@@ -19,6 +21,11 @@ public class HuntingDialogManager : MonoBehaviour
     
     private bool isSelectActivated = false; // J : 선택지 활성화 여부
     private int idx = 0;
+
+    private void Start()
+    {
+        talkText.text = GameData.data.encounterAnimal.animalName + "(을)를 마주쳤다!";    // J : 마주친 동물에 따른 텍스트 변경
+    }
 
     // Update is called once per frame
     void Update()

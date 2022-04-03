@@ -357,7 +357,6 @@ GameObject:
   m_Component:
   - component: {fileID: 494149555}
   - component: {fileID: 494149554}
-  - component: {fileID: 494149556}
   m_Layer: 0
   m_Name: HuntingManager
   m_TagString: Untagged
@@ -377,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1b107f2372c824ba7646ce8e2506aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talkText: {fileID: 986140892}
   SelectCards: {fileID: 1498643276}
   selectButtons:
   - {fileID: 1751556899}
@@ -398,18 +398,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &494149556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494149553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03713b21ddfadfb4abced87ee498c7b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &815000271
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB3FC\uC9C0\uB97C \uB9C8\uC8FC\uCCE4\uB2E4!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4de03501da0aa854e8919c8f2afd22e5, type: 2}
   m_sharedMaterial: {fileID: -7711297246561637324, guid: 4de03501da0aa854e8919c8f2afd22e5, type: 2}
@@ -1553,7 +1541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 494149556}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HuntingManager, Assembly-CSharp
         m_MethodName: Run
         m_Mode: 1

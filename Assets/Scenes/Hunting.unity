@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 177218591}
   - component: {fileID: 177218590}
   m_Layer: 0
-  m_Name: HuningManager
+  m_Name: HuntingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
