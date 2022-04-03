@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &177218589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 177218591}
+  - component: {fileID: 177218590}
+  m_Layer: 0
+  m_Name: HuningManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &177218590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177218589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03713b21ddfadfb4abced87ee498c7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTimingBar: {fileID: 1679877270569018330}
+--- !u!4 &177218591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177218589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 317.92255, y: -324.7993, z: -497.56567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &289821406 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1679877270858281223, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
@@ -519,18 +563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1213536466}
     m_Modifications:
-    - target: {fileID: 1679877270013712280, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679877270013712280, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679877270013712280, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1679877270858281220, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
       propertyPath: m_Name
       value: Timing Bar
@@ -619,9 +651,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7581642307205992156, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 400
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
+--- !u!114 &1679877270569018330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1679877270858281222, guid: d392a1ce036a53f4eb06811df04729b5, type: 3}
+  m_PrefabInstance: {fileID: 1679877270569018329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0815e1f06526b0440b13657b248e983f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

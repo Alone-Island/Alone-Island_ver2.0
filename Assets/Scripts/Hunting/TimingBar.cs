@@ -9,6 +9,8 @@ public class TimingBar : MonoBehaviour
     float delta; // 좌우로 이동 가능한 x의 최대값
     float[] successRange; // J : 적중 간격
 
+    public bool moveActivated = true;  // J : 화살표가 움직이는 중인지
+
     [SerializeField]
     float speed; // 이동속도
     [SerializeField]
@@ -27,9 +29,8 @@ public class TimingBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 v = pos;
-        v.x += delta * Mathf.Sin(Time.time * speed);    // J : x의 범위 : [-delta, delta]
-        Arrow.position = v;
+        if (moveActivated)
+            Move();
     }
 
     // J : 타이밍 적중 범위 결정
@@ -45,5 +46,27 @@ public class TimingBar : MonoBehaviour
         // J : 화면에 표시
         successBar.localPosition = new Vector3(position, successBar.localPosition.y, successBar.localPosition.z);  // J : 적중 위치 설정
         successBar.localScale = new Vector3(successBar.localScale.x / div, successBar.localScale.y, 0); // J : 적중 간격 설정
+    }
+
+    private void Move()
+    {
+        Vector3 v = pos;
+        v.x += delta * Mathf.Sin(Time.time * speed);    // J : x의 범위 : [-delta, delta]
+        Arrow.position = v;
+    }
+
+    public void Stop()
+    {
+        moveActivated = false;  // J : 화살표 멈추기
+
+        // J : 적중 범위 내에서 멈추면
+        if (successRange[0] <= Arrow.localPosition.x && Arrow.localPosition.x <= successRange[1])
+        {
+            Debug.Log("Success");
+        }
+        else
+        {
+            Debug.Log("Fail");
+        }
     }
 }
