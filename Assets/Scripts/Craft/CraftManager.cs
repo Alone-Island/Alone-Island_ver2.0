@@ -14,7 +14,12 @@ public class CraftManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        List<Tuple<int, string>> itemsData = itemData.GetItems();
+
+        for (int i = 0; i < itemsData.Count; i++)
+        {
+
+        }
     }
 
     // Update is called once per frame
@@ -23,8 +28,7 @@ public class CraftManager : MonoBehaviour
         
     }
 
-    private List<Tuple<int, string, int>> CheckCanMakeThisItem(int id)
-    {
+    private List<Tuple<int, string, int>> CheckCanMakeThisItem(int id) {
         List<Tuple<int, string, int>> materials = itemData.GetItemMaterialsData(id);
         for (int i = 0; i < materials.Count; i++)
         {
@@ -38,8 +42,7 @@ public class CraftManager : MonoBehaviour
         return materials;
     }
 
-    public bool MakeNewItem(int id)
-    {
+    public bool MakeNewItem(int id) {
         List<Tuple<int, string, int>> materials = CheckCanMakeThisItem(id);
         Item newItem = itemData.GetItemData(id);
         if (materials == null)
