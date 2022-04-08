@@ -122,5 +122,6 @@ public class HuntingDialogManager : MonoBehaviour
     public void Run()
     {
         Debug.Log("µµ¸Á°¡ÀÚ!");
+        SceneManager.LoadScene("TestJ_hunt");
     }
 }
