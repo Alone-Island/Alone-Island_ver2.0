@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rear.unity
     guid: 178f14c0a4fddb14699edc942ea58841
+  - enabled: 1
+    path: Assets/Scenes/TestJ_hunt.unity
+    guid: 44418bf7074e7b045bd84495152812da
   m_configObjects: {}
