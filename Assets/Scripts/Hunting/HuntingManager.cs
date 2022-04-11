@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;    // J : TextMeshPro
 
 public class HuntingManager : MonoBehaviour
@@ -17,12 +18,6 @@ public class HuntingManager : MonoBehaviour
 
     private bool isSuccess; // J : 타이밍바 적중 여부
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -31,6 +26,32 @@ public class HuntingManager : MonoBehaviour
         {
             isSuccess = theTimingBar.Stop();    // J : 화살표를 멈춰 적중 여부를 받아옴
             SetText();
+        }
+    }
+
+    // J : 공격 결과 반영
+    private void Result()
+    {
+        if (isSuccess)  // J : 성공하면 무기의 공격력만큼 동물 체력 감소
+        {
+            int offensivePower = 20;    // J : 무기 장착 미구현 상태이므로 무기 공격력 임의로 지정 (미구현)
+            GameData.encounterAnimal.hp -= 20;
+            if (GameData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
+            {
+                Debug.Log(GameData.encounterAnimal.animalName + " 사냥 성공!");
+                // J : 인벤토리에 사냥으로 얻은 식량 추가하기 (미구현)
+                SceneManager.LoadScene("TestJ_hunt");   // J : 사냥터로 이동
+            }
+            else
+            {
+                Debug.Log(GameData.encounterAnimal.animalName + "의 남은 체력 : " + GameData.encounterAnimal.hp);
+                theTimingBar.moveActivated = true;  // J : 다시 공격 시도
+            }
+        }
+        else    // J : 실패하면 동물이 도망감
+        {
+            Debug.Log("사냥 실패!");
+            SceneManager.LoadScene("TestJ_hunt");   // J : 사냥터로 이동
         }
     }
 
@@ -70,5 +91,7 @@ public class HuntingManager : MonoBehaviour
             judgementText.color = new Vector4(judgementText.color.r, judgementText.color.g, judgementText.color.b, a);
             yield return new WaitForFixedUpdate();
         }
+
+        Result();
     }
 }
