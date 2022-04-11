@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theTimingBar: {fileID: 1679877270569018330}
+  judgementText: {fileID: 326186194}
+  successTextColor: {x: 0, y: 1, z: 0.5, w: 1}
+  failTextColor: {x: 1, y: 0, z: 0, w: 1}
 --- !u!4 &177218591
 Transform:
   m_ObjectHideFlags: 0
