@@ -115,4 +115,18 @@ public class Inventory : MonoBehaviour
         }
         return itemCount;
     }
+
+    // J : 특정 ItemType인 아이템 리스트를 반환
+    public List<Item> GetTypeItemList(Item.ItemType type)
+    {
+        List<Item> itemList = new List<Item>();
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if ((slots[i].item != null) && (slots[i].item.itemType== type))
+            {
+                itemList.Add(slots[i].item);
+            }
+        }
+        return itemList;
+    }
 }
