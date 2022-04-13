@@ -14,9 +14,9 @@ public class HuntingDialogManager : MonoBehaviour
     [SerializeField]
     private List<Button> selectButtons; // J : 선택지 버튼 리스트
     [SerializeField]
-    Color light;    // J : 선택되지 않은 버튼 색상
+    Color lightColor;    // J : 선택되지 않은 버튼 색상
     [SerializeField]
-    Color dark; // J : 선택된 버튼 색상
+    Color darkColor; // J : 선택된 버튼 색상
     ColorBlock cb;
     
     private bool isSelectActivated = false; // J : 선택지 활성화 여부
@@ -53,7 +53,7 @@ public class HuntingDialogManager : MonoBehaviour
             {
                 // J : 버튼 밝게
                 cb = selectButtons[idx].colors;
-                cb.normalColor = light;
+                cb.normalColor = lightColor;
                 selectButtons[idx--].colors = cb;
 
                 if (idx < 0)
@@ -61,14 +61,14 @@ public class HuntingDialogManager : MonoBehaviour
 
                 // J : 버튼 어둡게
                 cb = selectButtons[idx].colors;
-                cb.normalColor = dark;
+                cb.normalColor = darkColor;
                 selectButtons[idx].colors = cb;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 // J : 버튼 밝게
                 cb = selectButtons[idx].colors;
-                cb.normalColor = light;
+                cb.normalColor = lightColor;
                 selectButtons[idx++].colors = cb;
 
                 if (idx == selectButtons.Count)
@@ -76,7 +76,7 @@ public class HuntingDialogManager : MonoBehaviour
 
                 // J : 버튼 어둡게
                 cb = selectButtons[idx].colors;
-                cb.normalColor = dark;
+                cb.normalColor = darkColor;
                 selectButtons[idx].colors = cb;
             }
         }      
@@ -86,7 +86,7 @@ public class HuntingDialogManager : MonoBehaviour
             {
                 // J : 버튼 어둡게
                 cb = selectButtons[idx].colors;
-                cb.normalColor = dark;
+                cb.normalColor = darkColor;
                 selectButtons[idx].colors = cb;
 
                 isSelectActivated = true;
