@@ -382,8 +382,8 @@ MonoBehaviour:
   - {fileID: 1751556899}
   - {fileID: 864242206}
   - {fileID: 1114307756}
-  light: {r: 0, g: 0, b: 0, a: 0}
-  dark: {r: 0, g: 0, b: 0, a: 0.3529412}
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  darkColor: {r: 0, g: 0, b: 0, a: 0.39215687}
 --- !u!4 &494149555
 Transform:
   m_ObjectHideFlags: 0
