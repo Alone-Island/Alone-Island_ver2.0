@@ -20,13 +20,13 @@ public class PlayerActionManager : MonoBehaviour
     private LayerMask animalLayerMask;    // J : animal 레이어를 가지는 오브젝트만 습득해야 함
 
     // 필요한 컴포넌트
-    [SerializeField]
     private Inventory theInventory;
     private PlayerMove thePlayerMove;
 
     private void Start()
     {
         thePlayerMove = GetComponent<PlayerMove>();
+        theInventory = FindObjectOfType<Inventory>();
     }
     // Update is called once per frame
     void Update()

@@ -9,6 +9,11 @@ public class GameData : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        // J : GameData 오브젝트의 중복 생성 방지
+        var obj = FindObjectsOfType<GameData>();
+        if (obj.Length == 1)
+            DontDestroyOnLoad(gameObject);
+        else
+            Destroy(gameObject);
     }
 }
