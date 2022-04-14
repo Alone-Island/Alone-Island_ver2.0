@@ -18,6 +18,14 @@ public class HuntingManager : MonoBehaviour
 
     private bool isSuccess; // J : 타이밍바 적중 여부
 
+    // 필요한 컴포넌트
+    private Inventory theInventory;
+
+    private void Start()
+    {
+        theInventory = FindObjectOfType<Inventory>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +47,11 @@ public class HuntingManager : MonoBehaviour
             if (GameData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
             {
                 Debug.Log(GameData.encounterAnimal.animalName + " 사냥 성공!");
-                // J : 인벤토리에 사냥으로 얻은 식량 추가하기 (미구현)
+
+                // J : 인벤토리에 사냥으로 얻은 아이템 추가
+                foreach (Item item in GameData.encounterAnimal.huntingItems)
+                    theInventory.AcquireItem(item);
+
                 SceneManager.LoadScene("TestJ_hunt");   // J : 사냥터로 이동
             }
             else
