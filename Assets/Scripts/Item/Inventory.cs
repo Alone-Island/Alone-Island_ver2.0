@@ -110,7 +110,7 @@ public class Inventory : MonoBehaviour
         {
             if ((slots[i].item != null) && (slots[i].item.itemName == _itemName))
             {
-                itemCount++;
+                itemCount += slots[i].itemCount;
             }
         }
         return itemCount;
