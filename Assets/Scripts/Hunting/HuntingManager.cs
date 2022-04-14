@@ -25,7 +25,7 @@ public class HuntingManager : MonoBehaviour
         if (theTimingBar.moveActivated && Input.GetKeyDown(KeyCode.Space))
         {
             isSuccess = theTimingBar.Stop();    // J : 화살표를 멈춰 적중 여부를 받아옴
-            SetText();
+            Result();
         }
     }
 
