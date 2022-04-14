@@ -117,14 +117,14 @@ public class Inventory : MonoBehaviour
     }
 
     // J : 특정 ItemType인 아이템 리스트를 반환
-    public List<Item> GetTypeItemList(Item.ItemType type)
+    public Dictionary<Item, int> GetTypeItemList(Item.ItemType type)
     {
-        List<Item> itemList = new List<Item>();
+        Dictionary<Item, int> itemList = new Dictionary<Item, int>();
         for (int i = 0; i < slots.Length; i++)
         {
             if ((slots[i].item != null) && (slots[i].item.itemType== type))
             {
-                itemList.Add(slots[i].item);
+                itemList.Add(slots[i].item, GetItemCount(slots[i].item.itemName));
             }
         }
         return itemList;
