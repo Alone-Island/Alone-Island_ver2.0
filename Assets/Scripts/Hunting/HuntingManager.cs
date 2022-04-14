@@ -33,7 +33,7 @@ public class HuntingManager : MonoBehaviour
         if (theTimingBar.moveActivated && Input.GetKeyDown(KeyCode.Space))
         {
             isSuccess = theTimingBar.Stop();    // J : 화살표를 멈춰 적중 여부를 받아옴
-            Result();
+            SetText();
         }
     }
 
@@ -43,7 +43,7 @@ public class HuntingManager : MonoBehaviour
         if (isSuccess)  // J : 성공하면 무기의 공격력만큼 동물 체력 감소
         {
             int offensivePower = 20;    // J : 무기 장착 미구현 상태이므로 무기 공격력 임의로 지정 (미구현)
-            GameData.encounterAnimal.hp -= 20;
+            GameData.encounterAnimal.hp -= offensivePower;
             if (GameData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
             {
                 Debug.Log(GameData.encounterAnimal.animalName + " 사냥 성공!");
