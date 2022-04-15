@@ -68,6 +68,7 @@ public class HuntingManager : MonoBehaviour
             else
             {
                 Debug.Log(GameData.encounterAnimal.koreanName + "의 남은 체력 : " + GameData.encounterAnimal.hp);
+                theTimingBar.DecideSuccessRange();  // J : 적중 범위 갱신
                 theTimingBar.moveActivated = true;  // J : 다시 공격 시도
             }
         }

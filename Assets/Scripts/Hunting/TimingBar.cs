@@ -6,6 +6,7 @@ using UnityEngine;
 public class TimingBar : MonoBehaviour
 {
     private Vector3 pos; // J : 처음 화살표 위치
+    private float width;  // J : 바의 너비
     private float delta; // J : 좌우로 이동 가능한 x의 최대값
     private float[] successRange; // J : 적중 간격
     [SerializeField]
@@ -23,6 +24,7 @@ public class TimingBar : MonoBehaviour
     void Start()
     {
         pos = Arrow.position;   // J : 화살표의 위치 가져옴
+        width = Bar.transform.localScale.x;
         delta = Bar.GetComponent<RectTransform>().rect.width / 2;   // J : 바 너비의 반이 이동 가능한 x의 최대값
         DecideSuccessRange();   // J : 타이밍 적중 범위 결정
     }
@@ -35,7 +37,7 @@ public class TimingBar : MonoBehaviour
     }
 
     // J : 타이밍 적중 범위 결정
-    void DecideSuccessRange()
+    public void DecideSuccessRange()
     {
         Transform successBar = Bar.transform.Find("Success Bar").transform;
 
@@ -46,7 +48,7 @@ public class TimingBar : MonoBehaviour
 
         // J : 화면에 표시
         successBar.localPosition = new Vector3(position, successBar.localPosition.y, successBar.localPosition.z);  // J : 적중 위치 설정
-        successBar.localScale = new Vector3(successBar.localScale.x / div, successBar.localScale.y, 0); // J : 적중 간격 설정
+        successBar.localScale = new Vector3(width / div, successBar.localScale.y, 0); // J : 적중 간격 설정
     }
 
     // J : 화살표가 좌우로 이동
