@@ -21,7 +21,7 @@ public class ItemInfo : MonoBehaviour, IPointerClickHandler
     {
         if (Mathf.Abs(Time.time - lastClickTime) < doubleClickSecond)
         {
-            theRearManager.DropFood(item, count);
+            theRearManager.DropFood(gameObject);
             lastClickTime = -1;
         }
         else

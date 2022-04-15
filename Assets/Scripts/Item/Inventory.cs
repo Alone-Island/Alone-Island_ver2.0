@@ -83,6 +83,26 @@ public class Inventory : MonoBehaviour
     }
 
     // J : 아이템 소비에 성공하면 true, 실패하면 false 반환
+    public bool ConsumeItem(Item _item, int _count = 1)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if ((slots[i].item != null) && (slots[i].item == _item))
+            {
+                if (slots[i].itemCount < _count)    // J : 보유한 아이템 개수가 더 적으면 소비 불가능
+                    return false;
+                else
+                {
+                    slots[i].SetSlotCount(-_count);  // J : 아이템 소비
+                    return true;
+                }
+            }
+        }
+        // J : 해당 아이템이 인벤토리에 없는 경우 소비 불가능
+        return false;
+    }
+
+    // J : 아이템 소비에 성공하면 true, 실패하면 false 반환
     public bool ConsumeItem(string _itemName, int _count)
     {
         for (int i = 0; i < slots.Length; i++)
@@ -93,7 +113,7 @@ public class Inventory : MonoBehaviour
                     return false;
                 else
                 {
-                    slots[i].SetSlotCount(_count);  // J : 아이템 소비
+                    slots[i].SetSlotCount(-_count);  // J : 아이템 소비
                     return true;
                 }
             }

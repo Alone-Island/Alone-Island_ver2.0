@@ -50,8 +50,15 @@ public class RearManager : MonoBehaviour
     }
 
     // J : 플레이어 앞에 음식 떨어트리기
-    public void DropFood(Item item, int count)
+    public void DropFood(GameObject obj)
     {
-        Debug.Log("DropFood" + item.itemName + count.ToString());
+        if (theInventory.ConsumeItem(obj.GetComponent<ItemInfo>().item))    // J : 아이템이 1개 이상 있으면
+        {
+            itemList[obj.GetComponent<ItemInfo>().item] -= 1;   // J : 아이템 리스트에서 개수 업데이트
+            // J : 화면, ItemInfo 에서 갱신
+            obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>().text = itemList[obj.GetComponent<ItemInfo>().item].ToString();
+            obj.GetComponent<ItemInfo>().count = itemList[obj.GetComponent<ItemInfo>().item];
+            // 음식 떨어트리기
+        }
     }
 }
