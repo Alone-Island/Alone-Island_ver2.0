@@ -6,24 +6,27 @@ using TMPro;    // J : TextMeshPro
 
 public class HuntingManager : MonoBehaviour
 {
-    [SerializeField]
-    private TimingBar theTimingBar;
+    private bool isSuccess; // J : 타이밍바 적중 여부
+    private GameObject animalObject;
 
     [SerializeField]
-    private TextMeshProUGUI judgementText;  // J : SUCCESS / FAIL 텍스트
+    private Vector3 spawnPosition;
     [SerializeField]
     private Vector4 successTextColor;   // J : 성공 시 텍스트 색상
     [SerializeField]
     private Vector4 failTextColor;  // J : 실패 시 텍스트 색상
 
-    private bool isSuccess; // J : 타이밍바 적중 여부
-
     // 필요한 컴포넌트
+    [SerializeField]
+    private TimingBar theTimingBar;
+    [SerializeField]
+    private TextMeshProUGUI judgementText;  // J : SUCCESS / FAIL 텍스트
     private Inventory theInventory;
 
     private void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
+        SpawnAnimal();
     }
 
     // Update is called once per frame
@@ -35,6 +38,14 @@ public class HuntingManager : MonoBehaviour
             isSuccess = theTimingBar.Stop();    // J : 화살표를 멈춰 적중 여부를 받아옴
             SetText();
         }
+    }
+
+    // J : 동물 오브젝트 스폰
+    private void SpawnAnimal()
+    {
+        GameObject tmp = Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName) as GameObject;
+        animalObject = Instantiate(tmp, spawnPosition, Quaternion.identity);    // J : 동물 오브젝트 스폰
+        animalObject.GetComponent<Rigidbody2D>().gravityScale = 1;  // J : 횡스크롤이므로 중력 적용
     }
 
     // J : 공격 결과 반영
