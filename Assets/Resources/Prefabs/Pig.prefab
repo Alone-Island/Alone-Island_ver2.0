@@ -67,7 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb99c859a0ccd0a4285157ef7ebce40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalName: "\uB3FC\uC9C0"
+  koreanName: "\uB3FC\uC9C0"
+  englishName: Pig
   hp: 50
   huntingItems:
   - {fileID: 11400000, guid: f8add97e5ddd2b7499d0d472d81a8770, type: 2}

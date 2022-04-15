@@ -46,7 +46,7 @@ public class HuntingManager : MonoBehaviour
             GameData.encounterAnimal.hp -= offensivePower;
             if (GameData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
             {
-                Debug.Log(GameData.encounterAnimal.animalName + " 사냥 성공!");
+                Debug.Log(GameData.encounterAnimal.koreanName + " 사냥 성공!");
 
                 // J : 인벤토리에 사냥으로 얻은 아이템 추가
                 foreach (Item item in GameData.encounterAnimal.huntingItems)
@@ -56,7 +56,7 @@ public class HuntingManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(GameData.encounterAnimal.animalName + "의 남은 체력 : " + GameData.encounterAnimal.hp);
+                Debug.Log(GameData.encounterAnimal.koreanName + "의 남은 체력 : " + GameData.encounterAnimal.hp);
                 theTimingBar.moveActivated = true;  // J : 다시 공격 시도
             }
         }

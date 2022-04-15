@@ -67,7 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b677507a5da1c46b625dbccddc0a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalName: "\uD1A0\uB07C"
+  koreanName: "\uD1A0\uB07C"
+  englishName: Rabbit
   hp: 30
   huntingItems: []
   offensivePower: 10
