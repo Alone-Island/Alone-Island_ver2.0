@@ -18,7 +18,7 @@ public class RearManager : MonoBehaviour
     void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
-        prefab = Resources.Load("Prefabs/FoodItem") as GameObject;
+        prefab = Resources.Load("Prefabs/ItemInfo") as GameObject;
         SetFoodItemList();
     }
 
