@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestJ_hunt.unity
     guid: 44418bf7074e7b045bd84495152812da
+  - enabled: 1
+    path: Assets/Scenes/TestK.unity
+    guid: c49241bd898f0304dbd1284986b6587c
   m_configObjects: {}
