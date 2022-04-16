@@ -10,6 +10,7 @@ public class RearManager : MonoBehaviour
     private Vector3 spawnPosition;  // J : 동물이 스폰될 위치
     private Dictionary<Item, int> itemList;     // J : 식량 아이템 리스트
     private Item dropItem;  // J : 플레이어가 드롭한 식량 아이템
+    private GameObject animalObject;    // J : 스폰한 동물 오브젝트
 
     // 필요한 컴포넌트
     [SerializeField]
@@ -25,7 +26,7 @@ public class RearManager : MonoBehaviour
         prefab = Resources.Load("Prefabs/ItemInfo") as GameObject;
 
         SetFoodItemList();  // J : 음식 리스트 나열
-        HuntingManager.SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
+        animalObject = HuntingManager.SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
     }
 
     // J : 음식 리스트 나열

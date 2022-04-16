@@ -7,7 +7,7 @@ using TMPro;    // J : TextMeshPro
 public class HuntingManager : MonoBehaviour
 {
     private bool isSuccess; // J : 타이밍바 적중 여부
-    private GameObject animalObject;
+    private GameObject animalObject;    // J : 스폰한 동물 오브젝트
 
     [SerializeField]
     private Vector3 spawnPosition;  // J : 동물이 스폰될 위치
@@ -26,7 +26,7 @@ public class HuntingManager : MonoBehaviour
     private void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
-        SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);
+        animalObject = SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);
     }
 
     // Update is called once per frame
