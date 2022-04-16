@@ -10,7 +10,7 @@ public class HuntingManager : MonoBehaviour
     private GameObject animalObject;
 
     [SerializeField]
-    private Vector3 spawnPosition;
+    private Vector3 spawnPosition;  // J : 동물이 스폰될 위치
     [SerializeField]
     private Vector4 successTextColor;   // J : 성공 시 텍스트 색상
     [SerializeField]
@@ -26,7 +26,7 @@ public class HuntingManager : MonoBehaviour
     private void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
-        SpawnAnimal();
+        SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);
     }
 
     // Update is called once per frame
@@ -41,11 +41,11 @@ public class HuntingManager : MonoBehaviour
     }
 
     // J : 동물 오브젝트 스폰
-    private void SpawnAnimal()
+    public static GameObject SpawnAnimal(Object obj, Vector3 spawnPosition)
     {
-        GameObject tmp = Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName) as GameObject;
-        animalObject = Instantiate(tmp, spawnPosition, Quaternion.identity);    // J : 동물 오브젝트 스폰
+        GameObject animalObject = Instantiate(obj as GameObject, spawnPosition, Quaternion.identity);    // J : 동물 오브젝트 스폰
         animalObject.GetComponent<Rigidbody2D>().gravityScale = 1;  // J : 횡스크롤이므로 중력 적용
+        return animalObject;
     }
 
     // J : 공격 결과 반영

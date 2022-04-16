@@ -8,6 +8,8 @@ public class RearManager : MonoBehaviour
 {
     private GameObject prefab;  // J : 아이템 정보를 담는 프리팹 오브젝트
     private Dictionary<Item, int> itemList;     // J : 식량 아이템 리스트
+    [SerializeField]
+    private Vector3 spawnPosition;  // J : 동물이 스폰될 위치
 
     // 필요한 컴포넌트
     [SerializeField]
@@ -17,17 +19,15 @@ public class RearManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // J : 컴포넌트 불러오기
         theInventory = FindObjectOfType<Inventory>();
         prefab = Resources.Load("Prefabs/ItemInfo") as GameObject;
-        SetFoodItemList();
+
+        SetFoodItemList();  // J : 음식 리스트 나열
+        HuntingManager.SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // J : 음식 리스트 나열
     private void SetFoodItemList()
     {
         itemList = theInventory.GetTypeItemList(Item.ItemType.Used); // J : 식량 아이템 리스트 받아오기
