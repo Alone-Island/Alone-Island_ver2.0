@@ -5,66 +5,43 @@ using UnityEngine;
 
 public class CraftManager : MonoBehaviour
 {
-
-    [SerializeField]
-    private Inventory theInventory;
+    // 필요한 컴포넌트
     [SerializeField]
     private ItemData itemData;
+    private Inventory theInventory;
 
     // Start is called before the first frame update
     void Start()
     {
-        List<Tuple<int, string>> itemsData = itemData.GetItems();
-
-        for (int i = 0; i < itemsData.Count; i++)
-        {
-
-        }
+        theInventory = FindObjectOfType<Inventory>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // K : 인벤토리에 필요한 재료가 모두 있으면 재료 리스트 리턴, 아니면 null 리턴
+    private List<ItemData.Items> CheckMakeItem(Item _item) {
+        List<ItemData.Items> materials = itemData.GetItemMaterialsData(_item);  // J : 아이템을 만드는데 필요한 재료 리스트 받아오기
 
-    private List<Tuple<int, string, int>> CheckCanMakeThisItem(int id) {
-        List<Tuple<int, string, int>> materials = itemData.GetItemMaterialsData(id);
-        /*
-        for (int i = 0; i < materials.Count; i++)
-        {
-
-            Item item = itemData.GetItemData(id);
-            int count = theInventory.GetItemCount(item.name); // K : 모든 아이템을 가져오는 함수 or 특정 item이 몇개 있는지 알려주는 함수 필요함
-            if (count < materials[i].Item3)
-            {
+        foreach (ItemData.Items material in materials)  // J : 재료 + 재료의 개수
+            if (material.num < theInventory.GetItemCount(material.item))    // J : 인벤토리에 재료의 개수가 필요 개수보다 적다면 만들기 불가능
                 return null;
-            }
-        }
-        */
-        return materials;
+
+        return materials;   // J : 만들기 가능하면 재료 리스트 리턴
     }
 
-    public bool MakeNewItem(int id) {
-        List<Tuple<int, string, int>> materials = CheckCanMakeThisItem(id);
-        /*
-        Item newItem = itemData.GetItemData(id);
-        if (materials == null)
+    // K : 아이템 만들기 성공 여부 리턴
+    public bool MakeNewItem(Item _item) {
+        List<ItemData.Items> materials = CheckMakeItem(_item);
+
+        if (materials == null)  // J : 인벤토리에 존재하는 아이템들로는 _item 만들기 불가능
         {
-            Debug.Log(newItem.itemName + " 획득 실패");
+            Debug.Log(_item.itemName + " 획득 실패");
             return false;
         }
 
-        for (int i = 0; i < materials.Count; i++)
-        {
-            // materials[i].item1 해당 아이템 인벤토리에서 -count 하는 함수, - materials[i].Item3
-            theInventory.ConsumeItem(materials[i].Item2, materials[i].Item3);
-        }
-
-        // K : 아이템 인벤토리 추가
-        Debug.Log(newItem.itemName + " 획득 성공");
-        theInventory.AcquireItem(newItem);    // J : 인벤토리의 슬롯에 아이템 추가
-        */
+        // J : 인벤토리의 재료 아이템 소비
+        foreach (ItemData.Items material in materials)
+            theInventory.ConsumeItem(material.item, material.num);
+        theInventory.AcquireItem(_item);    // K : 인벤토리의 슬롯에 아이템 추가
+        Debug.Log(_item.itemName + " 획득 성공");
 
         return true;
     }

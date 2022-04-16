@@ -9,6 +9,7 @@ public class CraftList : MonoBehaviour
 
     public int itemId;
     public int itemName;
+    public Item item;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class CraftList : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             // 마우스 왼쪽 버튼을 뗄 때의 처리
-            craftManager.MakeNewItem(itemId);
+            craftManager.MakeNewItem(item);
         }
     }
 
