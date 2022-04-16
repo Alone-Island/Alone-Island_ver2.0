@@ -8,7 +8,7 @@ public class RearManager : MonoBehaviour
 {
     private GameObject prefab;  // J : 아이템 정보를 담는 프리팹 오브젝트
     private Dictionary<Item, int> itemList;     // J : 식량 아이템 리스트
-    
+
     // 필요한 컴포넌트
     [SerializeField]
     private GameObject Content;  // J : 스크롤뷰의 Content 오브젝트
@@ -58,7 +58,12 @@ public class RearManager : MonoBehaviour
             // J : 화면, ItemInfo 에서 갱신
             obj.transform.Find("ItemCount").GetComponent<TextMeshProUGUI>().text = itemList[obj.GetComponent<ItemInfo>().item].ToString();
             obj.GetComponent<ItemInfo>().count = itemList[obj.GetComponent<ItemInfo>().item];
-            // 음식 떨어트리기
+
+            // J : 음식 떨어트리기
+            Vector3 spawnPosition = GameObject.Find("Player").transform.position;
+            spawnPosition.x += GameObject.Find("Player").transform.localScale.x;
+            GameObject foodObject = Instantiate(obj.GetComponent<ItemInfo>().item.itemPrefab, spawnPosition, Quaternion.identity);    // J : 음식 오브젝트 스폰
+            foodObject.GetComponent<Rigidbody2D>().gravityScale = 1;  // J : 횡스크롤이므로 중력 적용
         }
     }
 }
