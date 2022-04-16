@@ -38,17 +38,18 @@ public class ItemData : MonoBehaviour
 
     void GenerateData(List<ItemDictionary> itemData)
     {
+        itemData = new List<ItemDictionary>();
         // J : 공예 데이터 추가 (예시)
         itemData.Add(new ItemDictionary(
-            Resources.Load("Item/Equipment/Shovel") as Item,
+            Resources.Load<Item>("Item/Equipment/Shovel"),
             new List<Items> {
-                new Items(Resources.Load("Item/Food/Apple") as Item, 1),
-                new Items(Resources.Load("Item/Food/Banana") as Item, 2)
+                new Items(Resources.Load<Item>("Item/Food/Apple"), 1),
+                new Items(Resources.Load<Item>("Item/Food/Banana"), 2)
             }));
         itemData.Add(new ItemDictionary(
-            Resources.Load("Item/Equipment/Pork") as Item,
+            Resources.Load<Item>("Item/Equipment/Pork"),
             new List<Items> {
-                new Items(Resources.Load("Item/Food/Carrot") as Item, 2)
+                new Items(Resources.Load<Item>("Item/Food/Carrot"), 2)
             }));
     }
 
