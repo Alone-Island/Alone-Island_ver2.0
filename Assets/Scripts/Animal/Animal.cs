@@ -8,6 +8,7 @@ public abstract class Animal : MonoBehaviour
     public string englishName;  // J : 동물 프리팹 이름
     public int hp;
     public List<Item> huntingItems;    // J : 사냥 시 플레이어가 얻는 아이템 리스트
+    public List<FoodItem.FoodType> preferFoods; // J : 동물이 좋아하는 음식 유형
 
     // J : 미사용
     public int offensivePower;

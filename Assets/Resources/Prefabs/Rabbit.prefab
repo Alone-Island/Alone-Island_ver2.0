@@ -71,6 +71,7 @@ MonoBehaviour:
   englishName: Rabbit
   hp: 30
   huntingItems: []
+  preferFoods: 00000000
   offensivePower: 10
   layerMask:
     serializedVersion: 2
