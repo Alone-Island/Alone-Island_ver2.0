@@ -58,7 +58,7 @@ public class ItemData : MonoBehaviour
     void GenerateData(Dictionary<int, ItemDictionary> itemData)
     {
         itemData.Add(0, new ItemDictionary("knife", Item.ItemType.Equipment, new List<Items> {new Items(1, "branch", 1), new Items(2, "rock", 2) } ));
-        itemData.Add(1, new ItemDictionary("strawerry", Item.ItemType.Used, null) );
+        itemData.Add(1, new ItemDictionary("strawerry", Item.ItemType.Food, null) );
     }
 
     public List<Tuple<int, string, int>> GetItemMaterialsData(int id)
@@ -71,10 +71,12 @@ public class ItemData : MonoBehaviour
         return materials;
     }
 
+    /*
     public Item GetItemData(int id)
     {
         return new Item(itemData[id].name, itemData[id].type);
     }
+    */
 
     public List<Tuple<int, string>> GetItems()
     {

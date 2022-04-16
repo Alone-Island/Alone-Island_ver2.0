@@ -30,8 +30,10 @@ public class CraftManager : MonoBehaviour
 
     private List<Tuple<int, string, int>> CheckCanMakeThisItem(int id) {
         List<Tuple<int, string, int>> materials = itemData.GetItemMaterialsData(id);
+        /*
         for (int i = 0; i < materials.Count; i++)
         {
+
             Item item = itemData.GetItemData(id);
             int count = theInventory.GetItemCount(item.name); // K : 모든 아이템을 가져오는 함수 or 특정 item이 몇개 있는지 알려주는 함수 필요함
             if (count < materials[i].Item3)
@@ -39,11 +41,13 @@ public class CraftManager : MonoBehaviour
                 return null;
             }
         }
+        */
         return materials;
     }
 
     public bool MakeNewItem(int id) {
         List<Tuple<int, string, int>> materials = CheckCanMakeThisItem(id);
+        /*
         Item newItem = itemData.GetItemData(id);
         if (materials == null)
         {
@@ -60,7 +64,7 @@ public class CraftManager : MonoBehaviour
         // K : 아이템 인벤토리 추가
         Debug.Log(newItem.itemName + " 획득 성공");
         theInventory.AcquireItem(newItem);    // J : 인벤토리의 슬롯에 아이템 추가
-
+        */
 
         return true;
     }

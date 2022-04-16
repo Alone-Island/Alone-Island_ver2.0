@@ -30,7 +30,7 @@ public class RearManager : MonoBehaviour
     // J : 음식 리스트 나열
     private void SetFoodItemList()
     {
-        itemList = theInventory.GetTypeItemList(Item.ItemType.Used); // J : 식량 아이템 리스트 받아오기
+        itemList = theInventory.GetTypeItemList(Item.ItemType.Food); // J : 식량 아이템 리스트 받아오기
 
         foreach (KeyValuePair<Item, int> _item in itemList)
         {
