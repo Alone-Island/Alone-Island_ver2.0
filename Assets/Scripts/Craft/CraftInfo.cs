@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftList : MonoBehaviour
+public class CraftInfo : MonoBehaviour
 {
+    public Item item;
+
+    // 필요한 컴포넌트
     [SerializeField]
     private CraftManager craftManager;
-
-    public int itemId;
-    public int itemName;
-    public Item item;
 
     // Start is called before the first frame update
     void Start()
