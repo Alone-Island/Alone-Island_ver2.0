@@ -11,6 +11,7 @@ public class RearManager : MonoBehaviour
     private Dictionary<Item, int> itemList;     // J : 식량 아이템 리스트
     private Item dropItem;  // J : 플레이어가 드롭한 식량 아이템
     private GameObject animalObject;    // J : 스폰한 동물 오브젝트
+    private bool isDropFood;
 
     // 필요한 컴포넌트
     [SerializeField]
@@ -54,7 +55,7 @@ public class RearManager : MonoBehaviour
     // J : 플레이어 앞에 음식 떨어트리기
     public void DropFood(GameObject obj)
     {
-        if (theInventory.ConsumeItem(obj.GetComponent<ItemInfo>().item))    // J : 아이템이 1개 이상 있으면
+        if (!isDropFood && theInventory.ConsumeItem(obj.GetComponent<ItemInfo>().item))    // J : 아이템이 1개 이상 있으면
         {
             dropItem = obj.GetComponent<ItemInfo>().item;
             itemList[dropItem] -= 1;   // J : 아이템 리스트에서 개수 업데이트
@@ -67,6 +68,7 @@ public class RearManager : MonoBehaviour
             spawnPosition.x += GameObject.Find("Player").transform.localScale.x;
             GameObject foodObject = Instantiate(dropItem.itemPrefab, spawnPosition, Quaternion.identity);    // J : 음식 오브젝트 스폰
             foodObject.GetComponent<Rigidbody2D>().gravityScale = 1;  // J : 횡스크롤이므로 중력 적용
+            isDropFood = true;  // J : 음식을 하나만 떨어트리도록
 
             checkPreferFood();
         }
