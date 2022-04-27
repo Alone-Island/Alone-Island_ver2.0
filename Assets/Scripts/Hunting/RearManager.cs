@@ -27,7 +27,7 @@ public class RearManager : MonoBehaviour
         prefab = Resources.Load("Prefabs/ItemInfo") as GameObject;
 
         SetFoodItemList();  // J : 음식 리스트 나열
-        animalObject = HuntingManager.SpawnAnimal(Resources.Load("Prefabs/" + GameData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
+        animalObject = HuntingManager.SpawnAnimal(Resources.Load("Prefabs/" + TemporaryData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
     }
 
     // J : 음식 리스트 나열
@@ -76,7 +76,7 @@ public class RearManager : MonoBehaviour
 
     private void checkPreferFood()
     {
-        List<FoodItem.FoodType> preferFoods = GameData.encounterAnimal.preferFoods; // J : 동물이 좋아하는 음식 유형
+        List<FoodItem.FoodType> preferFoods = TemporaryData.encounterAnimal.preferFoods; // J : 동물이 좋아하는 음식 유형
         if (preferFoods.Contains(((FoodItem)dropItem).foodType))    // J : 드롭한 음식이 동물이 좋아하는 유형이면
         {
             Debug.Log("길들이기 성공 확률 증가");
