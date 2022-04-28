@@ -24,7 +24,7 @@ public class HuntingDialogManager : MonoBehaviour
 
     private void Start()
     {
-        talkText.text = TemporaryData.encounterAnimal.koreanName + "(을)를 마주쳤다!";    // J : 마주친 동물에 따른 텍스트 변경
+        talkText.text = DataController.Instance.gameData.encounterAnimal.koreanName + "(을)를 마주쳤다!";    // J : 마주친 동물에 따른 텍스트 변경
     }
 
     // Update is called once per frame

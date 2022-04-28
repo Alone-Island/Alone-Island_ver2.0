@@ -26,7 +26,7 @@ public class HuntingManager : MonoBehaviour
     private void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
-        animalObject = SpawnAnimal(Resources.Load("Prefabs/" + TemporaryData.encounterAnimal.englishName), spawnPosition);
+        animalObject = SpawnAnimal(Resources.Load("Prefabs/" + DataController.Instance.gameData.encounterAnimal.englishName), spawnPosition);
     }
 
     // Update is called once per frame
@@ -54,20 +54,20 @@ public class HuntingManager : MonoBehaviour
         if (isSuccess)  // J : 성공하면 무기의 공격력만큼 동물 체력 감소
         {
             int offensivePower = 20;    // J : 무기 장착 미구현 상태이므로 무기 공격력 임의로 지정 (미구현)
-            TemporaryData.encounterAnimal.hp -= offensivePower;
-            if (TemporaryData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
+            DataController.Instance.gameData.encounterAnimal.hp -= offensivePower;
+            if (DataController.Instance.gameData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
             {
-                Debug.Log(TemporaryData.encounterAnimal.koreanName + " 사냥 성공!");
+                Debug.Log(DataController.Instance.gameData.encounterAnimal.koreanName + " 사냥 성공!");
 
                 // J : 인벤토리에 사냥으로 얻은 아이템 추가
-                foreach (Item item in TemporaryData.encounterAnimal.huntingItems)
+                foreach (Item item in DataController.Instance.gameData.encounterAnimal.huntingItems)
                     theInventory.AcquireItem(item);
 
                 SceneManager.LoadScene("TestJ_hunt");   // J : 사냥터로 이동
             }
             else
             {
-                Debug.Log(TemporaryData.encounterAnimal.koreanName + "의 남은 체력 : " + TemporaryData.encounterAnimal.hp);
+                Debug.Log(DataController.Instance.gameData.encounterAnimal.koreanName + "의 남은 체력 : " + DataController.Instance.gameData.encounterAnimal.hp);
                 theTimingBar.DecideSuccessRange();  // J : 적중 범위 갱신
                 theTimingBar.moveActivated = true;  // J : 다시 공격 시도
             }
