@@ -23,7 +23,7 @@ public class TimingBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pos = Arrow.position;   // J : 화살표의 위치 가져옴
+        pos = Arrow.localPosition;   // J : 화살표의 위치 가져옴
         width = Bar.transform.localScale.x;
         delta = Bar.GetComponent<RectTransform>().rect.width / 2;   // J : 바 너비의 반이 이동 가능한 x의 최대값
         DecideSuccessRange();   // J : 타이밍 적중 범위 결정
@@ -56,7 +56,7 @@ public class TimingBar : MonoBehaviour
     {
         Vector3 v = pos;
         v.x += delta * Mathf.Sin(Time.time * speed);    // J : x의 범위 : [-delta, delta]
-        Arrow.position = v;
+        Arrow.localPosition = v;
     }
 
     // J : 화살표의 움직임 중지, 적중 여부를 리턴
