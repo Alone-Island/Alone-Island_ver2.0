@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3110069826056080002}
   - component: {fileID: 2093821518779147698}
-  - component: {fileID: 5724553351448421776}
   - component: {fileID: 8057113557624752071}
   - component: {fileID: 6031338332441439949}
+  - component: {fileID: 4696708976072865817}
   m_Layer: 6
   m_Name: Rabbit
   m_TagString: Animal
@@ -55,27 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5724553351448421776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5724553351448421779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b677507a5da1c46b625dbccddc0a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  koreanName: "\uD1A0\uB07C"
-  englishName: Rabbit
-  hp: 30
-  huntingItems: []
-  preferFoods: 00000000
-  offensivePower: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!212 &8057113557624752071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -153,3 +132,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83760685, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4696708976072865817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724553351448421779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d736718a99511244792d8c2f639dc193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animal: {fileID: 11400000, guid: 7001b3562e1070f41816a6ec6f87b522, type: 2}
+  sound: "\uAE61\uCD1D\uAE61\uCD1D"

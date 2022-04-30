@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6082550954751563378}
   - component: {fileID: 7083599578967292226}
-  - component: {fileID: 8905243902620653500}
   - component: {fileID: 1193491066404264759}
   - component: {fileID: -5984402539975822787}
+  - component: {fileID: -728498408420927578}
   m_Layer: 6
   m_Name: Pig
   m_TagString: Animal
@@ -55,28 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8905243902620653500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3472571269240535395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb99c859a0ccd0a4285157ef7ebce40b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  koreanName: "\uB3FC\uC9C0"
-  englishName: Pig
-  hp: 50
-  huntingItems:
-  - {fileID: 11400000, guid: 66664e90fa3b29045af4518a0a35d668, type: 2}
-  preferFoods: 0000000001000000
-  offensivePower: 30
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!212 &1193491066404264759
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,3 +132,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.846682, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-728498408420927578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472571269240535395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d736718a99511244792d8c2f639dc193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animal: {fileID: 11400000, guid: c417f2c9a44b36d4ba8028701d0f8db6, type: 2}
+  sound: "\uAFC0\uAFC0"

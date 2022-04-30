@@ -8,6 +8,7 @@ public class HuntingManager : MonoBehaviour
 {
     private bool isSuccess; // J : 타이밍바 적중 여부
     private GameObject animalObject;    // J : 스폰한 동물 오브젝트
+    private int animalHP;
 
     [SerializeField]
     private Vector3 spawnPosition;  // J : 동물이 스폰될 위치
@@ -27,6 +28,7 @@ public class HuntingManager : MonoBehaviour
     {
         theInventory = FindObjectOfType<Inventory>();
         animalObject = SpawnAnimal(Resources.Load("Prefabs/" + DataController.Instance.gameData.encounterAnimal.englishName), spawnPosition);
+        animalHP = DataController.Instance.gameData.encounterAnimal.hp;
     }
 
     // Update is called once per frame
@@ -54,8 +56,8 @@ public class HuntingManager : MonoBehaviour
         if (isSuccess)  // J : 성공하면 무기의 공격력만큼 동물 체력 감소
         {
             int offensivePower = 20;    // J : 무기 장착 미구현 상태이므로 무기 공격력 임의로 지정 (미구현)
-            DataController.Instance.gameData.encounterAnimal.hp -= offensivePower;
-            if (DataController.Instance.gameData.encounterAnimal.hp <= 0)    // J : 동물의 체력이 모두 닳음
+            animalHP -= offensivePower;
+            if (animalHP <= 0)    // J : 동물의 체력이 모두 닳음
             {
                 Debug.Log(DataController.Instance.gameData.encounterAnimal.koreanName + " 사냥 성공!");
 
@@ -67,7 +69,7 @@ public class HuntingManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(DataController.Instance.gameData.encounterAnimal.koreanName + "의 남은 체력 : " + DataController.Instance.gameData.encounterAnimal.hp);
+                Debug.Log(DataController.Instance.gameData.encounterAnimal.koreanName + "의 남은 체력 : " + animalHP);
                 theTimingBar.DecideSuccessRange();  // J : 적중 범위 갱신
                 theTimingBar.moveActivated = true;  // J : 다시 공격 시도
             }
