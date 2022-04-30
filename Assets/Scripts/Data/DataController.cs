@@ -70,7 +70,8 @@ public class DataController : MonoBehaviour
 
     public void SaveGameData()
     {
-        string ToJsonData = JsonUtility.ToJson(gameData);
+        SaveData saveData = new SaveData(gameData);
+        string ToJsonData = JsonUtility.ToJson(saveData);
         string filePath = Application.persistentDataPath + "/" + GameDataFileName;
         File.WriteAllText(filePath, ToJsonData);
         Debug.Log("데이터 저장 완료");
