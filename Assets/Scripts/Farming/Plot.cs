@@ -52,16 +52,16 @@ public class Plot : MonoBehaviour
         {
             if (plantStage == plantStages.Length - 1)
             {
-                Harvest();
+                Harvesting();
             }
         }
         else
         {
-            Plant();
+            Planting();
         }
     }
 
-    void Plant()
+    void Planting()
     {
         isTaken = true;
         plantStage = 0;
@@ -70,7 +70,7 @@ public class Plot : MonoBehaviour
         plant.gameObject.SetActive(true);
     }
 
-    void Harvest()
+    void Harvesting()
     {
         isTaken = false;
         plant.gameObject.SetActive(false);
