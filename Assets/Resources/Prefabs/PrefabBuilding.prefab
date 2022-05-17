@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 785290481119018292}
   - component: {fileID: 785290481119018291}
   - component: {fileID: 785290481119018290}
-  - component: {fileID: 3587478437616232112}
+  - component: {fileID: 1623262500115496941}
   m_Layer: 0
   m_Name: PrefabBuilding
   m_TagString: Untagged
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3587478437616232112
+--- !u!114 &1623262500115496941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

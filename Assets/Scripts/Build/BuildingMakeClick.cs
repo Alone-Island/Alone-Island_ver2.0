@@ -65,20 +65,10 @@ public class BuildingMakeClick : MonoBehaviour
             // C : dragBuilding 오브젝트의 하위 오브젝트 중, Build 여부 체크를 위한 오브젝트 찾기
             GameObject buildNo = dragBuilding.transform.Find("BuildNo").gameObject;
             GameObject buildYes = dragBuilding.transform.Find("BuildYes").gameObject;
-            checkCanBuild = false;
-            // C : 건물을 지을 수 있는 상황인지 체크
-            if (checkCanBuild)
-            {
-                // C : 건물을 지을 수 있는 상황이면 buildYes만 SetActive true
-                buildNo.SetActive(false);
-                buildYes.SetActive(true);
-            }
-            else if (!checkCanBuild)
-            {
-                // C : 건물을 지을 수 없는 상황이면 buildNo만 SetActive true
-                buildYes.SetActive(false);
-                buildNo.SetActive(true);
-            }
+            
+            // C : 건물을 지을 수 없는 상황이면 buildNo만 SetActive true
+            buildYes.SetActive(false);
+            buildNo.SetActive(true);
         }
     }
 
@@ -98,19 +88,10 @@ public class BuildingMakeClick : MonoBehaviour
             // C : dragBuilding 오브젝트의 하위 오브젝트 중, Build 여부 체크를 위한 오브젝트 찾기
             GameObject buildNo = dragBuilding.transform.Find("BuildNo").gameObject;
             GameObject buildYes = dragBuilding.transform.Find("BuildYes").gameObject;
-            // C : 건물을 지을 수 있는 상황인지 체크
-            if (checkCanBuild)
-            {
-                // C : 건물을 지을 수 있는 상황이면 buildYes만 SetActive true
-                buildNo.SetActive(false);
-                buildYes.SetActive(true);
-            }
-            else if (!checkCanBuild)
-            {
-                // C : 건물을 지을 수 없는 상황이면 buildNo만 SetActive true
-                buildYes.SetActive(false);
-                buildNo.SetActive(true);
-            }
+            
+            // C : 건물을 지을 수 있는 상황이면 buildYes만 SetActive true
+            buildNo.SetActive(false);
+            buildYes.SetActive(true);
         }
     }
 }

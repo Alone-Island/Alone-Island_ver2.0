@@ -25,20 +25,9 @@ public class CheckCanBuild : MonoBehaviour
         // C : 지어진 건물 위치로 들어왔을 경우
         checkCanBuild = false;              // C : 빌드 가능 여부를 false로
 
-        // C : 건물을 지을 수 있는 상황인지 체크
-        if (checkCanBuild)
-        {
-            // C : 건물을 지을 수 있는 상황이면 buildYes만 SetActive true
-            coll.gameObject.transform.Find("BuildNo").gameObject.SetActive(false);
-            coll.gameObject.transform.Find("BuildYes").gameObject.SetActive(true);
-        }
-        else if (!checkCanBuild)
-        {
-            // C : 건물을 지을 수 없는 상황이면 buildNo만 SetActive true
-            coll.gameObject.transform.Find("BuildNo").gameObject.SetActive(true);
-            coll.gameObject.transform.Find("BuildYes").gameObject.SetActive(false);
-        }
-
+        // C : 건물을 지을 수 없는 상황이면 buildNo만 SetActive true
+        coll.gameObject.transform.Find("BuildNo").gameObject.SetActive(true);
+        coll.gameObject.transform.Find("BuildYes").gameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D coll)
@@ -52,19 +41,8 @@ public class CheckCanBuild : MonoBehaviour
         // C : 지어진 건물 위치로 들어왔을 경우
         checkCanBuild = true;              // C : 빌드 가능 여부를 false로
 
-        // C : 건물을 지을 수 있는 상황인지 체크
-        if (checkCanBuild)
-        {
-            // C : 건물을 지을 수 있는 상황이면 buildYes만 SetActive true
-            coll.gameObject.transform.Find("BuildNo").gameObject.SetActive(false);
-            coll.gameObject.transform.Find("BuildYes").gameObject.SetActive(true);
-        }
-        else if (!checkCanBuild)
-        {
-            // C : 건물을 지을 수 없는 상황이면 buildNo만 SetActive true
-            coll.gameObject.transform.Find("BuildNo").gameObject.SetActive(true);
-            coll.gameObject.transform.Find("BuildYes").gameObject.SetActive(false);
-        }
-
+        // C : 건물을 지을 수 있는 상황이면 buildYes만 SetActive true
+        coll.gameObject.transform.Find("BuildNo").gameObject.SetActive(false);
+        coll.gameObject.transform.Find("BuildYes").gameObject.SetActive(true);
     }
 }
