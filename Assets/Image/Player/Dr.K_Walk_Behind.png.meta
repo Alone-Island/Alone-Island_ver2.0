@@ -1,0 +1,600 @@
+fileFormatVersion: 2
+guid: f11342609456c2b4195cbc0bf0b25f13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7732104455816146390
+    second: Dr.K_Walk_Behind_0
+  - first:
+      213: -6521460446570499108
+    second: Dr.K_Walk_Behind_1
+  - first:
+      213: -430946317698648982
+    second: Dr.K_Walk_Behind_2
+  - first:
+      213: 8890078011961039454
+    second: Dr.K_Walk_Behind_3
+  - first:
+      213: 419363585538600721
+    second: Dr.K_Walk_Behind_4
+  - first:
+      213: -7231232895533088049
+    second: Dr.K_Walk_Behind_5
+  - first:
+      213: -9074629885221883627
+    second: Dr.K_Walk_Behind_6
+  - first:
+      213: 1334517597307881017
+    second: Dr.K_Walk_Behind_7
+  - first:
+      213: 2431510004552428319
+    second: Dr.K_Walk_Behind_8
+  - first:
+      213: 4975741275391338335
+    second: Dr.K_Walk_Behind_9
+  - first:
+      213: -5746773877536688831
+    second: Dr.K_Walk_Behind_10
+  - first:
+      213: 1610714954918405968
+    second: Dr.K_Walk_Behind_11
+  - first:
+      213: -4338409703505949729
+    second: Dr.K_Walk_Behind_12
+  - first:
+      213: 2077875416934595349
+    second: Dr.K_Walk_Behind_13
+  - first:
+      213: -2784365508376927997
+    second: Dr.K_Walk_Behind_14
+  - first:
+      213: -7092095079001330066
+    second: Dr.K_Walk_Behind_15
+  - first:
+      213: 5513129351369329401
+    second: Dr.K_Walk_Behind_16
+  - first:
+      213: 8130789803667099847
+    second: Dr.K_Walk_Behind_17
+  - first:
+      213: -5579823208389955736
+    second: Dr.K_Walk_Behind_18
+  - first:
+      213: -528460575913497746
+    second: Dr.K_Walk_Behind_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1650
+        width: 648
+        height: 1308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dde22f3904fd4b60800000000000000
+      internalID: 7732104455816146390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_1
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 1642
+        width: 640
+        height: 1292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3b769a64e1f75a0800000000000000
+      internalID: -6521460446570499108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_2
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 1638
+        width: 631
+        height: 1312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a643f487b98f40af0800000000000000
+      internalID: -430946317698648982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_3
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 1634
+        width: 606
+        height: 1328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ad278a9d6ef5b70800000000000000
+      internalID: 8890078011961039454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_4
+      rect:
+        serializedVersion: 2
+        x: 2955
+        y: 1642
+        width: 579
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f23cb85f0e1d500800000000000000
+      internalID: 419363585538600721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_5
+      rect:
+        serializedVersion: 2
+        x: 3678
+        y: 1662
+        width: 572
+        height: 1324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc281a58eff75ab90800000000000000
+      internalID: -7231232895533088049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_6
+      rect:
+        serializedVersion: 2
+        x: 4402
+        y: 1694
+        width: 572
+        height: 1296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511b437e230701280800000000000000
+      internalID: -9074629885221883627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_7
+      rect:
+        serializedVersion: 2
+        x: 5126
+        y: 1703
+        width: 572
+        height: 1287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9364b062fa8258210800000000000000
+      internalID: 1334517597307881017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_8
+      rect:
+        serializedVersion: 2
+        x: 5847
+        y: 1687
+        width: 599
+        height: 1303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1be72967757eb120800000000000000
+      internalID: 2431510004552428319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_9
+      rect:
+        serializedVersion: 2
+        x: 6574
+        y: 1682
+        width: 640
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5723fdc3526d0540800000000000000
+      internalID: 4975741275391338335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_10
+      rect:
+        serializedVersion: 2
+        x: 7310
+        y: 1678
+        width: 644
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1457ee82b9b5f30b0800000000000000
+      internalID: -5746773877536688831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_11
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 302
+        width: 632
+        height: 1272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0572252b7b86a5610800000000000000
+      internalID: 1610714954918405968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_12
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 294
+        width: 628
+        height: 1292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb8b6c4c5fdac3c0800000000000000
+      internalID: -4338409703505949729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_13
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 290
+        width: 608
+        height: 1312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b37e1cea816dc10800000000000000
+      internalID: 2077875416934595349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_14
+      rect:
+        serializedVersion: 2
+        x: 2246
+        y: 298
+        width: 587
+        height: 1316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301e7548252fb59d0800000000000000
+      internalID: -2784365508376927997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_15
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 314
+        width: 572
+        height: 1310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e64d6e911d39d90800000000000000
+      internalID: -7092095079001330066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_16
+      rect:
+        serializedVersion: 2
+        x: 3690
+        y: 338
+        width: 572
+        height: 1292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa062d6fe1928c40800000000000000
+      internalID: 5513129351369329401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_17
+      rect:
+        serializedVersion: 2
+        x: 4410
+        y: 310
+        width: 572
+        height: 1320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c012f66f3e56d070800000000000000
+      internalID: 8130789803667099847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_18
+      rect:
+        serializedVersion: 2
+        x: 5113
+        y: 290
+        width: 597
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86faf6aea5c7092b0800000000000000
+      internalID: -5579823208389955736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Behind_19
+      rect:
+        serializedVersion: 2
+        x: 5802
+        y: 286
+        width: 632
+        height: 1332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ba0e6f7e78aa8f0800000000000000
+      internalID: -528460575913497746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

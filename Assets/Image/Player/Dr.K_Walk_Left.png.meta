@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: e888c33467372e74291e93814dc9cae1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5426147357528680141
+    second: DrKWalk_0
+  - first:
+      213: -648259255829130472
+    second: DrKWalk_1
+  - first:
+      213: -7948046688348581296
+    second: DrKWalk_2
+  - first:
+      213: -4872125817469308383
+    second: DrKWalk_3
+  - first:
+      213: 120721905750960540
+    second: DrKWalk_4
+  - first:
+      213: -3900077479467054772
+    second: DrKWalk_5
+  - first:
+      213: 3654575850213198297
+    second: DrKWalk_6
+  - first:
+      213: -219745143108132998
+    second: DrKWalk_7
+  - first:
+      213: -4872029606546970625
+    second: DrKWalk_8
+  - first:
+      213: 1942983390593779800
+    second: DrKWalk_9
+  - first:
+      213: 7509847511701614764
+    second: DrKWalk_10
+  - first:
+      213: 4424848702084692683
+    second: DrKWalk_11
+  - first:
+      213: -1929935330351062117
+    second: DrKWalk_12
+  - first:
+      213: -7828624722973071872
+    second: DrKWalk_13
+  - first:
+      213: 1498476648621996662
+    second: DrKWalk_14
+  - first:
+      213: 7802314490360392996
+    second: DrKWalk_15
+  - first:
+      213: 7775763322904852481
+    second: DrKWalk_16
+  - first:
+      213: 1533826994370469794
+    second: DrKWalk_17
+  - first:
+      213: -3325660684682371259
+    second: DrKWalk_18
+  - first:
+      213: 7369100064658238180
+    second: DrKWalk_19
+  - first:
+      213: -5113501132502843202
+    second: Dr.K_Walk_Left_0
+  - first:
+      213: 1710215985245410342
+    second: Dr.K_Walk_Left_1
+  - first:
+      213: -3643062725309209953
+    second: Dr.K_Walk_Left_2
+  - first:
+      213: -8496993844961555159
+    second: Dr.K_Walk_Left_3
+  - first:
+      213: -5134144762993124862
+    second: Dr.K_Walk_Left_4
+  - first:
+      213: 8117710773789148672
+    second: Dr.K_Walk_Left_5
+  - first:
+      213: -2677457980252527197
+    second: Dr.K_Walk_Left_6
+  - first:
+      213: -6714146610514412522
+    second: Dr.K_Walk_Left_7
+  - first:
+      213: 1423669403466104060
+    second: Dr.K_Walk_Left_8
+  - first:
+      213: 7694965178542826070
+    second: Dr.K_Walk_Left_9
+  - first:
+      213: 3451169310883562824
+    second: Dr.K_Walk_Left_10
+  - first:
+      213: -5866592643011839611
+    second: Dr.K_Walk_Left_11
+  - first:
+      213: -4794800863909718657
+    second: Dr.K_Walk_Left_12
+  - first:
+      213: 7966406118838689009
+    second: Dr.K_Walk_Left_13
+  - first:
+      213: -59076901361652103
+    second: Dr.K_Walk_Left_14
+  - first:
+      213: 8231511786726313624
+    second: Dr.K_Walk_Left_15
+  - first:
+      213: 8741542280743099447
+    second: Dr.K_Walk_Left_16
+  - first:
+      213: 4338749479763813072
+    second: Dr.K_Walk_Left_17
+  - first:
+      213: 7496776663264624757
+    second: Dr.K_Walk_Left_18
+  - first:
+      213: 5988794407231881344
+    second: Dr.K_Walk_Left_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2810
+        width: 692
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb04c9effc13909b0800000000000000
+      internalID: -5113501132502843202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_1
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 2826
+        width: 720
+        height: 1264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6245fb1a068ebb710800000000000000
+      internalID: 1710215985245410342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_2
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 2842
+        width: 756
+        height: 1248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f926a7bc0cd317dc0800000000000000
+      internalID: -3643062725309209953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_3
+      rect:
+        serializedVersion: 2
+        x: 2194
+        y: 2834
+        width: 756
+        height: 1256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92dc264fd1d941a80800000000000000
+      internalID: -8496993844961555159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_4
+      rect:
+        serializedVersion: 2
+        x: 2954
+        y: 2822
+        width: 744
+        height: 1268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20adc583a8adfb8b0800000000000000
+      internalID: -5134144762993124862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_5
+      rect:
+        serializedVersion: 2
+        x: 3702
+        y: 2806
+        width: 712
+        height: 1284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006401570f6e7a070800000000000000
+      internalID: 8117710773789148672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_6
+      rect:
+        serializedVersion: 2
+        x: 4422
+        y: 2798
+        width: 656
+        height: 1292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5630a1722c7dad0800000000000000
+      internalID: -2677457980252527197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_7
+      rect:
+        serializedVersion: 2
+        x: 5086
+        y: 2790
+        width: 632
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c35661b3f82d2a0800000000000000
+      internalID: -6714146610514412522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_8
+      rect:
+        serializedVersion: 2
+        x: 5722
+        y: 2790
+        width: 708
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc703f87c3e1c310800000000000000
+      internalID: 1423669403466104060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_9
+      rect:
+        serializedVersion: 2
+        x: 6438
+        y: 2802
+        width: 740
+        height: 1288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652ab0a6f020aca60800000000000000
+      internalID: 7694965178542826070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_10
+      rect:
+        serializedVersion: 2
+        x: 7186
+        y: 2822
+        width: 752
+        height: 1268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845c1f2043405ef20800000000000000
+      internalID: 3451169310883562824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_11
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1518
+        width: 752
+        height: 1264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589fb5fd21da59ea0800000000000000
+      internalID: -5866592643011839611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_12
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 1514
+        width: 736
+        height: 1268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75dce9a402757db0800000000000000
+      internalID: -4794800863909718657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_13
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 1502
+        width: 708
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcd0e1482c5e8e60800000000000000
+      internalID: 7966406118838689009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_14
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 1498
+        width: 668
+        height: 1284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97e68e70fdd1e2ff0800000000000000
+      internalID: -59076901361652103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_15
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 1487
+        width: 620
+        height: 1295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89e434c8b543c3270800000000000000
+      internalID: 8231511786726313624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_16
+      rect:
+        serializedVersion: 2
+        x: 3522
+        y: 1478
+        width: 604
+        height: 1304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c10c0c362305970800000000000000
+      internalID: 8741542280743099447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_17
+      rect:
+        serializedVersion: 2
+        x: 4134
+        y: 1470
+        width: 623
+        height: 1312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2abb60aa5563c30800000000000000
+      internalID: 4338749479763813072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_18
+      rect:
+        serializedVersion: 2
+        x: 4762
+        y: 1470
+        width: 644
+        height: 1312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5708356d7a6e90860800000000000000
+      internalID: 7496776663264624757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dr.K_Walk_Left_19
+      rect:
+        serializedVersion: 2
+        x: 5414
+        y: 1482
+        width: 664
+        height: 1300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08007eb88c87c1350800000000000000
+      internalID: 5988794407231881344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
