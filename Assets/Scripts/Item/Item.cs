@@ -12,6 +12,7 @@ public class Item : ScriptableObject
         Food,   // J : 음식
         Equipment,  // J : 장비
         Ingredient, // J : 재료
+        Building,
         ETC,    // J : 기타
     }
 
