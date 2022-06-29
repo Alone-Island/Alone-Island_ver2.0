@@ -14,6 +14,9 @@ public class CraftManager : MonoBehaviour
     void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
+        itemData = FindObjectOfType<ItemData>();
+
+        
     }
 
     // K : 인벤토리에 필요한 재료가 모두 있으면 재료 리스트 리턴, 아니면 null 리턴
