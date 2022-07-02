@@ -20,6 +20,7 @@ public class Item : ScriptableObject
     public ItemType itemType; // J : 아이템 유형
     public Sprite itemImage; // J : 아이템의 이미지(인벤 토리 안에서 띄울)
     public GameObject itemPrefab;  // J : 아이템의 프리팹 (아이템 생성시 프리팹으로 찍어냄)
+    // 추가 : location?
 
     /*
     // K : Item class 생성자

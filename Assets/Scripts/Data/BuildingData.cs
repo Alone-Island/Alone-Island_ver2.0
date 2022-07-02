@@ -6,10 +6,10 @@ public class BuildingData : MonoBehaviour
 {
     public struct BuildingDictionary
     {
-        public Building building;   // 지으려는 건축물
+        public Item building;   // 지으려는 건축물
         public List<Items> materials;   // 건축물을 만드는데 필요한 재료 데이터
 
-        public BuildingDictionary(Building _building, List<Items> _materials)
+        public BuildingDictionary(Item _building, List<Items> _materials)
         {
             building = _building;
             materials = _materials;
@@ -40,14 +40,14 @@ public class BuildingData : MonoBehaviour
         buildingData = new List<BuildingDictionary>();
         // 건축물 데이터 리스트들 (예시)
         buildingData.Add(new BuildingDictionary(
-            Resources.Load<Building>("Building/Fence"),
+            Resources.Load<Item>("Item/Building/Fence"),
             new List<Items> {
                 new Items(Resources.Load<Item>("Item/Food/Apple"), 1),
                 new Items(Resources.Load<Item>("Item/Food/Banana"), 2)
             }));
     }
 
-    public List<Items> GetBuildingMaterialsData(Building _building)         // 건축물 건설에 필요한 재료 아이템 데이터 리턴
+    public List<Items> GetBuildingMaterialsData(Item _building)         // 건축물 건설에 필요한 재료 아이템 데이터 리턴
     {
         foreach (BuildingDictionary dict in buildingData)
             if (dict.building == _building)
