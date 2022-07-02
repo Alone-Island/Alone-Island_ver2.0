@@ -65,9 +65,9 @@ public class Plot : MonoBehaviour
     {
         isTaken = true;
         plantStage = 0;
+        plant.gameObject.SetActive(true);
         UpdatePlant();
         timer = timeBtwStages;
-        plant.gameObject.SetActive(true);
     }
 
     void Harvesting()
