@@ -33,6 +33,8 @@ public class PlayerMove : MonoBehaviour
         bool hUp = Input.GetButtonUp("Horizontal");
         bool vUp = Input.GetButtonUp("Vertical");
 
+        
+        /*
         // J : player가 바라보는 방향
         if (v == 1)
             dirVec = Vector3.up;
@@ -42,6 +44,8 @@ public class PlayerMove : MonoBehaviour
             dirVec = Vector3.left;
         else if (h == 1)
             dirVec = Vector3.right;
+        */
+        
 
         // C : isHorizontalMove 값 설정
         // C : 수평이동 설명 - 수평 방향키 누를 시 true, 수직 방향키 뗄 시 true
