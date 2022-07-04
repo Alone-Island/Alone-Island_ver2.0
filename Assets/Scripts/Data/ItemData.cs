@@ -29,7 +29,7 @@ public class ItemData : MonoBehaviour
         }
     }
 
-    private List<ItemDictionary> itemData;       // K : 공예 데이터를 저장하는 dictionary 변수
+    public List<ItemDictionary> itemData;       // K : 공예 데이터를 저장하는 dictionary 변수
 
     void Awake()
     {
@@ -47,7 +47,7 @@ public class ItemData : MonoBehaviour
                 new Items(Resources.Load<Item>("Item/Food/Banana"), 2)
             }));
         itemData.Add(new ItemDictionary(
-            Resources.Load<Item>("Item/Equipment/Pork"),
+            Resources.Load<Item>("Item/Food/Pork"),
             new List<Items> {
                 new Items(Resources.Load<Item>("Item/Food/Carrot"), 2)
             }));
