@@ -27,7 +27,7 @@ public class HuntingManager : MonoBehaviour
     private void Start()
     {
         theInventory = FindObjectOfType<Inventory>();
-        animalObject = SpawnAnimal(Resources.Load("Prefabs/" + DataController.Instance.gameData.encounterAnimal.englishName), spawnPosition);
+        animalObject = SpawnAnimal(Resources.Load("Prefabs/Animals/" + DataController.Instance.gameData.encounterAnimal.englishName), spawnPosition);
         animalHP = DataController.Instance.gameData.encounterAnimal.hp;
     }
 

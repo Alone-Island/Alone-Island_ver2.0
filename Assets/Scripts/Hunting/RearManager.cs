@@ -24,10 +24,10 @@ public class RearManager : MonoBehaviour
     {
         // J : 컴포넌트 불러오기
         theInventory = FindObjectOfType<Inventory>();
-        prefab = Resources.Load("Prefabs/ItemInfo") as GameObject;
+        prefab = Resources.Load("Prefabs/UI/ItemInfo") as GameObject;
 
         SetFoodItemList();  // J : 음식 리스트 나열
-        animalObject = HuntingManager.SpawnAnimal(Resources.Load("Prefabs/" + DataController.Instance.gameData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
+        animalObject = HuntingManager.SpawnAnimal(Resources.Load("Prefabs/Animals/" + DataController.Instance.gameData.encounterAnimal.englishName), spawnPosition);   // J : HunitngManager의 함수로 동물 스폰
     }
 
     // J : 음식 리스트 나열
