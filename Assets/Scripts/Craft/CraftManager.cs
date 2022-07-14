@@ -9,6 +9,8 @@ public class CraftManager : MonoBehaviour
 {
     // 필요한 컴포넌트
     [SerializeField]
+    private static CraftManager _instance;
+
     public ItemData ItemData;
     private Inventory Inventory;
 
@@ -17,84 +19,38 @@ public class CraftManager : MonoBehaviour
     public List<ItemData.ItemDictionary> itemData;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Inventory = FindObjectOfType<Inventory>();
         ItemData = FindObjectOfType<ItemData>();
-        //CraftContent = GameObject.Find("Content");
 
-        itemData = new List<ItemData.ItemDictionary>();
+        //ItemData.GenerateData();
+
+        itemData = ItemData.GenerateData();
         // J : 공예 데이터 추가 (예시)
-        itemData.Add(new ItemData.ItemDictionary(
-            Resources.Load<Item>("Item/Equipment/Shovel"),
-            new List<ItemData.Items> {
-                new ItemData.Items(Resources.Load<Item>("Item/Food/Apple"), 1),
-                new ItemData.Items(Resources.Load<Item>("Item/Food/Banana"), 2)
-            }));
-        itemData.Add(new ItemData.ItemDictionary(
-            Resources.Load<Item>("Item/Food/Pork"),
-            new List<ItemData.Items> {
-                new ItemData.Items(Resources.Load<Item>("Item/Food/Carrot"), 2)
-            }));
-        itemData.Add(new ItemData.ItemDictionary(
-            Resources.Load<Item>("Item/Food/Pork"),
-            new List<ItemData.Items> {
-                new ItemData.Items(Resources.Load<Item>("Item/Food/Carrot"), 2)
-            }));
+        //itemData = ItemData.itemData;
 
-        for (int i = 0; i < itemData.Count; i++)
-        {
-            ItemData.ItemDictionary item = itemData[i];
-            GameObject craftItemList = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/UI/Craft/CraftItemList") as GameObject) as GameObject;
-            craftItemList.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = item.item.itemImage;
-            craftItemList.transform.SetParent(CraftContent.transform, false);
-
-            for (int j = 0; j < item.materials.Count; j++)
-            {
-                GameObject material = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/UI/Craft/Material") as GameObject) as GameObject;
-                material.transform.SetParent(craftItemList.transform.GetChild(2), false);
-
-                material.transform.GetChild(0).GetComponent<Image>().sprite = item.materials[j].item.itemImage;
-                material.transform.GetChild(2).GetComponent<Text>().text = item.materials[j].num.ToString();
-
-                if (j < item.materials.Count - 1)
-                {
-                    GameObject addMaterial = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/UI/Craft/AddMaterial") as GameObject) as GameObject;
-                    addMaterial.transform.SetParent(craftItemList.transform.GetChild(2), false);
-                }
-            }
-
-            if (CheckCanMakeItem(item.materials))
-            {
-                craftItemList.GetComponent<Button>().enabled = false;
-            } else
-            {
-                craftItemList.GetComponent<Button>().enabled = true;
-            }
-
-            craftItemList.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                if (MakeNewItem(item))
-                {
-                    CraftComplete.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = item.item.itemImage;
-                    CraftComplete.SetActive(true);
-                }
-            });
-        }
-
-        gameObject.SetActive(false);
+       
     }
 
     private void Update()
     {
-        if (ItemData != null)
+    }
+    public CraftManager Instance()
+    {
+        Init();
+        return _instance;
+    }
+    private void Init()
+    {
+        if (_instance == null)
         {
-            
+            _instance = FindObjectOfType<CraftManager>();
         }
     }
 
     // K : 인벤토리에 필요한 재료가 모두 있으면 재료 리스트 리턴, 아니면 null 리턴
-    private Boolean CheckCanMakeItem(List<ItemData.Items> materials) {
+    public Boolean CheckCanMakeItem(List<ItemData.Items> materials) {
         //List<ItemData.Items> materials = ItemData.GetItemMaterialsData(_item);  // J : 아이템을 만드는데 필요한 재료 리스트 받아오기
 
         foreach (ItemData.Items material in materials)
