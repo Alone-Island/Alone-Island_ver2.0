@@ -14,6 +14,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float speed = 5;            // C : player의 이동 속력 값을 설정하기 위한 변수
 
+    private string prevState = "horizon";
+    //private List<bool> prevState = new List<bool>() { false, false, false, false };
+    //private List<bool> currentState = new List<bool>() { false, false, false, false };
 
     void Start()
     {
@@ -51,14 +54,16 @@ public class PlayerMove : MonoBehaviour
         // C : 수평이동 설명 - 수평 방향키 누를 시 true, 수직 방향키 뗄 시 true
         //     (수평 방향키 누른 후, 수직 방향키도 함께 누르다가 수직 방향키를 먼저 뗄 경우
         //      누르고 있는 수평 방향키 값대로 움직이기 위해 vUp도 고려해야 함)
-        if (hDown || vUp)               // C : 수평이동 고려
+        
+        if (hDown || vUp)                   // C : 수평이동 고려
             isHorizonMove = true;
         else if (vDown || hUp)          // C : 수직이동 고려
             isHorizonMove = false;
-
+        
 
         // C : 애니메이션 설정
         // C : 추후 모든 방향 이동 에셋 제공될 시, 코드 수정 예정
+        /*
         if (playerAnim.GetInteger("hAxisRaw") != h)
         {
             playerAnim.SetBool("isChange", true);
@@ -73,6 +78,7 @@ public class PlayerMove : MonoBehaviour
         {
             playerAnim.SetBool("isChange", false);
         }
+        */
     }
 
     void FixedUpdate()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    /*
     // 필요한 컴포넌트
     [SerializeField]
     private static BuildingManager _instance;
@@ -12,7 +11,7 @@ public class BuildingManager : MonoBehaviour
     private BuildingData BuildingData;
     private Inventory Inventory;
 
-    public GameObject BuildingContent;
+    // public GameObject BuildingContent;
     public GameObject BuildingFail;
     public List<BuildingData.BuildingDictionary> buildingData;
 
@@ -20,9 +19,9 @@ public class BuildingManager : MonoBehaviour
     void Start()
     {
         Inventory = FindObjectOfType<Inventory>();
-        BuildingData = FindObjectOfType<BuildingData>();
+       // BuildingData = FindObjectOfType<BuildingData>();
 
-        buildingData = BuildingData.GenerateData();
+       // buildingData = BuildingData.GenerateData();
     }
 
     public BuildingManager Instance()
@@ -71,5 +70,4 @@ public class BuildingManager : MonoBehaviour
         // TODO : 지어진 건축물 정보(name, location) 저장하기
         return true;
     }
-    */
 }
