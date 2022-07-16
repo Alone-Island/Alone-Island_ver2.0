@@ -605,7 +605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e7ebf5ff5c144248ab830095fc0420b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingData: {fileID: 0}
 --- !u!4 &1756255901
 Transform:
   m_ObjectHideFlags: 0
@@ -631,7 +630,7 @@ GameObject:
   - component: {fileID: 1866562017}
   - component: {fileID: 1866562016}
   m_Layer: 0
-  m_Name: BuildingUI
+  m_Name: UIBuild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

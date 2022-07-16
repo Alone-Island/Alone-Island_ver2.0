@@ -32,19 +32,19 @@ public class BuildingData : MonoBehaviour
 
     void Awake()
     {
-        GenerateData(buildingData);
     }
 
-    void GenerateData(List<BuildingDictionary> buildingData)
+    public List<BuildingDictionary> GenerateData()
     {
         buildingData = new List<BuildingDictionary>();
-        // 건축물 데이터 리스트들 (예시)
-        buildingData.Add(new BuildingDictionary(
+        buildingData.Add(new BuildingData.BuildingDictionary(
             Resources.Load<Item>("Item/Building/Fence"),
-            new List<Items> {
-                new Items(Resources.Load<Item>("Item/Food/Apple"), 1),
-                new Items(Resources.Load<Item>("Item/Food/Banana"), 2)
+            new List<BuildingData.Items> {
+                new BuildingData.Items(Resources.Load<Item>("Item/Food/Apple"), 1),
+                new BuildingData.Items(Resources.Load<Item>("Item/Food/Banana"), 2)
             }));
+
+        return buildingData;
     }
 
     public List<Items> GetBuildingMaterialsData(Item _building)         // 건축물 건설에 필요한 재료 아이템 데이터 리턴
