@@ -2,7 +2,8 @@
   "project_info": {
     "project_number": "320179685012",
     "project_id": "alone-island",
-    "storage_bucket": "alone-island.appspot.com"
+    "storage_bucket": "alone-island.appspot.com",
+    "firebase_url": "https://alone-island-default-rtdb.firebaseio.com/"
   },
   "client": [
     {
