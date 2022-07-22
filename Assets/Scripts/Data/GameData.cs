@@ -11,4 +11,10 @@ public class GameData
 
     // J : 저장할 데이터
     public List<AnimalInfo> animalInfoList = new List<AnimalInfo>();
+
+    public void AddAnimal(AnimalInfo animalInfo)
+    {
+        animalInfoList.Add(animalInfo);
+        DataController.Instance.SaveGameData();
+    }
 }

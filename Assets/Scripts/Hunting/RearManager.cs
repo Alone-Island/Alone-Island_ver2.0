@@ -11,7 +11,7 @@ public class RearManager : MonoBehaviour
     private Dictionary<Item, int> itemList;     // J : 식량 아이템 리스트
     private Item dropItem;                      // J : 플레이어가 드롭한 식량 아이템
     private GameObject animalObject;            // J : 스폰한 동물 오브젝트
-    private GameObject foodObject;                      // J : 스폰한 음식 오브젝트
+    private GameObject foodObject;              // J : 스폰한 음식 오브젝트
     private bool isDropFood;                    // J : 음식을 떨어트렸는지 여부
 
     // 필요한 컴포넌트
@@ -77,18 +77,6 @@ public class RearManager : MonoBehaviour
         }
     }
 
-    private void RearResult()
-    {
-        if (CheckPreferFood())  // J : 플레이어가 떨어트린 음식이 동물이 선호하는 음식인 경우
-        {
-            Debug.Log("길들이기 성공");
-        }
-        else
-        {
-            Debug.Log("길들이기 실패");
-        }
-    }
-
     // J : 동물이 음식을 향해 이동
     IEnumerator AnimalGoToFood()
     {
@@ -98,13 +86,37 @@ public class RearManager : MonoBehaviour
             Vector3 dir = new Vector3(destination.x - animalObject.transform.position.x, 0, 0);
             animalObject.transform.position += dir * 1 * Time.deltaTime;
 
-            // J : 트리거
             if (AnimalCheckFood(dir, 1f))
                 break;
 
             yield return null;
         }
         RearResult();
+    }
+
+    private void RearResult()
+    {
+        if (CheckPreferFood() && SuccessOrFail())  // J : 플레이어가 떨어트린 음식이 동물이 선호하는 음식 + 길들이기 성공
+        {
+            DataController.Instance.gameData.AddAnimal(new AnimalInfo(DataController.Instance.gameData.encounterAnimal.englishName, 0, 0));    // J : 파이어베이스에 동물 데이터 저장
+            Debug.Log("길들이기 성공");
+        }
+        else
+        {
+            Debug.Log("길들이기 실패");
+        }
+    }
+
+    // J : 길들이기 성공 여부 리턴
+    private bool SuccessOrFail()
+    {
+        float rearRate = animalObject.GetComponent<AnimalAction>().animal.rearRate;  // J : 동물을 길들일 확률
+
+        System.Random rand = new System.Random();
+        if (rand.NextDouble() <= rearRate)
+            return true;
+        else
+            return false;
     }
 
     // J : 동물 앞에 아이템이 있는지 확인
