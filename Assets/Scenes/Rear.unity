@@ -355,7 +355,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 640969592}
   m_HandleRect: {fileID: 640969591}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2099,7 +2099,7 @@ GameObject:
   - component: {fileID: 1567650403}
   - component: {fileID: 1567650402}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
