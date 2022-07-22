@@ -63,11 +63,25 @@ public class BuildingManager : MonoBehaviour
             return false;
         }
 
+        /*
         // 인벤토리의 재료 아이템 소비
         foreach (BuildingData.Items material in _building.materials)
             Inventory.ConsumeItem(material.item, material.num);
-        Debug.Log(_building.building.name + " 건설 가능, 해당 건물 활성화, 추후 드래그드랍 시 건설 성공 시키기(재료 소진 시기를 드랍 후로 바꾸기)");
+        */
+        Debug.Log(_building.building.name + " 건설 가능, 해당 건물 활성화, 드래그드랍 가능");
         // TODO : 지어진 건축물 정보(name, location) 저장하기
+        return true;
+    }
+
+
+    // 건축물 드래그앤드랍 후 건설 성공 시 필요했던 재료들 소비, 소비 성공하면 true 리턴
+    public bool FinalConsume(BuildingData.BuildingDictionary _building)
+    {
+        // 인벤토리의 재료 아이템 소비
+        foreach (BuildingData.Items material in _building.materials)
+            Inventory.ConsumeItem(material.item, material.num);
+        Debug.Log(_building.building.name + " 건설 성공, 재료 소진 완료");
+
         return true;
     }
 }
