@@ -7,18 +7,12 @@ using UnityEngine;
 public class CFirebase : MonoBehaviour
 {
     DatabaseReference m_Reference;
+    string userID = "wkddpdnjs99";
 
     // Start is called before the first frame update
     void Start()
     {
         m_Reference = FirebaseDatabase.DefaultInstance.RootReference;
-
-        /*
-        WriteUserData("0", "aaaa");
-        WriteUserData("1", "bbbb");
-        WriteUserData("2", "cccc");
-        WriteUserData("3", "dddd");
-        */
 
         ReadUserData();
     }
@@ -36,9 +30,10 @@ public class CFirebase : MonoBehaviour
                 else if (task.IsCompleted)
                 {
                     DataSnapshot snapshot = task.Result;
+                    string userID = "wkddpdnjs99";
+
                     // Do something with snapshot...
-                    for (int i = 0; i < snapshot.ChildrenCount; i++)
-                        Debug.Log(snapshot.Child(i.ToString()).Child("username").Value);
+                    //Debug.Log(snapshot.Child(userID).Child("animals").Child("0").Child("name").Value);
 
                 }
             });

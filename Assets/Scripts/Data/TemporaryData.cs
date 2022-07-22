@@ -10,6 +10,8 @@ public class TemporaryData : SaveData
     public int test2 = 0;
     public Animal encounterAnimal;
 
+    public List<AnimalInfo> animalInfoList = new List<AnimalInfo>();
+
     private void Awake()
     {
         /*
