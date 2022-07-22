@@ -44,8 +44,8 @@ public class DataController : MonoBehaviour
 
     public string GameDataFileName = "data.json";
 
-    public TemporaryData _gameData;
-    public TemporaryData gameData
+    public GameData _gameData;
+    public GameData gameData
     {
         get
         {
@@ -59,7 +59,7 @@ public class DataController : MonoBehaviour
 
     public void LoadGameData()
     {
-        _gameData = new TemporaryData();
+        _gameData = new GameData();
 
         FirebaseDatabase.DefaultInstance.GetReference("users").Child(userID)
             .GetValueAsync().ContinueWithOnMainThread(task =>
