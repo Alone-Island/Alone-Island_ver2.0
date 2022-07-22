@@ -15,5 +15,6 @@ MonoBehaviour:
   koreanName: "\uC591"
   englishName: Sheep
   hp: 40
+  rearRate: 0.8
   huntingItems: []
   preferFoods: 00000000

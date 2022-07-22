@@ -15,5 +15,6 @@ MonoBehaviour:
   koreanName: "\uD1A0\uB07C"
   englishName: Rabbit
   hp: 30
+  rearRate: 0.5
   huntingItems: []
   preferFoods: 00000000
