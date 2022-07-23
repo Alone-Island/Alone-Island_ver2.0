@@ -11,14 +11,17 @@ public class Plot : MonoBehaviour
     SpriteRenderer plant;
     BoxCollider2D plantCollider;
 
-    public Sprite[] plantStages;
-    int plantStage = 0;
-    float timeBtwStages = 2f;
     float timer;
+    int plantStage = 0;
+
+    Plant myPlant;
+
+    FarmingManager farmingManager;
 
     void UpdatePlant()
     {
-        plant.sprite = plantStages[plantStage];
+        //Debug.Log(myPlant.growthSpeed);
+        plant.sprite = myPlant.plantStages[plantStage];
         plantCollider.size = plant.sprite.bounds.size;
         plantCollider.offset = new Vector2(0, plant.bounds.size.y / 2);
     }
@@ -28,6 +31,7 @@ public class Plot : MonoBehaviour
     {
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        farmingManager = FindObjectOfType<FarmingManager>();
     }
 
     // Update is called once per frame
@@ -37,9 +41,9 @@ public class Plot : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer < 0 && plantStage < plantStages.Length - 1)
+            if (timer < 0 && plantStage < myPlant.plantStages.Length - 1)
             {
-                timer = timeBtwStages;
+                timer = myPlant.growthSpeed;
                 plantStage++;
                 UpdatePlant();
             }
@@ -50,7 +54,7 @@ public class Plot : MonoBehaviour
     {
         if (isTaken)
         {
-            if (plantStage == plantStages.Length - 1)
+            if (plantStage == myPlant.plantStages.Length - 1)
             {
                 Harvesting();
             }
@@ -63,16 +67,19 @@ public class Plot : MonoBehaviour
 
     void Planting()
     {
+        myPlant = farmingManager.selectedPlant;
+        farmingManager.usePlant();
         isTaken = true;
         plantStage = 0;
         plant.gameObject.SetActive(true);
         UpdatePlant();
-        timer = timeBtwStages;
+        timer = myPlant.growthSpeed;
     }
 
     void Harvesting()
     {
         isTaken = false;
         plant.gameObject.SetActive(false);
+        farmingManager.addPlant(myPlant);
     }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fa862aabd4f84698ccb9d01d43414, type: 3}
+  m_Name: Berry
+  m_EditorClassIdentifier: 
+  name: Berry
+  plantStages:
+  - {fileID: 21300000, guid: c7de6ace386ce8b499ac2f5152fb3204, type: 3}
+  - {fileID: 21300000, guid: 60ce536ba62cda04091f5d98f2ecd267, type: 3}
+  - {fileID: 21300000, guid: 1f6dd7b2a0e9df047ada779163cbcb1e, type: 3}
+  icon: {fileID: 0}

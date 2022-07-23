@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BuildingMakeClick : MonoBehaviour
 {
+    public GameObject buildingManager;
+    public GameObject faildBuild;
+
     private bool isClicked = false;             // C : 클릭하고 있는지 확인하기 위한 변수
 
     public GameObject manualBuilding = null;    // C : 건물 리스트에 있는 건물 오브젝트
@@ -49,12 +52,36 @@ public class BuildingMakeClick : MonoBehaviour
     private void OnMouseUp()
     {
         isClicked = false;
-        // C : dragBuilding 위치에 실제 건물 오브젝트를 건설
-        Instantiate(realBuilding, dragBuilding.transform.position, Quaternion.identity);
+        
+        /*
+        // 해당 위치에 실제 건물 지을 수 있는지 확인
+        GameObject buildNo = dragBuilding.transform.Find("BuildNo").gameObject;
+        GameObject buildYes = dragBuilding.transform.Find("BuildYes").gameObject;
+        // buildYes의 active가 true일 경우에만
+        if (buildYes.activeSelf == true)
+        {
+            // 1. '재료 소비'
+            // buildingManager.FinalConsume();
+            // 2. 해당 위치에 '건물 설치'
+            Instantiate(realBuilding, dragBuilding.transform.position, Quaternion.identity);        // C : dragBuilding 위치에 실제 건물 오브젝트를 건설
+            // 3. 그리고 Destroy(dragBuilding)
+            Destroy(dragBuilding);      // C : dragBuilding 오브젝트 삭제
+        }
+        // buildNo의 active가 true일 경우에는
+        else if (buildNo.activeSelf == false)
+        {
+            // 1. 건설 실패 모달창 띄우기
+            // failBuild.SetActive(true);
+            // 2. Destroy(dragBuilding)
+            Destroy(dragBuilding);      // C : dragBuilding 오브젝트 삭제
+        }
+        */
+
+        Instantiate(realBuilding, dragBuilding.transform.position, Quaternion.identity);        // C : dragBuilding 위치에 실제 건물 오브젝트를 건설
         Destroy(dragBuilding);      // C : dragBuilding 오브젝트 삭제
     }
 
-    
+
     private void OnTriggerEnter2D(Collider2D coll)
     {
         // C : 이미 지어진 건물 위치로 들어갔을 경우, 혹은 건물을 지을 수 없는 위치로 들어갔을 경우
