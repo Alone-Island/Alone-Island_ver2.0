@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    /*
     // 필요한 컴포넌트
     [SerializeField]
     private static BuildingManager _instance;
@@ -12,7 +11,7 @@ public class BuildingManager : MonoBehaviour
     private BuildingData BuildingData;
     private Inventory Inventory;
 
-    public GameObject BuildingContent;
+    // public GameObject BuildingContent;
     public GameObject BuildingFail;
     public List<BuildingData.BuildingDictionary> buildingData;
 
@@ -20,9 +19,9 @@ public class BuildingManager : MonoBehaviour
     void Start()
     {
         Inventory = FindObjectOfType<Inventory>();
-        BuildingData = FindObjectOfType<BuildingData>();
+       // BuildingData = FindObjectOfType<BuildingData>();
 
-        buildingData = BuildingData.GenerateData();
+       // buildingData = BuildingData.GenerateData();
     }
 
     public BuildingManager Instance()
@@ -64,12 +63,25 @@ public class BuildingManager : MonoBehaviour
             return false;
         }
 
+        /*
         // 인벤토리의 재료 아이템 소비
         foreach (BuildingData.Items material in _building.materials)
             Inventory.ConsumeItem(material.item, material.num);
-        Debug.Log(_building.building.name + " 건설 가능, 해당 건물 활성화, 추후 드래그드랍 시 건설 성공 시키기(재료 소진 시기를 드랍 후로 바꾸기)");
+        */
+        Debug.Log(_building.building.name + " 건설 가능, 해당 건물 활성화, 드래그드랍 가능");
         // TODO : 지어진 건축물 정보(name, location) 저장하기
         return true;
     }
-    */
+
+
+    // 건축물 드래그앤드랍 후 건설 성공 시 필요했던 재료들 소비, 소비 성공하면 true 리턴
+    public bool FinalConsume(BuildingData.BuildingDictionary _building)
+    {
+        // 인벤토리의 재료 아이템 소비
+        foreach (BuildingData.Items material in _building.materials)
+            Inventory.ConsumeItem(material.item, material.num);
+        Debug.Log(_building.building.name + " 건설 성공, 재료 소진 완료");
+
+        return true;
+    }
 }

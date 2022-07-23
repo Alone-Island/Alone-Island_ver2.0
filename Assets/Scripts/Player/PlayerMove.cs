@@ -4,38 +4,41 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private Rigidbody2D playerRigid;    // C : playerÀÇ ¹°¸®Á¦¾î°ü·Ã º¯¼ö
-    private Animator playerAnim;        // C : playerÀÇ ¾Ö´Ï¸ÞÀÌÅÍ
-    private float h;                    // C : playerÀÇ ¼öÆòÀÌµ¿ °ªÀ» ¹Þ±â À§ÇÑ º¯¼ö
-    private float v;                    // C : playerÀÇ ¼öÁ÷ÀÌµ¿ °ªÀ» ¹Þ±â À§ÇÑ º¯¼ö
-    private bool isHorizonMove;         // C : playerÀÇ ¼öÆòÀÌµ¿¿¡ ´ëÇÑ bool°ªÀ» ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
-    public Vector2 dirVec;              // J : player°¡ ¹Ù¶óº¸´Â ¹æÇâ
+    private Rigidbody2D playerRigid;    // C : playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private Animator playerAnim;        // C : playerï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½
+    private float h;                    // C : playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private float v;                    // C : playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private bool isHorizonMove;         // C : playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ boolï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public Vector2 dirVec;              // J : playerï¿½ï¿½ ï¿½Ù¶óº¸´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     [SerializeField]
-    private float speed = 5;            // C : playerÀÇ ÀÌµ¿ ¼Ó·Â °ªÀ» ¼³Á¤ÇÏ±â À§ÇÑ º¯¼ö
+    private float speed = 5;            // C : playerï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ó·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
+    private string prevState = "horizon";
+    //private List<bool> prevState = new List<bool>() { false, false, false, false };
+    //private List<bool> currentState = new List<bool>() { false, false, false, false };
 
     void Start()
     {
-        playerRigid = GetComponent<Rigidbody2D>();      // C : player 2D ¹°¸®Á¦¾î component instance °¡Á®¿À±â
-        playerAnim = GetComponent<Animator>();          // C : player ¾Ö´Ï¸ÞÀÌ¼Ç ÄÁÆ®·Ñ component instance °¡Á®¿À±â
+        playerRigid = GetComponent<Rigidbody2D>();      // C : player 2D ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ component instance ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        playerAnim = GetComponent<Animator>();          // C : player ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ component instance ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     void Update()
     {
-        // C : Å°º¸µå ¹æÇâÅ°ÀÇ ¼öÆò/¼öÁ÷ ÀÔ·Â °ª ¹Þ±â
+        // C : Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½Þ±ï¿½
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
 
-        // C : °¢ Å°º¸µå ¹æÇâÅ° up/down ½Ã ¼öÆò/¼öÁ÷ È®ÀÎÇØ¼­ ÀûÀýÇÑ bool°ª ÀúÀå
+        // C : ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° up/down ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ boolï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         bool hDown = Input.GetButtonDown("Horizontal");
         bool vDown = Input.GetButtonDown("Vertical");
         bool hUp = Input.GetButtonUp("Horizontal");
         bool vUp = Input.GetButtonUp("Vertical");
 
+
         
-        /*
-        // J : player°¡ ¹Ù¶óº¸´Â ¹æÇâ
+        // J : playerï¿½ï¿½ ï¿½Ù¶óº¸´ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (v == 1)
             dirVec = Vector3.up;
         else if (v == -1)
@@ -44,21 +47,24 @@ public class PlayerMove : MonoBehaviour
             dirVec = Vector3.left;
         else if (h == 1)
             dirVec = Vector3.right;
-        */
         
 
-        // C : isHorizontalMove °ª ¼³Á¤
-        // C : ¼öÆòÀÌµ¿ ¼³¸í - ¼öÆò ¹æÇâÅ° ´©¸¦ ½Ã true, ¼öÁ÷ ¹æÇâÅ° ¶¿ ½Ã true
-        //     (¼öÆò ¹æÇâÅ° ´©¸¥ ÈÄ, ¼öÁ÷ ¹æÇâÅ°µµ ÇÔ²² ´©¸£´Ù°¡ ¼öÁ÷ ¹æÇâÅ°¸¦ ¸ÕÀú ¶¿ °æ¿ì
-        //      ´©¸£°í ÀÖ´Â ¼öÆò ¹æÇâÅ° °ª´ë·Î ¿òÁ÷ÀÌ±â À§ÇØ vUpµµ °í·ÁÇØ¾ß ÇÔ)
-        if (hDown || vUp)               // C : ¼öÆòÀÌµ¿ °í·Á
+
+        // C : isHorizontalMove ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        // C : ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ true, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ ï¿½ï¿½ true
+        //     (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
+        //      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ vUpï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½)
+        //      ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ (22.07.09)
+        if (hDown)
             isHorizonMove = true;
-        else if (vDown || hUp)          // C : ¼öÁ÷ÀÌµ¿ °í·Á
+        else if (vDown)
             isHorizonMove = false;
+        else if (hUp || vUp)
+            isHorizonMove = h != 0;
 
-
-        // C : ¾Ö´Ï¸ÞÀÌ¼Ç ¼³Á¤
-        // C : ÃßÈÄ ¸ðµç ¹æÇâ ÀÌµ¿ ¿¡¼Â Á¦°øµÉ ½Ã, ÄÚµå ¼öÁ¤ ¿¹Á¤
+        // C : ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+        // C : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        /*
         if (playerAnim.GetInteger("hAxisRaw") != h)
         {
             playerAnim.SetBool("isChange", true);
@@ -73,12 +79,30 @@ public class PlayerMove : MonoBehaviour
         {
             playerAnim.SetBool("isChange", false);
         }
+        
+
+        /*
+        if (playerAnim.GetInteger("vAxisRaw") != v)
+        {
+            playerAnim.SetBool("isChange", true);
+            playerAnim.SetInteger("vAxisRaw", (int)v);
+        }
+        else if (playerAnim.GetInteger("hAxisRaw") != h)
+        {
+            playerAnim.SetBool("isChange", true);
+            playerAnim.SetInteger("hAxisRaw", (int)h);
+        }
+        else
+        {
+            playerAnim.SetBool("isChange", false);
+        }
+        */
     }
 
     void FixedUpdate()
     {
-        // C : playerRigid¿¡ ÃÖÁ¾ ÀÌµ¿ °ª ¼³Á¤
-        Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);    // C : ¼öÆò/¼öÁ÷ ÀÌµ¿¸¸ °¡´ÉÇÏµµ·Ï moveVec ¼³Á¤
-        playerRigid.velocity = moveVec * speed;                                     // C : playerRigidÀÇ ¼Óµµ(¼Ó·Â + ¹æÇâ) ¼³Á¤
+        // C : playerRigidï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);    // C : ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ moveVec ï¿½ï¿½ï¿½ï¿½
+        playerRigid.velocity = moveVec * speed;                                     // C : playerRigidï¿½ï¿½ ï¿½Óµï¿½(ï¿½Ó·ï¿½ + ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
     }
 }
