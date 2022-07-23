@@ -10,7 +10,7 @@ using Firebase.Extensions;
 public class DataController : MonoBehaviour
 {
     static DatabaseReference m_Reference;   // J : 파이어베이스 reference
-    static string userID = "wkddpdnjs99";   // J : 임시로 사용자 아이디 지정
+    static string userID = "aaabbbccc";   // J : 임시로 사용자 아이디 지정
 
     static GameObject _container;
     static GameObject Container
@@ -36,7 +36,7 @@ public class DataController : MonoBehaviour
                 _instance = _container.AddComponent(typeof(DataController)) as DataController;
                 DontDestroyOnLoad(_container);  // J : scene을 이동해도 game object 유지
 
-                m_Reference = FirebaseDatabase.DefaultInstance.RootReference;
+                m_Reference = FirebaseDatabase.DefaultInstance.GetReference("users").Child(userID);
             }
             return _instance;
         }
@@ -60,8 +60,7 @@ public class DataController : MonoBehaviour
     public void LoadGameData()
     {
         _gameData = new GameData();
-
-        FirebaseDatabase.DefaultInstance.GetReference("users").Child(userID)
+        m_Reference
             .GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsFaulted)
@@ -73,12 +72,15 @@ public class DataController : MonoBehaviour
                     DataSnapshot snapshot = task.Result;
                     DataSnapshot animals = snapshot.Child("animals");
 
+                    Debug.Log(animals.ChildrenCount);
+
                     // J : 동물 데이터 하나씩 리스트에 저장
                     foreach (DataSnapshot animal in animals.Children)
                     {
-                        _gameData.animalInfoList.Add(new AnimalInfo((IDictionary)animal.Value));
+                        Debug.Log(((IDictionary)animal.Value)["species"] + " satiety" + ((IDictionary)animal.Value)["satiety"] + "growth" + ((IDictionary)animal.Child("growth").Value)["CurrLv"] + " intimacy" + ((IDictionary)animal.Child("intimacy").Value)["CurrLv"]);
+                        _gameData.animalInfoList.Add(new AnimalInfo((IDictionary)animal.Value, (IDictionary)animal.Child("growth").Value, (IDictionary)animal.Child("intimacy").Value));
                     }
-                    SaveGameData(); // J : 데이터 로드가 비동기적으로 수행->로드가 끝난 후 세이브
+                    //SaveGameData(); // J : 데이터 로드가 비동기적으로 수행->로드가 끝난 후 세이브
                 }
             });
 
@@ -101,10 +103,23 @@ public class DataController : MonoBehaviour
 
     public void SaveGameData()
     {
+        Debug.Log("개수 : " + gameData.animalInfoList.Count);
         for (int i = 0; i < gameData.animalInfoList.Count; i++)
         {
+            // J : 동물 데이터 저장
             string json = JsonUtility.ToJson(gameData.animalInfoList[i]);
-            m_Reference.Child("users").Child(userID).Child("animals").Child(i.ToString()).SetRawJsonValueAsync(json);
+            m_Reference.Child("animals").Child(i.ToString()).SetRawJsonValueAsync(json);
+
+            Dictionary<string, object> growth = new Dictionary<string, object>();
+            growth["CurrLv"] = gameData.animalInfoList[i].growth.CurrLv;
+            growth["CurrExp"] = gameData.animalInfoList[i].growth.CurrExp;
+
+            Dictionary<string, object> intimacy = new Dictionary<string, object>();
+            intimacy["CurrLv"] = gameData.animalInfoList[i].intimacy.CurrLv;
+            intimacy["CurrExp"] = gameData.animalInfoList[i].intimacy.CurrExp;
+
+            m_Reference.Child("animals").Child(i.ToString()).Child("growth").UpdateChildrenAsync(growth);
+            m_Reference.Child("animals").Child(i.ToString()).Child("intimacy").UpdateChildrenAsync(intimacy);
         }
 
         /*

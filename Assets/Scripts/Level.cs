@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class Level
 {
     private int currLv;     // N : 현재 레벨
     private float currExp;    // N : 현재 경험치
