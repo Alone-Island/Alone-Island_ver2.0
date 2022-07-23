@@ -19,9 +19,9 @@ public class BuildingManager : MonoBehaviour
     void Start()
     {
         Inventory = FindObjectOfType<Inventory>();
-       // BuildingData = FindObjectOfType<BuildingData>();
+        BuildingData = FindObjectOfType<BuildingData>();
 
-       // buildingData = BuildingData.GenerateData();
+       buildingData = BuildingData.GenerateData();
     }
 
     public BuildingManager Instance()
@@ -78,6 +78,8 @@ public class BuildingManager : MonoBehaviour
     public bool FinalConsume(BuildingData.BuildingDictionary _building)
     {
         // 인벤토리의 재료 아이템 소비
+        Debug.Log(_building.building.name);
+        Debug.Log(_building.materials[0].item.name);
         foreach (BuildingData.Items material in _building.materials)
             Inventory.ConsumeItem(material.item, material.num);
         Debug.Log(_building.building.name + " 건설 성공, 재료 소진 완료");
