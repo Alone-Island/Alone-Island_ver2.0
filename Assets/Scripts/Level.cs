@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class Level
 {
     private int currLv;     // N : 현재 레벨
     private float currExp;    // N : 현재 경험치
@@ -17,6 +17,19 @@ public class Level : MonoBehaviour
     {
         currLv = initLv;
         currExp = 0;
+        subLv = 0;
+        this.maxLv = maxLv;
+        maxExp = expToNextLv;                       // N : 현재 레벨에서의 최대 경험치 (레벨 업 하기 위해 필요한 경험치)
+        this.expRate = expRate;
+        isMax = (currLv >= maxLv) ? true : false;
+        isZero = (currLv <= 0) ? true : false;
+    }
+
+    // J : 데이터 불러왔을 때 생성자
+    public Level(int currLv, int currExp, int maxLv, float expToNextLv, float expRate)
+    {
+        this.currLv = currLv;
+        this.currExp = currExp;
         subLv = 0;
         this.maxLv = maxLv;
         maxExp = expToNextLv;                       // N : 현재 레벨에서의 최대 경험치 (레벨 업 하기 위해 필요한 경험치)
