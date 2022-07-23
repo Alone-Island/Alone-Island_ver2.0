@@ -11,20 +11,17 @@ public class UICraft : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("로그로그");
-        for (int i = 0; i < CraftManager.Instance().itemData.Count; i++)
+        for (int i = 0; i < CraftManager.itemData.Count; i++)
         {
             ItemData.ItemDictionary item = CraftManager.itemData[i];
             GameObject craftItemList = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/UI/Craft/CraftItemList") as GameObject) as GameObject;
 
-            if (CraftManager.Instance().CheckCanMakeItem(item.materials))
+            if (CraftManager.CheckCanMakeItem(item.materials))
             {
-                Debug.Log("가능가능");
                 craftItemList.GetComponent<Button>().interactable = true;
             }
             else
             {
-                Debug.Log("불가능");
                 craftItemList.GetComponent<Button>().interactable = false;
             }
         }
@@ -33,12 +30,12 @@ public class UICraft : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        for (int i = 0; i < CraftManager.Instance().itemData.Count; i++)
+        for (int i = 0; i < CraftManager.itemData.Count; i++)
         {
-            ItemData.ItemDictionary item = CraftManager.Instance().itemData[i];
+            ItemData.ItemDictionary item = CraftManager.itemData[i];
             GameObject craftItemList = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/UI/Craft/CraftItemList") as GameObject) as GameObject;
-            craftItemList.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = item.item.itemImage;
-            craftItemList.transform.SetParent(CraftManager.Instance().CraftContent.transform, false);
+            craftItemList.transform.GetChild(0).GetComponent<Image>().sprite = item.item.itemImage;
+            craftItemList.transform.SetParent(CraftManager.CraftContent.transform, false);
 
             for (int j = 0; j < item.materials.Count; j++)
             {
@@ -58,10 +55,10 @@ public class UICraft : MonoBehaviour
 
             craftItemList.GetComponent<Button>().onClick.AddListener(() =>
             {
-                if (CraftManager.Instance().MakeNewItem(item))
+                if (CraftManager.MakeNewItem(item))
                 {
-                    CraftManager.Instance().CraftComplete.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = item.item.itemImage;
-                    CraftManager.Instance().CraftComplete.SetActive(true);
+                    CraftManager.CraftComplete.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = item.item.itemImage;
+                    CraftManager.CraftComplete.SetActive(true);
                 }
             });
         }

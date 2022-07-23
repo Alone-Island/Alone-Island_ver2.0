@@ -9,8 +9,6 @@ public class CraftManager : MonoBehaviour
 {
     // 필요한 컴포넌트
     [SerializeField]
-    private static CraftManager _instance;
-
     public ItemData ItemData;
     private Inventory Inventory;
 
@@ -35,18 +33,6 @@ public class CraftManager : MonoBehaviour
 
     private void Update()
     {
-    }
-    public CraftManager Instance()
-    {
-        Init();
-        return _instance;
-    }
-    private void Init()
-    {
-        if (_instance == null)
-        {
-            _instance = FindObjectOfType<CraftManager>();
-        }
     }
 
     // K : 인벤토리에 필요한 재료가 모두 있으면 재료 리스트 리턴, 아니면 null 리턴
