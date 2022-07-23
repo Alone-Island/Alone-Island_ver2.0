@@ -15,7 +15,7 @@ TagManager:
   - UI
   - Animal
   - Player
-  - 
+  - UIComponent
   - 
   - 
   - 
@@ -40,6 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UIComponent
+    uniqueID: 933305091
+    locked: 0
+  - name: Player
+    uniqueID: 4004839913
+    locked: 0
+  - name: UI
+    uniqueID: 893055293
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
