@@ -98,7 +98,7 @@ public class RearManager : MonoBehaviour
     {
         if (CheckPreferFood() && SuccessOrFail())  // J : 플레이어가 떨어트린 음식이 동물이 선호하는 음식 + 길들이기 성공
         {
-            DataController.Instance.gameData.AddAnimal(new AnimalInfo(DataController.Instance.gameData.encounterAnimal.englishName, 0, 0));    // J : 파이어베이스에 동물 데이터 저장
+            DataController.Instance.gameData.animalInfoList.Add(new AnimalInfo(DataController.Instance.gameData.encounterAnimal.englishName, 0, 0));    // J : 파이어베이스에 동물 데이터 저장
             Debug.Log("길들이기 성공");
         }
         else
