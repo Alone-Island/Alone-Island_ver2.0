@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Berry
   plantStages:
-  - {fileID: 21300000, guid: c7de6ace386ce8b499ac2f5152fb3204, type: 3}
-  - {fileID: 21300000, guid: 60ce536ba62cda04091f5d98f2ecd267, type: 3}
-  - {fileID: 21300000, guid: 1f6dd7b2a0e9df047ada779163cbcb1e, type: 3}
+  - {fileID: 21300000, guid: e397fd14475e34e44a783c144683f59f, type: 3}
+  - {fileID: 21300000, guid: 0b14c46c4a05a66418e4fa6f8d00835a, type: 3}
+  - {fileID: 21300000, guid: 1160536589ce7b84ea872920a3cbec4a, type: 3}
   icon: {fileID: 0}
