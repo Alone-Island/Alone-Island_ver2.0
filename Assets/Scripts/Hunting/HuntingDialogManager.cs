@@ -10,21 +10,22 @@ public class HuntingDialogManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI talkText;
     [SerializeField]
-    private GameObject SelectCards;     // J : 선택지 창
+    private GameObject cards;           // J : 선택지 카드 모음
+    private List<Button> cardList;      // J : 선택지 카드 버튼 컴포넌트 리스트
+    private List<Image> cardImageList;  // J : 선택지 카드 이미지 컴포넌트 리스트
     [SerializeField]
-    private List<Button> selectButtons; // J : 선택지 버튼 리스트
+    private List<Sprite> selectCardImageList; // J : 버튼 선택 시 이미지 리스트
     [SerializeField]
-    Color lightColor;    // J : 선택되지 않은 버튼 색상
-    [SerializeField]
-    Color darkColor; // J : 선택된 버튼 색상
-    ColorBlock cb;
+    private List<Sprite> nonSelectCardImageList; // J : 버튼 선택하지 않을 시 이미지 리스트
     
     private bool isSelectActivated = false; // J : 선택지 활성화 여부
     private int idx = 0;
 
-    private void Start()
+    void Start()
     {
         talkText.text = DataController.Instance.gameData.encounterAnimal.koreanName + "(을)를 마주쳤다!";    // J : 마주친 동물에 따른 텍스트 변경
+        cardList = new List<Button>(cards.GetComponentsInChildren<Button>());
+        cardImageList = new List<Image>(cards.GetComponentsInChildren<Image>());
     }
 
     // Update is called once per frame
@@ -40,7 +41,7 @@ public class HuntingDialogManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SelectCards.SetActive(true);    // J : 선택지 창 활성화
+            cards.SetActive(true);    // J : 선택지 창 활성화
         }
     }
 
@@ -51,44 +52,32 @@ public class HuntingDialogManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                // J : 버튼 밝게
-                cb = selectButtons[idx].colors;
-                cb.normalColor = lightColor;
-                selectButtons[idx--].colors = cb;
+                cardImageList[idx].sprite = nonSelectCardImageList[idx];
+
+                idx--;
 
                 if (idx < 0)
-                    idx += selectButtons.Count;
+                    idx += cardList.Count;
 
-                // J : 버튼 어둡게
-                cb = selectButtons[idx].colors;
-                cb.normalColor = darkColor;
-                selectButtons[idx].colors = cb;
+                cardImageList[idx].sprite = selectCardImageList[idx];
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                // J : 버튼 밝게
-                cb = selectButtons[idx].colors;
-                cb.normalColor = lightColor;
-                selectButtons[idx++].colors = cb;
+                cardImageList[idx].sprite = nonSelectCardImageList[idx];
 
-                if (idx == selectButtons.Count)
+                idx++;
+
+                if (idx == cardList.Count)
                     idx = 0;
 
-                // J : 버튼 어둡게
-                cb = selectButtons[idx].colors;
-                cb.normalColor = darkColor;
-                selectButtons[idx].colors = cb;
+                cardImageList[idx].sprite = selectCardImageList[idx];
             }
         }      
         else
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                // J : 버튼 어둡게
-                cb = selectButtons[idx].colors;
-                cb.normalColor = darkColor;
-                selectButtons[idx].colors = cb;
-
+            {                
+                cardImageList[idx].sprite = selectCardImageList[idx];   // J : 카드 이미지 변경
                 isSelectActivated = true;
             }
         }
@@ -100,7 +89,7 @@ public class HuntingDialogManager : MonoBehaviour
         // J : 선택지 창 활성화 상태일 때 스페이스바를 누르면
         if (Input.GetKeyDown(KeyCode.Space) && isSelectActivated)
         {
-            selectButtons[idx].onClick.Invoke();    // J : 현재 선택중인 버튼의 onclick 함수 호출
+            cardList[idx].onClick.Invoke();    // J : 현재 선택중인 버튼의 onclick 함수 호출
         }
     }
 
