@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Animal
+  - Potal
   layers:
   - Default
   - TransparentFX

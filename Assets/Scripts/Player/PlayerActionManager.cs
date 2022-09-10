@@ -30,12 +30,42 @@ public class PlayerActionManager : MonoBehaviour
     {
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
+
+        DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
     void Update()
     {
         Debug.DrawRay(transform.position, thePlayerMove.dirVec * range, Color.green);   // J : 아이템 습득 가능 범위 표시
         TryAction();
+    }
+
+    // N :
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Potal")
+        {
+            if(collision.gameObject.name== "ToFarm")
+            {
+                Debug.Log("밭으로");
+                SceneManager.LoadScene("Farm");
+            }
+            else if (collision.gameObject.name == "ToForest")
+            {
+                Debug.Log("숲으로");
+                SceneManager.LoadScene("TestJ_hunt");
+            }
+            else if (collision.gameObject.name == "ToBeach")
+            {
+                Debug.Log("해변으로 / 씬 없음");
+                //SceneManager.LoadScene("");
+            }
+            else if (collision.gameObject.name == "ToGrassland")
+            {
+                Debug.Log("초원으로");
+                SceneManager.LoadScene("Taming");
+            }
+        }
     }
 
     // J : 특정 행동 시도
