@@ -25,6 +25,7 @@ public class PlayerActionManager : MonoBehaviour
     // 필요한 컴포넌트
     private Inventory theInventory;
     private PlayerMove thePlayerMove;
+    private CraftManager theCraftManager;   // K
 
     private void Start()
     {
@@ -65,6 +66,20 @@ public class PlayerActionManager : MonoBehaviour
                 Debug.Log("초원으로");
                 SceneManager.LoadScene("Taming");
             }
+            else if (collision.gameObject.name == "ToLabInSide")
+            {
+                Debug.Log("연구실 안으로");
+                SceneManager.LoadScene("TestK_DoctorLab");
+            }
+            else if (collision.gameObject.name == "ToLabOutSide")
+            {
+                Debug.Log("연구실 밖으로");
+                SceneManager.LoadScene("TestK_Start");
+            }
+        }
+        else if (collision.name == "Craft")
+        {
+            theCraftManager.CraftButton.SetActive(true);
         }
     }
 
