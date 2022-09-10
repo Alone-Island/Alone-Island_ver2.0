@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fa862aabd4f84698ccb9d01d43414, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
-  name: 
+  name: Mushroom
   plantStages:
   - {fileID: 21300000, guid: 299c4fed520f8ad428cf5bfa6f1c601a, type: 3}
   - {fileID: 21300000, guid: 48e1c19145d66ff4b88498bf3aceb174, type: 3}

@@ -7,10 +7,17 @@ public class FarmingManager : MonoBehaviour
 {
     public Text berryNumText;
     public Text wheatNumText;
+    public Text potatoNumText;
+    public Text cabbageNumText;
+    public Text mushroomNumText;
+
     public Plant selectedPlant;
 
     private int berryNum = 5;
     private int wheatNum = 5;
+    private int potatoNum = 5;
+    private int cabbageNum = 5;
+    private int mushroomNum = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +48,18 @@ public class FarmingManager : MonoBehaviour
         {
             wheatNum--;
         }
+        else if (selectedPlant.name == "Potato")
+        {
+            potatoNum--;
+        }
+        else if (selectedPlant.name == "Cabbage")
+        {
+            cabbageNum--;
+        }
+        else if (selectedPlant.name == "Mushroom")
+        {
+            mushroomNum--;
+        }
         updateNum(selectedPlant);
     }
 
@@ -55,6 +74,18 @@ public class FarmingManager : MonoBehaviour
         {
             wheatNum++;
         }
+        else if (plant.name == "Potato")
+        {
+            potatoNum++;
+        }
+        else if (plant.name == "Cabbage")
+        {
+            cabbageNum++;
+        }
+        else if (plant.name == "Mushroom")
+        {
+            mushroomNum++;
+        }
         updateNum(plant);
     }
 
@@ -68,6 +99,18 @@ public class FarmingManager : MonoBehaviour
         else if (plant.name == "Wheat")
         {
             wheatNumText.text = wheatNum.ToString();
+        }
+        else if (plant.name == "Potato")
+        {
+            potatoNumText.text = potatoNum.ToString();
+        }
+        else if (plant.name == "Cabbage")
+        {
+            cabbageNumText.text = cabbageNum.ToString();
+        }
+        else if (plant.name == "Mushroom")
+        {
+            mushroomNumText.text = mushroomNum.ToString();
         }
     }
 }

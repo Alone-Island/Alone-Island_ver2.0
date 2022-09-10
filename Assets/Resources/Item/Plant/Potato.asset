@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fa862aabd4f84698ccb9d01d43414, type: 3}
   m_Name: Potato
   m_EditorClassIdentifier: 
-  name: 
+  name: Potato
   plantStages:
   - {fileID: 21300000, guid: 5b70e095c10106641ba3ea95c9210b1b, type: 3}
   - {fileID: 21300000, guid: 41cdb46f5f33740438c7825115ecd326, type: 3}

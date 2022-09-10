@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fa862aabd4f84698ccb9d01d43414, type: 3}
   m_Name: Cabbage
   m_EditorClassIdentifier: 
-  name: 
+  name: Cabbage
   plantStages:
   - {fileID: 21300000, guid: e408bb4dcdc4f5d4289e65c9cb105a3a, type: 3}
   - {fileID: 21300000, guid: 934bfa0d5a0c4974380c4d139ec2af68, type: 3}
