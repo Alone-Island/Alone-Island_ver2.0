@@ -9,4 +9,9 @@ public class TempScript : MonoBehaviour
     {
         SceneManager.LoadScene("TestK");
     }
+
+    public void TamingScene()
+    {
+        SceneManager.LoadScene(6);
+    }
 }
