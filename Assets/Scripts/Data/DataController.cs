@@ -5,12 +5,15 @@ using System.IO;
 using System;
 using Firebase.Database;
 using Firebase.Extensions;
+using Firebase;
+using Firebase.Analytics;
 
 // J : https://chameleonstudio.tistory.com/56 참고
 public class DataController : MonoBehaviour
 {
     static DatabaseReference m_Reference;   // J : 파이어베이스 reference
     static string userID = "aaabbbccc";   // J : 임시로 사용자 아이디 지정
+    static bool isInitialized;
 
     static GameObject _container;
     static GameObject Container
@@ -36,10 +39,31 @@ public class DataController : MonoBehaviour
                 _instance = _container.AddComponent(typeof(DataController)) as DataController;
                 DontDestroyOnLoad(_container);  // J : scene을 이동해도 game object 유지
 
-                m_Reference = FirebaseDatabase.DefaultInstance.GetReference("users").Child(userID);
+                Initialize();
             }
             return _instance;
         }
+    }
+
+    // J : https://helloezzi.tistory.com/140
+    private static void Initialize()
+    {
+        Debug.Log("Initialize");
+
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+            FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
+            var dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                m_Reference = FirebaseDatabase.DefaultInstance.GetReference("users").Child(userID);
+                isInitialized = true;
+            }
+            else
+            {
+                Debug.Log("Error" + dependencyStatus);
+                isInitialized = false;
+            }
+        });
     }
 
     public string GameDataFileName = "data.json";
@@ -50,25 +74,31 @@ public class DataController : MonoBehaviour
         get
         {
             if (_gameData == null)
-            {
                 LoadGameData();
-            }
+
             return _gameData;
         }
     }
 
     public void LoadGameData()
     {
-        _gameData = new GameData();
-        m_Reference
+        Debug.Log("LoadGameData");
+
+        if (isInitialized)
+        {
+            _gameData = new GameData();
+
+            m_Reference
             .GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsFaulted)
                 {
                     // Handle the error...
+                    Debug.Log("로드 실패");
                 }
                 else if (task.IsCompleted)
                 {
+                    Debug.Log("로드 성공");
                     DataSnapshot snapshot = task.Result;
                     DataSnapshot animals = snapshot.Child("animals");
 
@@ -80,25 +110,10 @@ public class DataController : MonoBehaviour
                         Debug.Log(((IDictionary)animal.Value)["species"] + " satiety" + ((IDictionary)animal.Value)["satiety"] + "growth" + ((IDictionary)animal.Child("growth").Value)["CurrLv"] + " intimacy" + ((IDictionary)animal.Child("intimacy").Value)["CurrLv"]);
                         _gameData.animalInfoList.Add(new AnimalInfo((IDictionary)animal.Value, (IDictionary)animal.Child("growth").Value, (IDictionary)animal.Child("intimacy").Value));
                     }
-                    //SaveGameData(); // J : 데이터 로드가 비동기적으로 수행->로드가 끝난 후 세이브
                 }
             });
-
-        /*
-        string filePath = Application.persistentDataPath + "/" + GameDataFileName;
-        Debug.Log(filePath);
-        if (File.Exists(filePath))
-        {
-            Debug.Log("게임 데이터 불러오기 성공!");
-            string FromJsonData = File.ReadAllText(filePath);
-            _gameData = JsonUtility.FromJson<TemporaryData>(FromJsonData);
         }
-        else
-        {
-            Debug.Log("새로운 게임 데이터 파일 생성");
-            _gameData = new TemporaryData();
-        }
-        */
+        
     }
 
     public void SaveGameData()
@@ -121,14 +136,6 @@ public class DataController : MonoBehaviour
             m_Reference.Child("animals").Child(i.ToString()).Child("growth").UpdateChildrenAsync(growth);
             m_Reference.Child("animals").Child(i.ToString()).Child("intimacy").UpdateChildrenAsync(intimacy);
         }
-
-        /*
-        SaveData saveData = new SaveData(gameData);
-        string ToJsonData = JsonUtility.ToJson(saveData);
-        string filePath = Application.persistentDataPath + "/" + GameDataFileName;
-        File.WriteAllText(filePath, ToJsonData);
-        Debug.Log("데이터 저장 완료");
-        */
     }
 
     // J : 게임의 모든 데이터 삭제
