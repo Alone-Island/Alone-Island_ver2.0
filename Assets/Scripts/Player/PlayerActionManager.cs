@@ -31,7 +31,6 @@ public class PlayerActionManager : MonoBehaviour
     {
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
-        theCraftManager = FindObjectOfType<CraftManager>();
 
         DontDestroyOnLoad(gameObject);      // 플레이어 유지
     }
