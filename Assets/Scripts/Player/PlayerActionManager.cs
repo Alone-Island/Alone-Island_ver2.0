@@ -27,12 +27,25 @@ public class PlayerActionManager : MonoBehaviour
     private PlayerMove thePlayerMove;
     private CraftManager theCraftManager;   // K
 
+    public static PlayerActionManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);      // 플레이어 유지
+    }
+
     private void Start()
     {
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
-
-        DontDestroyOnLoad(gameObject);      // 플레이어 유지
     }
     // Update is called once per frame
     void Update()
@@ -44,6 +57,7 @@ public class PlayerActionManager : MonoBehaviour
     // N :
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if(collision.gameObject.tag == "Potal")
         {
             if(collision.gameObject.name== "ToFarm")
@@ -77,7 +91,7 @@ public class PlayerActionManager : MonoBehaviour
                 SceneManager.LoadScene("TestK_Start");
             }
         }
-        else if (collision.name == "Craft")
+        else if (collision.gameObject.name == "Craft")
         {
             theCraftManager.CraftButton.SetActive(true);
         }

@@ -31,8 +31,18 @@ public class ItemData : MonoBehaviour
 
     public List<ItemDictionary> itemData;       // K : 공예 데이터를 저장하는 dictionary 변수
 
-    void Awake()
+    public static ItemData Instance;
+    private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);      // 데이터 유지
     }
 
     public List<ItemDictionary> GenerateData()

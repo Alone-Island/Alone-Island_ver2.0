@@ -28,8 +28,6 @@ public class CraftManager : MonoBehaviour
         itemData = ItemData.GenerateData();
         // J : 공예 데이터 추가 (예시)
         //itemData = ItemData.itemData;
-
-       
     }
 
     private void Update()
