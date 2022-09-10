@@ -12,6 +12,7 @@ public class CraftManager : MonoBehaviour
     public ItemData ItemData;
     private Inventory Inventory;
 
+    public GameObject CraftButton;
     public GameObject CraftContent;
     public GameObject CraftComplete;
     public List<ItemData.ItemDictionary> itemData;

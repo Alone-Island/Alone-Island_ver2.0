@@ -1290,7 +1290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936889743339722453, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
       propertyPath: m_Name
-      value: BuildingItemList_new (3)
+      value: House2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
@@ -1553,7 +1553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936889743339722453, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
       propertyPath: m_Name
-      value: BuildingItemList_new
+      value: Fence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
@@ -2612,7 +2612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936889743339722453, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
       propertyPath: m_Name
-      value: BuildingItemList_new (1)
+      value: AIBuilding
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
@@ -4481,7 +4481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1936889743339722453, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
       propertyPath: m_Name
-      value: BuildingItemList_new (2)
+      value: House
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1849c29a13cdae4489a98a3a7d3e8748, type: 3}
@@ -4580,6 +4580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemData: {fileID: 1101294965}
+  CraftButton: {fileID: 0}
   CraftContent: {fileID: 1870770798}
   CraftComplete: {fileID: 1311830037}
 --- !u!4 &1539565403

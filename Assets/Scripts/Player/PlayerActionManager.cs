@@ -22,11 +22,17 @@ public class PlayerActionManager : MonoBehaviour
     // 필요한 컴포넌트
     private Inventory theInventory;
     private PlayerMove thePlayerMove;
+    private CraftManager theCraftManager;   // K
+
+    private bool doarActivated = false;     // K
+    private string prevScene = "";     // K
+    private string nextScene = "";     // K
 
     private void Start()
     {
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
+        theCraftManager = FindObjectOfType<CraftManager>();
     }
     // Update is called once per frame
     void Update()
@@ -45,6 +51,9 @@ public class PlayerActionManager : MonoBehaviour
         {
             CheckItem();    // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
             CanPickUp();    // J : 아이템을 주울 수 있으면 줍기
+        } else if (Input.GetKeyDown(KeyCode.F))
+        {
+            GoOutDoar();
         }
     }
 
@@ -101,6 +110,39 @@ public class PlayerActionManager : MonoBehaviour
             theInventory.AcquireItem(hitInfo.transform.GetComponent<ItemPickUp>().item);    // J : 인벤토리의 슬롯에 아이템 추가
             Destroy(hitInfo.transform.gameObject);  // J : 주웠으므로 오브젝트 삭제
             pickupActivated = false;
+        }
+    }
+
+    // K : 문으로 이동
+    private void GoOutDoar()
+    {
+        // 씬 이동
+        // prevScene > nextScene
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.name);
+        if (other.name == "Craft")
+        {
+            theCraftManager.CraftButton.SetActive(true);
+        } else if (other.name == "Doar")
+        {
+            doarActivated = true;
+            prevScene = other.name.Split()[1];
+            nextScene = other.name.Split()[2];
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log(other.name);
+        if (other.name == "Craft")
+        {
+            theCraftManager.CraftButton.SetActive(false);
+        } else if (other.name.Contains("Doar"))
+        {
+            doarActivated = false;
         }
     }
 }

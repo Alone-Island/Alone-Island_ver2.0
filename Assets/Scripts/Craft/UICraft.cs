@@ -64,6 +64,16 @@ public class UICraft : MonoBehaviour
         }
     }
 
+    private void OnMouseUp()
+    {
+        
+    }
+
+    private void OnMouseDown()
+    {
+        
+    }
+
     private void Update()
     {
     }
