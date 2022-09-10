@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fa862aabd4f84698ccb9d01d43414, type: 3}
+  m_Name: Cabbage
+  m_EditorClassIdentifier: 
+  name: 
+  plantStages:
+  - {fileID: 21300000, guid: e408bb4dcdc4f5d4289e65c9cb105a3a, type: 3}
+  - {fileID: 21300000, guid: 934bfa0d5a0c4974380c4d139ec2af68, type: 3}
+  - {fileID: 21300000, guid: 2d4b20adda70814438e615544ac46d5a, type: 3}
+  icon: {fileID: 0}
