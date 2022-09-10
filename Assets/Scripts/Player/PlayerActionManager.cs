@@ -11,6 +11,7 @@ public class PlayerActionManager : MonoBehaviour
 
     private bool pickupActivated = false;  // J : 아이템 습득 가능 여부
     private bool huntActivated = false;  // J : 사냥 가능 여부
+    private bool tameActivated = false;  // N : 교감 가능 여부
 
     private RaycastHit2D hitInfo; // J : 충돌체의 정보
 
@@ -18,6 +19,8 @@ public class PlayerActionManager : MonoBehaviour
     private LayerMask itemLayerMask;    // J : Item 레이어를 가지는 오브젝트만 습득해야 함
     [SerializeField]
     private LayerMask animalLayerMask;    // J : animal 레이어를 가지는 오브젝트만 습득해야 함
+    [SerializeField]
+    private LayerMask myAnimalLayerMask;    // N : MyAnimal 레이어를 가지는 오브젝트만
 
     // 필요한 컴포넌트
     private Inventory theInventory;
@@ -46,6 +49,11 @@ public class PlayerActionManager : MonoBehaviour
             CheckItem();    // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
             CanPickUp();    // J : 아이템을 주울 수 있으면 줍기
         }
+
+        if (CheckMyAnimal())
+        {
+            CanTame();
+        }
     }
 
     // J : 플레이어 앞에 동물이 있는지 확인
@@ -62,6 +70,23 @@ public class PlayerActionManager : MonoBehaviour
             else
                 huntActivated = false;
         }
+    }
+
+    // N : My Animal이 있는지 체크
+    private bool CheckMyAnimal()
+    {
+        hitInfo = Physics2D.Raycast(transform.position, thePlayerMove.dirVec, range, myAnimalLayerMask);
+        if (hitInfo.collider != null)
+        {
+            if (hitInfo.transform.tag == "Animal")    // N : 오브젝트가 MyAnimal
+            {
+                tameActivated = true;               // 교감 가능
+            }
+            else
+                tameActivated = false;              // 교감 불가
+        }
+
+        return tameActivated;
     }
 
     // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
@@ -101,6 +126,16 @@ public class PlayerActionManager : MonoBehaviour
             theInventory.AcquireItem(hitInfo.transform.GetComponent<ItemPickUp>().item);    // J : 인벤토리의 슬롯에 아이템 추가
             Destroy(hitInfo.transform.gameObject);  // J : 주웠으므로 오브젝트 삭제
             pickupActivated = false;
+        }
+    }
+
+    // N : 교감하기
+    private void CanTame()
+    {
+        if (tameActivated)
+        {
+            Debug.Log(hitInfo.transform.gameObject.name + " 안아주기 / 쓰다듬기 / 먹이주기");
+            tameActivated = false;
         }
     }
 }
