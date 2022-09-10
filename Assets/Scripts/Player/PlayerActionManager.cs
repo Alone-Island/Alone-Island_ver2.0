@@ -11,6 +11,7 @@ public class PlayerActionManager : MonoBehaviour
 
     private bool pickupActivated = false;  // J : 아이템 습득 가능 여부
     private bool huntActivated = false;  // J : 사냥 가능 여부
+    private bool tameActivated = false;  // N : 교감 가능 여부
 
     private RaycastHit2D hitInfo; // J : 충돌체의 정보
 
@@ -18,6 +19,8 @@ public class PlayerActionManager : MonoBehaviour
     private LayerMask itemLayerMask;    // J : Item 레이어를 가지는 오브젝트만 습득해야 함
     [SerializeField]
     private LayerMask animalLayerMask;    // J : animal 레이어를 가지는 오브젝트만 습득해야 함
+    [SerializeField]
+    private LayerMask myAnimalLayerMask;    // N : MyAnimal 레이어를 가지는 오브젝트만
 
     // 필요한 컴포넌트
     private Inventory theInventory;
@@ -33,12 +36,56 @@ public class PlayerActionManager : MonoBehaviour
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
         theCraftManager = FindObjectOfType<CraftManager>();
+
+        DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
     void Update()
     {
         Debug.DrawRay(transform.position, thePlayerMove.dirVec * range, Color.green);   // J : 아이템 습득 가능 범위 표시
         TryAction();
+    }
+
+    // N :
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Potal")
+        {
+            if(collision.gameObject.name== "ToFarm")
+            {
+                Debug.Log("밭으로");
+                SceneManager.LoadScene("Farm");
+            }
+            else if (collision.gameObject.name == "ToForest")
+            {
+                Debug.Log("숲으로");
+                SceneManager.LoadScene("TestJ_hunt");
+            }
+            else if (collision.gameObject.name == "ToBeach")
+            {
+                Debug.Log("해변으로 / 씬 없음");
+                //SceneManager.LoadScene("");
+            }
+            else if (collision.gameObject.name == "ToGrassland")
+            {
+                Debug.Log("초원으로");
+                SceneManager.LoadScene("Taming");
+            }
+            else if (collision.gameObject.name == "ToLabInSide")
+            {
+                Debug.Log("연구실 안으로");
+                SceneManager.LoadScene("TestK_Start");
+            }
+            else if (collision.gameObject.name == "ToLabOutSide")
+            {
+                Debug.Log("연구실 밖으로");
+                SceneManager.LoadScene("Taming");
+            }
+        }
+        else if (collision.name == "Craft")
+        {
+            theCraftManager.CraftButton.SetActive(true);
+        }
     }
 
     // J : 특정 행동 시도
@@ -54,6 +101,11 @@ public class PlayerActionManager : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.F))
         {
             GoOutDoar();
+        }
+
+        if (CheckMyAnimal())
+        {
+            CanTame();
         }
     }
 
@@ -71,6 +123,23 @@ public class PlayerActionManager : MonoBehaviour
             else
                 huntActivated = false;
         }
+    }
+
+    // N : My Animal이 있는지 체크
+    private bool CheckMyAnimal()
+    {
+        hitInfo = Physics2D.Raycast(transform.position, thePlayerMove.dirVec, range, myAnimalLayerMask);
+        if (hitInfo.collider != null)
+        {
+            if (hitInfo.transform.tag == "Animal")    // N : 오브젝트가 MyAnimal
+            {
+                tameActivated = true;               // 교감 가능
+            }
+            else
+                tameActivated = false;              // 교감 불가
+        }
+
+        return tameActivated;
     }
 
     // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
@@ -113,25 +182,12 @@ public class PlayerActionManager : MonoBehaviour
         }
     }
 
+
     // K : 문으로 이동
     private void GoOutDoar()
     {
         // 씬 이동
         // prevScene > nextScene
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log(other.name);
-        if (other.name == "Craft")
-        {
-            theCraftManager.CraftButton.SetActive(true);
-        } else if (other.name == "Doar")
-        {
-            doarActivated = true;
-            prevScene = other.name.Split()[1];
-            nextScene = other.name.Split()[2];
-        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -143,6 +199,16 @@ public class PlayerActionManager : MonoBehaviour
         } else if (other.name.Contains("Doar"))
         {
             doarActivated = false;
+        }
+    }
+
+    // N : 교감하기
+    private void CanTame()
+    {
+        if (tameActivated)
+        {
+            Debug.Log(hitInfo.transform.gameObject.name + " 안아주기 / 쓰다듬기 / 먹이주기");
+            tameActivated = false;
         }
     }
 }

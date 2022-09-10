@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestK.unity
     guid: c49241bd898f0304dbd1284986b6587c
+  - enabled: 1
+    path: Assets/Scenes/Farm.unity
+    guid: eb63f52a32f927f4d911db2f3e9cefe8
+  - enabled: 1
+    path: Assets/Scenes/Taming.unity
+    guid: dc8a326a24e50234fa53b0aad778c3e3
   m_configObjects: {}
