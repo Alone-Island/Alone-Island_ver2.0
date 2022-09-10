@@ -24,11 +24,13 @@ public class FarmingManager : MonoBehaviour
         
     }
 
+    // 작물 선택
     public void selectPlant(Plant plant)
     {
         selectedPlant = plant;
     }
 
+    // 파종, 수확물 감소
     public void usePlant()
     {
         if (selectedPlant.name == "Berry")
@@ -42,6 +44,7 @@ public class FarmingManager : MonoBehaviour
         updateNum(selectedPlant);
     }
 
+    // 수확, 수확물 증가
     public void addPlant(Plant plant)
     {
         if (plant.name == "Berry")
@@ -55,6 +58,7 @@ public class FarmingManager : MonoBehaviour
         updateNum(plant);
     }
 
+    // 수확 후 UI 업데이트
     public void updateNum(Plant plant)
     {
         if (plant.name == "Berry")
