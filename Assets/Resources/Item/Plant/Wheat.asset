@@ -19,3 +19,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 62d78d8d9583320429f1735c050e31ad, type: 3}
   - {fileID: 21300000, guid: e6fecfab7318c894abf135f01b2333c1, type: 3}
   icon: {fileID: 0}
+  num: 3
