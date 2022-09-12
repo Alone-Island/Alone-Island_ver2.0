@@ -13,7 +13,7 @@ public class DataController : MonoBehaviour
 {
     static DatabaseReference m_Reference;   // J : 파이어베이스 reference
     static string userID = "aaabbbccc";   // J : 임시로 사용자 아이디 지정
-    static bool isInitialized;
+    //static bool isInitialized;
 
     static GameObject _container;
     static GameObject Container
@@ -56,19 +56,20 @@ public class DataController : MonoBehaviour
             if (dependencyStatus == DependencyStatus.Available)
             {
                 m_Reference = FirebaseDatabase.DefaultInstance.GetReference("users").Child(userID);
-                isInitialized = true;
+                //isInitialized = true;
+                LoadGameData();
             }
             else
             {
                 Debug.Log("Error" + dependencyStatus);
-                isInitialized = false;
+                //isInitialized = false;
             }
         });
     }
 
     public string GameDataFileName = "data.json";
 
-    public GameData _gameData;
+    public static GameData _gameData;
     public GameData gameData
     {
         get
@@ -80,11 +81,11 @@ public class DataController : MonoBehaviour
         }
     }
 
-    public void LoadGameData()
+    public static void LoadGameData()
     {
         Debug.Log("LoadGameData");
 
-        if (isInitialized)
+        // if (isInitialized)
         {
             _gameData = new GameData();
 
