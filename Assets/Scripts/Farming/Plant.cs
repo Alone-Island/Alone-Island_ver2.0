@@ -14,6 +14,8 @@ public class Plant : ScriptableObject
     private float yield;            // N : 수확량
     private int season;             // N : 재배 가능 계절
 
+    public int num;             // N : 작물 개수
+
     /*
     public Plant(string name, float growthSpeed, float yield, int season)
     {

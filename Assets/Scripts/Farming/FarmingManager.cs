@@ -13,16 +13,11 @@ public class FarmingManager : MonoBehaviour
 
     public Plant selectedPlant;
 
-    private int berryNum = 5;
-    private int wheatNum = 5;
-    private int potatoNum = 5;
-    private int cabbageNum = 5;
-    private int mushroomNum = 5;
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        // UI 초기화 필요
+        updateNum(selectedPlant);
     }
 
     // Update is called once per frame
@@ -40,77 +35,39 @@ public class FarmingManager : MonoBehaviour
     // 파종, 수확물 감소
     public void usePlant()
     {
-        if (selectedPlant.name == "Berry")
-        {
-            berryNum--;
-        }
-        else if (selectedPlant.name == "Wheat")
-        {
-            wheatNum--;
-        }
-        else if (selectedPlant.name == "Potato")
-        {
-            potatoNum--;
-        }
-        else if (selectedPlant.name == "Cabbage")
-        {
-            cabbageNum--;
-        }
-        else if (selectedPlant.name == "Mushroom")
-        {
-            mushroomNum--;
-        }
+        selectedPlant.num--;
         updateNum(selectedPlant);
     }
 
     // 수확, 수확물 증가
     public void addPlant(Plant plant)
     {
-        if (plant.name == "Berry")
-        {
-            berryNum++;
-        }
-        else if (plant.name == "Wheat")
-        {
-            wheatNum++;
-        }
-        else if (plant.name == "Potato")
-        {
-            potatoNum++;
-        }
-        else if (plant.name == "Cabbage")
-        {
-            cabbageNum++;
-        }
-        else if (plant.name == "Mushroom")
-        {
-            mushroomNum++;
-        }
+        plant.num++;
         updateNum(plant);
     }
 
-    // 수확 후 UI 업데이트
+    // UI 업데이트
     public void updateNum(Plant plant)
     {
         if (plant.name == "Berry")
         {
-            berryNumText.text = berryNum.ToString();
+            berryNumText.text = plant.num.ToString();
         }
         else if (plant.name == "Wheat")
         {
-            wheatNumText.text = wheatNum.ToString();
+            wheatNumText.text = plant.num.ToString();
         }
         else if (plant.name == "Potato")
         {
-            potatoNumText.text = potatoNum.ToString();
+            potatoNumText.text = plant.num.ToString();
         }
         else if (plant.name == "Cabbage")
         {
-            cabbageNumText.text = cabbageNum.ToString();
+            cabbageNumText.text = plant.num.ToString();
         }
         else if (plant.name == "Mushroom")
         {
-            mushroomNumText.text = mushroomNum.ToString();
+            mushroomNumText.text = plant.num.ToString();
         }
     }
 }
