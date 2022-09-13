@@ -46,6 +46,7 @@ public class PlayerActionManager : MonoBehaviour
     {
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
+        theCraftManager = FindObjectOfType<CraftManager>();
     }
     // Update is called once per frame
     void Update()
@@ -73,7 +74,7 @@ public class PlayerActionManager : MonoBehaviour
             else if (collision.gameObject.name == "ToBeach")
             {
                 Debug.Log("해변으로 / 씬 없음");
-                //SceneManager.LoadScene("");
+                SceneManager.LoadScene("Beach");
             }
             else if (collision.gameObject.name == "ToGrassland")
             {
@@ -90,10 +91,30 @@ public class PlayerActionManager : MonoBehaviour
                 Debug.Log("연구실 밖으로");
                 SceneManager.LoadScene("TestK_Start");
             }
+            else if (collision.gameObject.name == "ToMain")
+            {
+                Debug.Log("메인 화면");
+                SceneManager.LoadScene("TestK_Start");
+            }
         }
-        else if (collision.gameObject.name == "Craft")
+        else if (collision.gameObject.tag == "Work")
         {
-            theCraftManager.CraftButton.SetActive(true);
+            if (collision.gameObject.name == "Craft")
+            {
+                Debug.Log("공예 버튼");
+                theCraftManager.CraftButton.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Work")
+        {
+            if (collision.gameObject.name == "Craft")
+            {
+                theCraftManager.CraftButton.SetActive(false);
+            }
         }
     }
 
