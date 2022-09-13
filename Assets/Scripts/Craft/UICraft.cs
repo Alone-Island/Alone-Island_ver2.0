@@ -18,11 +18,11 @@ public class UICraft : MonoBehaviour
 
             if (CraftManager.CheckCanMakeItem(item.materials))
             {
-                craftItemList.GetComponent<Button>().interactable = true;
+                //craftItemList.GetComponent<Button>().interactable = true;
             }
             else
             {
-                craftItemList.GetComponent<Button>().interactable = false;
+                //craftItemList.GetComponent<Button>().interactable = false;
             }
         }
     }
