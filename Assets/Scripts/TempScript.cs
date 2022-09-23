@@ -18,6 +18,6 @@ public class TempScript : MonoBehaviour
 
     public void TamingScene()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Taming");
     }
 }

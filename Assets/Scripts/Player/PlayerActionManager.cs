@@ -25,6 +25,7 @@ public class PlayerActionManager : MonoBehaviour
     // 필요한 컴포넌트
     private Inventory theInventory;
     private PlayerMove thePlayerMove;
+    private TamingManager theTamingManager;
     private CraftManager theCraftManager;   // K
 
     public static PlayerActionManager Instance;
@@ -128,11 +129,9 @@ public class PlayerActionManager : MonoBehaviour
         {
             CheckItem();    // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
             CanPickUp();    // J : 아이템을 주울 수 있으면 줍기
-        }
 
-        if (CheckMyAnimal())
-        {
-            CanTame();
+            CheckMyAnimal();    // J : 플레이어 앞에 길들인 동물이 있는지 확인
+            CanTame();          // J : 동물과 상호작용 가능하면 상호작용
         }
     }
 
@@ -215,6 +214,10 @@ public class PlayerActionManager : MonoBehaviour
         if (tameActivated)
         {
             Debug.Log(hitInfo.transform.gameObject.name + " 안아주기 / 쓰다듬기 / 먹이주기");
+
+            if (theTamingManager == null)
+                theTamingManager = FindObjectOfType<TamingManager>();
+            theTamingManager.GrowMyAnimal(hitInfo.transform.gameObject);    // J : 임의로 성장도 경험치 증가
             tameActivated = false;
         }
     }
