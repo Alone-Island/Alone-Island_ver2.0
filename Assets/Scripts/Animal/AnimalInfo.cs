@@ -25,4 +25,10 @@ public class AnimalInfo
         growth = new Level(Convert.ToInt32(_growth["CurrLv"]), Convert.ToInt32(_growth["CurrExp"]), 5, 10f, 1f);
         intimacy = new Level(Convert.ToInt32(_intimacy["CurrLv"]), Convert.ToInt32(_intimacy["CurrExp"]), 5, 10f, 1f);
     }
+
+    // J : growth 성장, 임의로 경험치 +10
+    public void Grow()
+    {
+        growth.AddExp(10.0f);
+    }
 }

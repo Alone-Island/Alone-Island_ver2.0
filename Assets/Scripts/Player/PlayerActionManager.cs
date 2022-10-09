@@ -14,6 +14,7 @@ public class PlayerActionManager : MonoBehaviour
     private bool tameActivated = false;  // N : 교감 가능 여부
 
     private RaycastHit2D hitInfo; // J : 충돌체의 정보
+    private GameObject tameNoticeObj;   // J : 길들이기 알림 오브젝트
 
     [SerializeField]
     private LayerMask itemLayerMask;    // J : Item 레이어를 가지는 오브젝트만 습득해야 함
@@ -22,10 +23,14 @@ public class PlayerActionManager : MonoBehaviour
     [SerializeField]
     private LayerMask myAnimalLayerMask;    // N : MyAnimal 레이어를 가지는 오브젝트만
 
+    // 필요한 리소스
+    private GameObject tameNotice;  // J : 길들이기 알림
+
     // 필요한 컴포넌트
     private Inventory theInventory;
     private PlayerMove thePlayerMove;
-    private CraftManager theCraftManager;   // K
+    private TamingManager theTamingManager;
+    private CraftManager theCraftManager;
 
     public static PlayerActionManager Instance;
 
@@ -47,6 +52,7 @@ public class PlayerActionManager : MonoBehaviour
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
         theCraftManager = FindObjectOfType<CraftManager>();
+        tameNotice = (GameObject) Resources.Load("Prefabs/UI/TameNotice");
     }
     // Update is called once per frame
     void Update()
@@ -121,18 +127,18 @@ public class PlayerActionManager : MonoBehaviour
     // J : 특정 행동 시도
     private void TryAction()
     {
-        CheckAnimal();
-        CanHunt();
+        CheckAnimal();      // J : 플레이어 앞에 동물이 있는지 확인
+        CanHunt();          // J : 사냥 가능하면 사냥하기
+
+        CheckMyAnimal();    // J : 플레이어 앞에 길들인 동물이 있는지 확인
+        
         // J : E키를 눌렀을 때
         if (Input.GetKeyDown(KeyCode.E))
         {
+            CanTame();      // J : 동물과 상호작용 가능하면 상호작용 (hitInfo 유지를 위해 반드시 CheckMyAnimal 직후 호출)
+
             CheckItem();    // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
             CanPickUp();    // J : 아이템을 주울 수 있으면 줍기
-        }
-
-        if (CheckMyAnimal())
-        {
-            CanTame();
         }
     }
 
@@ -156,17 +162,45 @@ public class PlayerActionManager : MonoBehaviour
     private bool CheckMyAnimal()
     {
         hitInfo = Physics2D.Raycast(transform.position, thePlayerMove.dirVec, range, myAnimalLayerMask);
-        if (hitInfo.collider != null)
+
+        if (hitInfo.collider != null) // J : 교감 가능
         {
-            if (hitInfo.transform.tag == "Animal")    // N : 오브젝트가 MyAnimal
+            if (!tameActivated)
             {
-                tameActivated = true;               // 교감 가능
+                if (tameNoticeObj == null) SpawnTameNotice();
+                tameActivated = true;
             }
-            else
-                tameActivated = false;              // 교감 불가
+        }
+        else    // J : 교감 불가
+        {
+            // J : 기존 길들이기 알림 오브젝트 삭제
+            if (tameNoticeObj != null)
+            {
+                Destroy(tameNoticeObj);
+                tameNoticeObj = null;
+            }
+            tameActivated = false;
         }
 
         return tameActivated;
+    }
+
+    // https://jinsdevlog.tistory.com/27 참고
+    // J : 길들이기 알림 오브젝트를 캔버스에 스폰
+    private void SpawnTameNotice()
+    {
+        Camera camera = FindObjectOfType<Camera>();
+        Canvas canvas = FindObjectOfType<Canvas>();
+        RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+
+        Vector2 ViewportPosition = camera.WorldToViewportPoint(hitInfo.transform.position);
+        Vector2 WorldObject_ScreenPosition = new Vector2(
+            ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+            ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+
+        // J : 알림 중복 방지를 위해 클래스 변수로 저장 (나중에 중복 방지 코드 추가하기)
+        tameNoticeObj = Instantiate(tameNotice, Vector2.zero, Quaternion.identity, canvas.transform);
+        tameNoticeObj.GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
     }
 
     // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
@@ -215,6 +249,10 @@ public class PlayerActionManager : MonoBehaviour
         if (tameActivated)
         {
             Debug.Log(hitInfo.transform.gameObject.name + " 안아주기 / 쓰다듬기 / 먹이주기");
+
+            if (theTamingManager == null)
+                theTamingManager = FindObjectOfType<TamingManager>();
+            theTamingManager.GrowMyAnimal(hitInfo.transform.gameObject);    // J : 임의로 성장도 경험치 증가
             tameActivated = false;
         }
     }
