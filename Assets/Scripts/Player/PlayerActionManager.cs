@@ -14,6 +14,7 @@ public class PlayerActionManager : MonoBehaviour
     private bool tameActivated = false;  // N : 교감 가능 여부
 
     private RaycastHit2D hitInfo; // J : 충돌체의 정보
+    private GameObject tameNoticeObj;   // J : 길들이기 알림 오브젝트
 
     [SerializeField]
     private LayerMask itemLayerMask;    // J : Item 레이어를 가지는 오브젝트만 습득해야 함
@@ -22,11 +23,14 @@ public class PlayerActionManager : MonoBehaviour
     [SerializeField]
     private LayerMask myAnimalLayerMask;    // N : MyAnimal 레이어를 가지는 오브젝트만
 
+    // 필요한 리소스
+    private GameObject tameNotice;  // J : 길들이기 알림
+
     // 필요한 컴포넌트
     private Inventory theInventory;
     private PlayerMove thePlayerMove;
     private TamingManager theTamingManager;
-    private CraftManager theCraftManager;   // K
+    private CraftManager theCraftManager;
 
     public static PlayerActionManager Instance;
 
@@ -48,6 +52,7 @@ public class PlayerActionManager : MonoBehaviour
         thePlayerMove = GetComponent<PlayerMove>();
         theInventory = FindObjectOfType<Inventory>();
         theCraftManager = FindObjectOfType<CraftManager>();
+        tameNotice = (GameObject) Resources.Load("Prefabs/UI/TameNotice");
     }
     // Update is called once per frame
     void Update()
@@ -155,17 +160,33 @@ public class PlayerActionManager : MonoBehaviour
     private bool CheckMyAnimal()
     {
         hitInfo = Physics2D.Raycast(transform.position, thePlayerMove.dirVec, range, myAnimalLayerMask);
-        if (hitInfo.collider != null)
+
+        if (hitInfo.collider != null && !tameActivated) // J : 교감 가능
         {
-            if (hitInfo.transform.tag == "Animal")    // N : 오브젝트가 MyAnimal
-            {
-                tameActivated = true;               // 교감 가능
-            }
-            else
-                tameActivated = false;              // 교감 불가
+            SpawnTameNotice();
+            tameActivated = true;
         }
+        else    // J : 교감 불가
+            tameActivated = false;
 
         return tameActivated;
+    }
+
+    // https://jinsdevlog.tistory.com/27 참고
+    private void SpawnTameNotice()
+    {
+        Camera camera = FindObjectOfType<Camera>();
+        Canvas canvas = FindObjectOfType<Canvas>();
+        RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+
+        Vector2 ViewportPosition = camera.WorldToViewportPoint(hitInfo.transform.position);
+        Vector2 WorldObject_ScreenPosition = new Vector2(
+            ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+            ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+
+        // J : 알림 중복 방지를 위해 클래스 변수로 저장 (나중에 중복 방지 코드 추가하기)
+        tameNoticeObj = Instantiate(tameNotice, Vector2.zero, Quaternion.identity, canvas.transform);
+        tameNoticeObj.GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
     }
 
     // J : 플레이어가 주울 수 있는 아이템이 있는지 확인

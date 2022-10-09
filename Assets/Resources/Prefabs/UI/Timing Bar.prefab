@@ -202,11 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  isSuccess: 0
   moveActivated: 1
   Arrow: {fileID: 1679877270020502594}
   Bar: {fileID: 1679877270013712358}
-  judgementText: {fileID: 0}
 --- !u!1 &6305778198482685139
 GameObject:
   m_ObjectHideFlags: 0
