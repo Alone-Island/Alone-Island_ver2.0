@@ -64,45 +64,12 @@ public class PlayerActionManager : MonoBehaviour
     // N :
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-        if(collision.gameObject.tag == "Potal")
+        // J : 포탈 오브젝트
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Portal"))
         {
-            if(collision.gameObject.name== "ToFarm")
-            {
-                Debug.Log("밭으로");
-                SceneManager.LoadScene("Farm");
-            }
-            else if (collision.gameObject.name == "ToForest")
-            {
-                Debug.Log("숲으로");
-                SceneManager.LoadScene("TestJ_hunt");
-            }
-            else if (collision.gameObject.name == "ToBeach")
-            {
-                Debug.Log("해변으로 / 씬 없음");
-                SceneManager.LoadScene("Beach");
-            }
-            else if (collision.gameObject.name == "ToGrassland")
-            {
-                Debug.Log("초원으로");
-                SceneManager.LoadScene("Taming");
-            }
-            else if (collision.gameObject.name == "ToLabInSide")
-            {
-                Debug.Log("연구실 안으로");
-                SceneManager.LoadScene("TestK_DoctorLab");
-            }
-            else if (collision.gameObject.name == "ToLabOutSide")
-            {
-                Debug.Log("연구실 밖으로");
-                SceneManager.LoadScene("TestK_Start");
-            }
-            else if (collision.gameObject.name == "ToMain")
-            {
-                Debug.Log("메인 화면");
-                SceneManager.LoadScene("TestK_Start");
-            }
+            SceneManager.LoadScene(collision.gameObject.GetComponent<Portal>().GetSceneBuildIdx()); // J : 포탈에 저장된 빌드 인덱스를 가진 씬으로 이동
         }
+
         else if (collision.gameObject.tag == "Work")
         {
             if (collision.gameObject.name == "Craft")

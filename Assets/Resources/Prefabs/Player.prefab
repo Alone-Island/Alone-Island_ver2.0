@@ -129,6 +129,9 @@ MonoBehaviour:
   myAnimalLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  portalLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &1293060857077783500
 MonoBehaviour:
   m_ObjectHideFlags: 0
