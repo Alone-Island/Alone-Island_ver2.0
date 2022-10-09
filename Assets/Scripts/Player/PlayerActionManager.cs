@@ -127,16 +127,18 @@ public class PlayerActionManager : MonoBehaviour
     // J : 특정 행동 시도
     private void TryAction()
     {
-        CheckAnimal();
-        CanHunt();
+        CheckAnimal();      // J : 플레이어 앞에 동물이 있는지 확인
+        CanHunt();          // J : 사냥 가능하면 사냥하기
+
+        CheckMyAnimal();    // J : 플레이어 앞에 길들인 동물이 있는지 확인
+        
         // J : E키를 눌렀을 때
         if (Input.GetKeyDown(KeyCode.E))
         {
+            CanTame();      // J : 동물과 상호작용 가능하면 상호작용 (hitInfo 유지를 위해 반드시 CheckMyAnimal 직후 호출)
+
             CheckItem();    // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
             CanPickUp();    // J : 아이템을 주울 수 있으면 줍기
-
-            CheckMyAnimal();    // J : 플레이어 앞에 길들인 동물이 있는지 확인
-            CanTame();          // J : 동물과 상호작용 가능하면 상호작용
         }
     }
 
@@ -161,18 +163,30 @@ public class PlayerActionManager : MonoBehaviour
     {
         hitInfo = Physics2D.Raycast(transform.position, thePlayerMove.dirVec, range, myAnimalLayerMask);
 
-        if (hitInfo.collider != null && !tameActivated) // J : 교감 가능
+        if (hitInfo.collider != null) // J : 교감 가능
         {
-            SpawnTameNotice();
-            tameActivated = true;
+            if (!tameActivated)
+            {
+                if (tameNoticeObj == null) SpawnTameNotice();
+                tameActivated = true;
+            }
         }
         else    // J : 교감 불가
+        {
+            // J : 기존 길들이기 알림 오브젝트 삭제
+            if (tameNoticeObj != null)
+            {
+                Destroy(tameNoticeObj);
+                tameNoticeObj = null;
+            }
             tameActivated = false;
+        }
 
         return tameActivated;
     }
 
     // https://jinsdevlog.tistory.com/27 참고
+    // J : 길들이기 알림 오브젝트를 캔버스에 스폰
     private void SpawnTameNotice()
     {
         Camera camera = FindObjectOfType<Camera>();
