@@ -22,6 +22,8 @@ public class PlayerActionManager : MonoBehaviour
     private LayerMask animalLayerMask;    // J : animal 레이어를 가지는 오브젝트만 습득해야 함
     [SerializeField]
     private LayerMask myAnimalLayerMask;    // N : MyAnimal 레이어를 가지는 오브젝트만
+    [SerializeField]
+    private LayerMask portalLayerMask;      // J : 포탈 레이어 감지
 
     // 필요한 리소스
     private GameObject tameNotice;  // J : 길들이기 알림
@@ -64,13 +66,7 @@ public class PlayerActionManager : MonoBehaviour
     // N :
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // J : 포탈 오브젝트
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Portal"))
-        {
-            SceneManager.LoadScene(collision.gameObject.GetComponent<Portal>().GetSceneBuildIdx()); // J : 포탈에 저장된 빌드 인덱스를 가진 씬으로 이동
-        }
-
-        else if (collision.gameObject.tag == "Work")
+        if (collision.gameObject.tag == "Work")
         {
             if (collision.gameObject.name == "Craft")
             {
@@ -106,6 +102,8 @@ public class PlayerActionManager : MonoBehaviour
 
             CheckItem();    // J : 플레이어가 주울 수 있는 아이템이 있는지 확인
             CanPickUp();    // J : 아이템을 주울 수 있으면 줍기
+
+            TryPortal();    // J : 포탈 이용
         }
     }
 
@@ -150,6 +148,18 @@ public class PlayerActionManager : MonoBehaviour
         }
 
         return tameActivated;
+    }
+
+    // J : 포탈 이용
+    private void TryPortal()
+    {
+        // J : 포탈 오브젝트 감지하기
+        hitInfo = Physics2D.Raycast(transform.position, thePlayerMove.dirVec, range, portalLayerMask);
+
+        if (hitInfo.collider != null) // J : 포탈 이용 가능
+        {
+            SceneManager.LoadScene(hitInfo.transform.GetComponent<Portal>().GetSceneBuildIdx()); // J : 포탈에 저장된 빌드 인덱스의 씬으로 이동
+        }
     }
 
     // https://jinsdevlog.tistory.com/27 참고

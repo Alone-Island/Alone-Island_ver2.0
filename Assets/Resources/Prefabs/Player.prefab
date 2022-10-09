@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8e0eecba73d2342ad8ccd20f813d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 1
   itemLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -130,6 +130,9 @@ MonoBehaviour:
   myAnimalLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  portalLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &1293060857077783500
 MonoBehaviour:
   m_ObjectHideFlags: 0
