@@ -647,6 +647,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755770354}
     m_Modifications:
+    - target: {fileID: -2281024748424128291, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1407335354268146503, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
       propertyPath: m_Name
       value: Apple (1)
@@ -1278,6 +1282,10 @@ PrefabInstance:
     - target: {fileID: 3445401981644600937, guid: b756a7a050b76a740b060ab1867c197f, type: 3}
       propertyPath: m_Name
       value: Banana
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633651373027374579, guid: b756a7a050b76a740b060ab1867c197f, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b756a7a050b76a740b060ab1867c197f, type: 3}
@@ -2418,6 +2426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755770354}
     m_Modifications:
+    - target: {fileID: -2281024748424128291, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1407335354268146503, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
       propertyPath: m_Name
       value: Apple (3)
@@ -2560,6 +2572,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755770354}
     m_Modifications:
+    - target: {fileID: -2281024748424128291, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1407335354268146503, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
       propertyPath: m_Name
       value: Apple (2)
@@ -3331,6 +3347,10 @@ PrefabInstance:
     - target: {fileID: 3445401981644600937, guid: b756a7a050b76a740b060ab1867c197f, type: 3}
       propertyPath: m_Name
       value: Banana (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633651373027374579, guid: b756a7a050b76a740b060ab1867c197f, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b756a7a050b76a740b060ab1867c197f, type: 3}
@@ -6873,6 +6893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755770354}
     m_Modifications:
+    - target: {fileID: -2281024748424128291, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1407335354268146503, guid: 73e7049859dc36b4699af7c229404fc0, type: 3}
       propertyPath: m_Name
       value: Apple
@@ -7201,6 +7225,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 755770354}
     m_Modifications:
+    - target: {fileID: 3584182698773021672, guid: a0d593d10445f1341b29b98095c68759, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4783494826110337138, guid: a0d593d10445f1341b29b98095c68759, type: 3}
       propertyPath: m_Name
       value: Carrot
