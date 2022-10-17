@@ -37,7 +37,6 @@ public class PlayerMove : MonoBehaviour
         bool vUp = Input.GetButtonUp("Vertical");
 
 
-        /*
         // J : player가 바라보는 방향
         if (v == 1)
             dirVec = Vector3.up;
@@ -47,7 +46,6 @@ public class PlayerMove : MonoBehaviour
             dirVec = Vector3.left;
         else if (h == 1)
             dirVec = Vector3.right;
-        */
 
 
         // C : isHorizontalMove 값 설정
