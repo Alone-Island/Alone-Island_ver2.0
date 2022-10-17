@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c5c6fe22a543a142bf7be3bda5f574d, type: 3}
-  m_Name: Fence
+  m_Name: RobotHouse
   m_EditorClassIdentifier: 
-  itemName: Fence
+  itemName: RobotHouse
   itemType: 3
-  itemImage: {fileID: 0}
-  itemPrefab: {fileID: 8842092283183779157, guid: 77e62a994105ef34d8673dbc15aaa993, type: 3}
+  itemImage: {fileID: 21300000, guid: a41f815ad62e64ca7bbea90cd7826a7a, type: 3}
+  itemPrefab: {fileID: 5466648642061885114, guid: a85a1dee2fa91482ba0fa3f7d68663f5, type: 3}
   buildingType: {fileID: 11400000}

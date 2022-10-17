@@ -8,6 +8,8 @@ public class BuildingItem : Item
     public enum BuildingType
     {
         Fence,
+        Barn,
+        RobotHouse,
     }
     public BuildingItem buildingType;
 }

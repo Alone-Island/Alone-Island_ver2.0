@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BuildingData : MonoBehaviour
 {
-    public struct BuildingDictionary
+    public struct Building
     {
-        public Item building;   // ÁöÀ¸·Á´Â °ÇÃà¹°
-        public List<Items> materials;   // °ÇÃà¹°À» ¸¸µå´Âµ¥ ÇÊ¿äÇÑ Àç·á µ¥ÀÌÅÍ
+        public Item building;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à¹°
+        public List<Items> materials;   // ï¿½ï¿½ï¿½à¹°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Âµï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        public BuildingDictionary(Item _building, List<Items> _materials)
+        public Building(Item _building, List<Items> _materials)
         {
             building = _building;
             materials = _materials;
@@ -18,8 +18,8 @@ public class BuildingData : MonoBehaviour
 
     public struct Items
     {
-        public Item item;   // ÇÊ¿äÇÑ Àç·á ¾ÆÀÌÅÛ
-        public int num { get; set; }      // ÇÊ¿äÇÑ Àç·á ¾ÆÀÌÅÛ °¹¼ö
+        public Item item;   // ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public int num { get; set; }      // ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
         public Items(Item _item, int _num)
         {
@@ -28,17 +28,29 @@ public class BuildingData : MonoBehaviour
         }
     }
 
-    private List<BuildingDictionary> buildingData;        // °ÇÃà¹° µ¥ÀÌÅÍ ÀúÀåÇÏ´Â dictionary º¯¼ö
+    private Dictionary<string, Building> buildingData;        // ï¿½ï¿½ï¿½à¹° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ dictionary ï¿½ï¿½ï¿½ï¿½
 
     void Awake()
     {
     }
 
-    public List<BuildingDictionary> GenerateData()
+    public Dictionary<string, Building> GenerateData()
     {
-        buildingData = new List<BuildingDictionary>();
-        buildingData.Add(new BuildingData.BuildingDictionary(
+        buildingData = new Dictionary<string, Building>();
+        buildingData.Add("Fence", new BuildingData.Building(
             Resources.Load<Item>("Item/Building/Fence"),
+            new List<BuildingData.Items> {
+                new BuildingData.Items(Resources.Load<Item>("Item/Food/Apple"), 1),
+                new BuildingData.Items(Resources.Load<Item>("Item/Food/Banana"), 2)
+            }));
+        buildingData.Add("Barn", new BuildingData.Building(
+            Resources.Load<Item>("Item/Building/Barn"),
+            new List<BuildingData.Items> {
+                new BuildingData.Items(Resources.Load<Item>("Item/Food/Apple"), 1),
+                new BuildingData.Items(Resources.Load<Item>("Item/Food/Banana"), 2)
+            }));
+        buildingData.Add("RobotHouse", new BuildingData.Building(
+            Resources.Load<Item>("Item/Building/RobotHouse"),
             new List<BuildingData.Items> {
                 new BuildingData.Items(Resources.Load<Item>("Item/Food/Apple"), 1),
                 new BuildingData.Items(Resources.Load<Item>("Item/Food/Banana"), 2)
@@ -47,11 +59,11 @@ public class BuildingData : MonoBehaviour
         return buildingData;
     }
 
-    public List<Items> GetBuildingMaterialsData(Item _building)         // °ÇÃà¹° °Ç¼³¿¡ ÇÊ¿äÇÑ Àç·á ¾ÆÀÌÅÛ µ¥ÀÌÅÍ ¸®ÅÏ
+    public List<Items> GetBuildingMaterialsData(Item _building)         // ï¿½ï¿½ï¿½à¹° ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
-        foreach (BuildingDictionary dict in buildingData)
-            if (dict.building == _building)
-                return dict.materials;
+        foreach (KeyValuePair<string, Building> dict in buildingData)
+            if (dict.Value.building == _building)
+                return dict.Value.materials;
         return null;
     }
 

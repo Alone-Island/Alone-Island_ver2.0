@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
-    // ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®
+    // ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     [SerializeField]
     private static BuildingManager _instance;
 
@@ -13,7 +13,7 @@ public class BuildingManager : MonoBehaviour
 
     // public GameObject BuildingContent;
     public GameObject BuildingFail;
-    public List<BuildingData.BuildingDictionary> buildingData;
+    public Dictionary<string, BuildingData.Building> buildingData;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class BuildingManager : MonoBehaviour
         Inventory = FindObjectOfType<Inventory>();
         BuildingData = FindObjectOfType<BuildingData>();
 
-       buildingData = BuildingData.GenerateData();
+        buildingData = BuildingData.GenerateData();
     }
 
     public BuildingManager Instance()
@@ -40,49 +40,47 @@ public class BuildingManager : MonoBehaviour
 
 
 
-    // @@ ÇÔ¼ö¸í ÃßÈÄ º¯°æ ÇÊ¿ä (°ÇÃà °¡´ÉÇÑÁö Ã¼Å©ÇÏ´Â ±â´ÉÀ» ÇÏ´Â ÇÔ¼ö°¡ ¿©·¯°³, ÇÔ¼ö¸í ¸ðÈ£) @@
-    // ÀÎº¥Åä¸®¿¡ ÇÊ¿äÇÑ Àç·á°¡ ¸ðµÎ ÀÖÀ¸¸é Àç·á ¸®½ºÆ® ¸®ÅÏ, ¾Æ´Ï¸é null ¸®ÅÏ
+    // @@ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½È£) @@
+    // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½á°¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½, ï¿½Æ´Ï¸ï¿½ null ï¿½ï¿½ï¿½ï¿½
     public bool CheckHaveBuildingMaterials(List<BuildingData.Items> materials)
     {
-        foreach (BuildingData.Items material in materials)  // Àç·á, Àç·áÀÇ °³¼ö È®ÀÎ ÀÛ¾÷
+        foreach (BuildingData.Items material in materials)  // ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Û¾ï¿½
         {
-            if (material.num > Inventory.GetItemCount(material.item))    // ÀÎº¥Åä¸®¿¡ Àç·áÀÇ °³¼ö°¡ ÇÊ¿ä °³¼öº¸´Ù Àû´Ù¸é ¸¸µé±â ºÒ°¡´É
+            if (material.num > Inventory.GetItemCount(material.item))    // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
                 return false;
         }
             
-        return true;   // ¸¸µé±â °¡´ÉÇÏ¸é true ¸®ÅÏ
+        return true;   // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ true ï¿½ï¿½ï¿½ï¿½
     }
 
-    // @@ ÇÔ¼ö¸í ÃßÈÄ º¯°æ ÇÊ¿ä @@
-    // °ÇÃà¹° ¸¸µé±â °¡´É ¿©ºÎ ¸®ÅÏ
-    public bool MakeNewBuilding(BuildingData.BuildingDictionary _building)
+    // @@ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ @@
+    // ï¿½ï¿½ï¿½à¹° ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public bool MakeNewBuilding(BuildingData.Building _building)
     {
-        if (!CheckHaveBuildingMaterials(_building.materials))  // ÀÎº¥Åä¸®¿¡ Á¸ÀçÇÏ´Â ¾ÆÀÌÅÛµé·Î´Â _building ¸¸µé±â ºÒ°¡´É
+        if (!CheckHaveBuildingMaterials(_building.materials))  // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½Î´ï¿½ _building ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
         {
-            Debug.Log(_building.building.name + " °Ç¼³ ºÒ°¡, ÇØ´ç °Ç¹° ±×¸² È¸»öÃ³¸®, Å¬¸¯ ºñÈ°¼ºÈ­");
+            Debug.Log(_building.building.name + " ï¿½Ç¼ï¿½ ï¿½Ò°ï¿½, ï¿½Ø´ï¿½ ï¿½Ç¹ï¿½ ï¿½×¸ï¿½ È¸ï¿½ï¿½Ã³ï¿½ï¿½, Å¬ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­");
             return false;
         }
 
         /*
-        // ÀÎº¥Åä¸®ÀÇ Àç·á ¾ÆÀÌÅÛ ¼Òºñ
+        // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Òºï¿½
         foreach (BuildingData.Items material in _building.materials)
             Inventory.ConsumeItem(material.item, material.num);
         */
-        Debug.Log(_building.building.name + " °Ç¼³ °¡´É, ÇØ´ç °Ç¹° È°¼ºÈ­, µå·¡±×µå¶ø °¡´É");
-        // TODO : Áö¾îÁø °ÇÃà¹° Á¤º¸(name, location) ÀúÀåÇÏ±â
+        Debug.Log(_building.building.name + " ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ø´ï¿½ ï¿½Ç¹ï¿½ È°ï¿½ï¿½È­, ï¿½å·¡ï¿½×µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+        // TODO : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à¹° ï¿½ï¿½ï¿½ï¿½(name, location) ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
         return true;
     }
 
 
-    // °ÇÃà¹° µå·¡±×¾Øµå¶ø ÈÄ °Ç¼³ ¼º°ø ½Ã ÇÊ¿äÇß´ø Àç·áµé ¼Òºñ, ¼Òºñ ¼º°øÇÏ¸é true ¸®ÅÏ
-    public bool FinalConsume(BuildingData.BuildingDictionary _building)
+    // ï¿½ï¿½ï¿½à¹° ï¿½å·¡ï¿½×¾Øµï¿½ï¿½ ï¿½ï¿½ ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Òºï¿½, ï¿½Òºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ true ï¿½ï¿½ï¿½ï¿½
+    public bool FinalConsume(BuildingData.Building _building)
     {
-        // ÀÎº¥Åä¸®ÀÇ Àç·á ¾ÆÀÌÅÛ ¼Òºñ
-        Debug.Log(_building.building.name);
-        Debug.Log(_building.materials[0].item.name);
+        // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Òºï¿½
         foreach (BuildingData.Items material in _building.materials)
             Inventory.ConsumeItem(material.item, material.num);
-        Debug.Log(_building.building.name + " °Ç¼³ ¼º°ø, Àç·á ¼ÒÁø ¿Ï·á");
+        Debug.Log(_building.building.name + " ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½");
 
         return true;
     }
