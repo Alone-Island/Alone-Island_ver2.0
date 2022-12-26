@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    private Rigidbody2D playerRigid;    // C : player의 물리제어관련 변수
-    private Animator playerAnim;        // C : player의 애니메이터'
+    private int stateHash;
+
+    [SerializeField] private float speed = 5;            // C : player의 이동 속력 값을 설정하기 위한 변수
+
     private Vector2 moveDir;            // J : 이동 방향
     public Vector2 dirVec;              // J : player가 바라보는 방향
 
-    [SerializeField]
-    private float speed = 5;            // C : player의 이동 속력 값을 설정하기 위한 변수
+    [SerializeField] private Rigidbody2D playerRigid;    // C : player의 물리제어관련 변수
+    [SerializeField] private Animator playerAnim;        // C : player의 애니메이터'
 
     //private string prevState = "horizon";
     //private List<bool> prevState = new List<bool>() { false, false, false, false };
@@ -21,6 +23,8 @@ public class PlayerMove : MonoBehaviour
     {
         playerRigid = GetComponent<Rigidbody2D>();      // C : player 2D 물리제어 component instance 가져오기
         playerAnim = GetComponent<Animator>();          // C : player 애니메이션 컨트롤 component instance 가져오기
+
+        stateHash = Animator.StringToHash("state");
     }
 
     void FixedUpdate()
@@ -43,30 +47,28 @@ public class PlayerMove : MonoBehaviour
             {
                 if (moveDir.x > 0)
                 {
-                    playerAnim.SetInteger("state", 1);
+                    playerAnim.SetInteger(stateHash, 1);
                     Debug.Log("Right");
                 }
                 else 
                 {
-                    playerAnim.SetInteger("state", 2);
+                    playerAnim.SetInteger(stateHash, 2);
                     Debug.Log("Left"); }
                 }
             else
             {
                 if (moveDir.y > 0)
                 {
-                    playerAnim.SetInteger("state", 3);
+                    playerAnim.SetInteger(stateHash, 3);
                     Debug.Log("back");
                 }
                 else 
                 {
-                    playerAnim.SetInteger("state", 4);
+                    playerAnim.SetInteger(stateHash, 4);
                     Debug.Log("front"); }
                 }
         }
         else
-            playerAnim.SetInteger("state", 0);
-
-        Debug.Log(moveDir.ToString());
+            playerAnim.SetInteger(stateHash, 0);
     }
 }

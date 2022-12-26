@@ -8,15 +8,15 @@ public class Plot : MonoBehaviour
 {
     bool isTaken = false;
 
-    SpriteRenderer plant;
-    BoxCollider2D plantCollider;
-
     float timer;
     int plantStage = 0;
 
-    Plant myPlant;
+    private Plant myPlant;
 
-    FarmingManager farmingManager;
+    [SerializeField] private SpriteRenderer plant;
+    [SerializeField] private BoxCollider2D plantCollider;
+    // event로 수정 요함.
+    [SerializeField] private FarmingManager farmingManager;
 
     void UpdatePlant()
     {
@@ -26,7 +26,6 @@ public class Plot : MonoBehaviour
         plantCollider.offset = new Vector2(0, plant.bounds.size.y / 2);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -34,7 +33,6 @@ public class Plot : MonoBehaviour
         farmingManager = FindObjectOfType<FarmingManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isTaken)

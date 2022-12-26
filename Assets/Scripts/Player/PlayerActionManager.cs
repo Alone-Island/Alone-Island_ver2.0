@@ -29,10 +29,10 @@ public class PlayerActionManager : MonoBehaviour
     private GameObject tameNotice;  // J : 길들이기 알림
 
     // 필요한 컴포넌트
-    private Inventory theInventory;
-    private PlayerMove thePlayerMove;
-    private TamingManager theTamingManager;
-    private CraftManager theCraftManager;
+    [SerializeField] private Inventory theInventory;
+    [SerializeField] private PlayerMove thePlayerMove;
+    [SerializeField] private TamingManager theTamingManager;
+    [SerializeField] private CraftManager theCraftManager;
 
     public static PlayerActionManager Instance;
 
@@ -223,14 +223,14 @@ public class PlayerActionManager : MonoBehaviour
     // N : 교감하기
     private void CanTame()
     {
-        if (tameActivated)
-        {
-            Debug.Log(hitInfo.transform.gameObject.name + " 안아주기 / 쓰다듬기 / 먹이주기");
+        if (!tameActivated)
+            return;
 
-            if (theTamingManager == null)
-                theTamingManager = FindObjectOfType<TamingManager>();
-            theTamingManager.GrowMyAnimal(hitInfo.transform.gameObject);    // J : 임의로 성장도 경험치 증가
-            tameActivated = false;
-        }
+        Debug.Log(hitInfo.transform.gameObject.name + " 안아주기 / 쓰다듬기 / 먹이주기");
+
+        if (theTamingManager == null)
+            theTamingManager = FindObjectOfType<TamingManager>();
+        theTamingManager.GrowMyAnimal(hitInfo.transform.gameObject);    // J : 임의로 성장도 경험치 증가
+        tameActivated = false;
     }
 }
